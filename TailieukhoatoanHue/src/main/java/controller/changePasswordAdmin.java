@@ -1,8 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,46 +10,36 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import beans.constants;
-import dao.accountDAO;
 import dto.accountDTO;
 
 /**
- * Servlet implementation class getUserName
+ * Servlet implementation class changePasswordAdmin
  */
-public class getUserName extends HttpServlet {
+public class changePasswordAdmin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-	checkLogin check = null;
-	accountDAO dao = null;
-    public getUserName() {
-    check = new checkLogin();  
-    dao = new accountDAO();
+	checkLogin check = new checkLogin();
+    public changePasswordAdmin() {
+        check = new checkLogin();
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String userName = request.getParameter("id");
 		HttpSession session = request.getSession();
 		accountDTO Usersession = (accountDTO)session.getAttribute(constants.USER_SESSION);	
-		if(check.checkSession(Usersession) && dao.getAccountAdmin(userName)!=null ) {			
-			List<accountDTO> list = new ArrayList<accountDTO>();
-			accountDTO account = new accountDTO();
-			account = dao.getAccountAdmin(userName);
-			list = dao.readAllAccount();
-			request.setAttribute("account", Usersession);		
-			request.setAttribute("list", list);	
-			request.setAttribute("user", account);
-			
-			RequestDispatcher rd = request.getRequestDispatcher("accountAdmin.jsp");
+		if(check.checkSession(Usersession)) {			
+			request.setAttribute("account", Usersession);
+			RequestDispatcher rd = request.getRequestDispatcher("changePasswordAdmin.jsp");
 			  rd.forward(request, response);
+			
 		}
 		else {
-			response.sendRedirect(request.getContextPath()+"/index.jsp");
+			response.sendRedirect(request.getContextPath()+"/signin.jsp");
 		}
 	}
 
@@ -59,7 +47,7 @@ public class getUserName extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

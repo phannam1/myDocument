@@ -44,11 +44,11 @@
     <div id="right_wrap">
     <div id="right_content">             
    
-    <ul id="tabsmenu" class="tabsmenu">
-        <li class="active"><a href="#tab1">Thông Tin Admin</a></li>
-       
+    <ul  class="tabsmenu">
+        <li class="active"><a href="indexAdmin">Thông Tin Admin</a></li>
+        <li class="active"><a href="changePasswordAdmin">Đổi mật khẩu</a></li>
     </ul>
-    <div id="tab1" class="tabcontent">
+    <div  class="tabcontent">
         <form method="post" action="updateAdmin">
         <div class="form"  >           
             <div class="form_row">

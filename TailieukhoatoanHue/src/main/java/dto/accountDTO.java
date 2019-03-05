@@ -69,6 +69,20 @@ public class accountDTO {
 		this.email = email;
 	}
 	
+	public accountDTO(String userName, String name,  String address, String email, String phone) {
+		super();
+		this.userName = userName;
+		this.name = name;
+		
+		this.address = address;
+		this.phone = phone;
+		this.email = email;
+	}
+	public accountDTO(String userName, String password) {
+		super();
+		this.userName = userName;
+		this.password = password;
+	}
 	public accountDTO(int accountId, String address, String phone, String email, String passwordLevel2,
 			String questionSecurity, String answerSecurity) {
 		super();

@@ -81,6 +81,13 @@
   	<servlet-class>controller.roleFunctionAdmin</servlet-class>
   </servlet>
   <servlet>
+  	<servlet-name>updatePasswordAdmin</servlet-name>
+  	<display-name>updatePasswordAdmin</display-name>
+  	<description></description>
+  	<servlet-class>controller.updatePasswordAdmin</servlet-class>
+  </servlet>
+  
+  <servlet>
   	<servlet-name>newsAdmin</servlet-name>
   	<display-name>newsAdmin</display-name>
   	<description></description>
@@ -99,10 +106,28 @@
   	<servlet-class>controller.updateIsActiveAccount</servlet-class>
   </servlet>
   <servlet>
+  	<servlet-name>updateAdmin</servlet-name>
+  	<display-name>updateAdmin</display-name>
+  	<description></description>
+  	<servlet-class>controller.updateAdmin</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>changePasswordAdmin</servlet-name>
+  	<display-name>changePasswordAdmin</display-name>
+  	<description></description>
+  	<servlet-class>controller.changePasswordAdmin</servlet-class>
+  </servlet>
+  <servlet>
   	<servlet-name>getUserName</servlet-name>
   	<display-name>getUserName</display-name>
   	<description></description>
   	<servlet-class>controller.getUserName</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>updateActiveDelete</servlet-name>
+  	<display-name>updateActiveDelete</display-name>
+  	<description></description>
+  	<servlet-class>controller.updateActiveDelete</servlet-class>
   </servlet>
   
   <servlet-mapping>
@@ -135,12 +160,21 @@
   	<url-pattern>/question</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
+  	<servlet-name>updateAdmin</servlet-name>
+  	<url-pattern>/updateAdmin</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
   	<servlet-name>indexAdmin</servlet-name>
   	<url-pattern>/indexAdmin</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>accountAdmin</servlet-name>
   	<url-pattern>/accountAdmin</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>updatePasswordAdmin</servlet-name>
+  	<url-pattern>/updatePasswordAdmin</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>roleAdmin</servlet-name>
@@ -170,6 +204,15 @@
   	<servlet-name>getUserName</servlet-name>
   	<url-pattern>/getUserName</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>changePasswordAdmin</servlet-name>
+  	<url-pattern>/changePasswordAdmin</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>updateActiveDelete</servlet-name>
+  	<url-pattern>/updateActiveDelete</url-pattern>
+  </servlet-mapping>
+  
   
 </web-app>
 

@@ -76,10 +76,12 @@
 							<div class="col-md-6 col-sm-6 col-xs-6">
 								<div class="aa-header-right">
 									<p id="account">${account.accountId}</p>
+									<p id="admin">${account.userName}</p>
 									<p id="show2">Xin Chào : ${account.name} </p>   
 									<a id="show" href="<%=request.getContextPath()%>/Infor""> Thông Tin </a> <a id="show1"
 										href="<%=request.getContextPath()%>/Logout">Đăng Xuất</a>
-
+<a id="showAdmin"
+										href="indexAdmin">Administrator</a>
 
 									<a id="hide" href="register.jsp" class="aa-register">Đăng
 										Ký</a> <a id="hide1" href="signin.jsp" class="aa-login">Đăng

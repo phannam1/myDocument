@@ -83,56 +83,54 @@
   </c:forEach> 
     </tbody>
 </table>
-<div class="form_sub_buttons">
+<!-- <div class="form_sub_buttons">
  <a href="#" class="button red" id="getUserName">Xác nhận sửa</a>
     <a href="#" class="button red">Xóa Lựa Chọn</a>
    
-    </div>
+    </div> -->
  <ul id="tabsmenu" class="tabsmenu">
         <li class="active"><a href="#tab1">Thông Tin người dùng</a></li>
       
     </ul>
     <div id="tab1" class="tabcontent">
-        <form method="post" action="#">
+        <form method="post" action="updateActiveDelete">
         <div class="form"  >
              <div class="form_row">
             <label>Tài khoản:</label>
-            <input type="text" class="form_input" name="" readonly="readonly" value=""/>
+            <input type="text" class="form_input" name="" readonly="readonly" value="${user.userName }"/>
             </div>
             <div class="form_row">
             <label>Tên:</label>
-            <input type="text" class="form_input" name="" readonly="readonly" value=""/>
+            <input type="text" class="form_input" name="" readonly="readonly" value="${user.name }"/>
             </div>
             <div class="form_row">
             <label>Điện thoại:</label>
-            <input type="text" class="form_input" name="" value="" readonly="readonly"/>
+            <input type="text" class="form_input" name="" value="${user.phone }" readonly="readonly"/>
             </div>
             <div class="form_row">
             <label>Địa chỉ:</label>
-            <input type="text" class="form_input" name="" value="" readonly="readonly" />
+            <input type="text" class="form_input" name="" value="${user.address }" readonly="readonly" />
             </div>
             <div class="form_row">
             <label>Email:</label>
-            <input type="text" class="form_input" name=""  value="" readonly="readonly"/>
+            <input type="text" class="form_input" name=""  value="${user.email }" readonly="readonly"/>
             </div>
             <div class="form_row">
             <label>Hoạt Động:</label>
-            <input style="width: 50px;height: 20px;" type="checkbox" class="form_input" name=""  value="" />
+            <input class="isActive" style="width: 50px;height: 20px;" type="checkbox" class="form_input" name=""  value="${user.isActive }" />
             </div>
             <div class="form_row">
             <label>Xác nhận Xóa :</label>
-            <input style="width: 50px;height: 20px;" type="checkbox" class="form_input" name=""  value="" />
+            <input class="isActive" style="width: 50px;height: 20px;" type="checkbox" class="form_input" name=""  value="${user.isDelete }" />
             </div>
             
-            <div class="col-md-7" >
+            <div class="col-md-8" >
             <input type="submit" class="form_submit" value="Chỉnh Sửa" />
             </div> 
              
             </div>
             </form>
-            <div class="col-md-5" >
-            <input style="float: left;" type="submit" class="form_submit" value="Xóa" />
-            </div>
+            
             <div class="clear"></div>
             </div> 
             
