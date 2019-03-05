@@ -98,6 +98,12 @@
   	<description></description>
   	<servlet-class>controller.updateIsActiveAccount</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>getUserName</servlet-name>
+  	<display-name>getUserName</display-name>
+  	<description></description>
+  	<servlet-class>controller.getUserName</servlet-class>
+  </servlet>
   
   <servlet-mapping>
   	 <servlet-name>Infor</servlet-name>
@@ -159,6 +165,10 @@
   <servlet-mapping>
   	<servlet-name>updateIsActiveAccount</servlet-name>
   	<url-pattern>/updateIsActiveAccount</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>getUserName</servlet-name>
+  	<url-pattern>/getUserName</url-pattern>
   </servlet-mapping>
   
 </web-app>

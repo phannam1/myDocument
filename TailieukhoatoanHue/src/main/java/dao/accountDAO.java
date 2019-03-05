@@ -19,6 +19,7 @@ public class accountDAO {
 	final String SQLREGISTER ="INSERT INTO ACCOUNT(NAME,USERNAME,PASSWORD,EMAIL,CREATEBYID,LASTMODIFIEDBYID) VALUES(?,?,?,?,?,?)";
 	final String SQLCHECKUSERNAME="SELECT * FROM ACCOUNT WHERE USERNAME = ?";
 	final String SQLUPDATEACCOUNT="UPDATE ACCOUNT set passWordLevel2 = ? ,questionSecurity = ? ,answerSecurity = ? ,address = ? ,phone = ? ,email = ? where accountId = ? ";
+	final String SQLGETACCOUNT = "SELECT * FROM ACCOUNT WHERE USERNAME = ?";
 	Connection con = null;
 	HashUtils hashUtil = null;
 
@@ -207,5 +208,21 @@ public class accountDAO {
 		}
 		return false;
 	}
-
+	public accountDTO getAccount(String userName) {
+		try {
+			PreparedStatement pr = con.prepareStatement(SQLGETACCOUNT);
+			pr.setString(1, userName);
+			ResultSet rs = pr.executeQuery();
+			if(rs!=null) {
+				if(rs.next()) {
+				
+				}
+			}
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
 }

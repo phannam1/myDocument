@@ -78,7 +78,7 @@
 								<div class="aa-header-right">
 									<p id="account">${account.accountId}</p>
 									<p id="show2">Xin Chào : ${account.name}</p>
-									<a id="show" href="<%=request.getContextPath()%>/Infor"">
+									<a id="show" href="<%=request.getContextPath()%>/Infor">
 										Thông Tin </a> <a id="show1"
 										href="<%=request.getContextPath()%>/Logout">Đăng Xuất</a> <a
 										id="hide" href="register.jsp" class="aa-register">Đăng Ký</a>
@@ -276,7 +276,7 @@
 
 						</tbody>
 					</table>
-			<label style="margin-top: 10px;">Câu trả lời của bạn:<form action="#">
+			<label style="margin-top: 10px;">Câu trả lời của bạn:<form action="#" method="post">
 					<input style="border: 1px solid #ccc !important;" class="input_Forum" type="text" value ="" name = "inputValueSearch">
 					<input  style="border: 1px solid #ccc !important;" class="submit_Forum" type="submit" value="Xác Nhận">
 					

@@ -72,30 +72,33 @@
     <tbody>
     	<c:forEach items="${list}" var="account">
     <tr>
-     <td>${account.userName} </td>
+     <td><a style="color: #0291d4;" href="getUserName?id=${account.userName} " name = "name">${account.userName} </a></td>
       <td>${account.name} </td>
        <td>${account.phone} </td>
         <td>${account.address} </td>
          <td>${account.email} </td>
-          <td > <input  class="isActive" type="checkbox" name="" value="${account.isActive } " /> </p>	</td>
+          <td > <input  class="isActive" type="checkbox" name="${account.userName}" value="${account.isActive } " onchange = "myFunction(this.name)" id="${account.userName}" /> 	</td>
           <td><input type="checkbox" name="" /> </td>
     </tr>
   </c:forEach> 
     </tbody>
 </table>
 <div class="form_sub_buttons">
- <a href="updateIsActiveAccount" class="button red">Xác nhận sửa</a>
+ <a href="#" class="button red" id="getUserName">Xác nhận sửa</a>
     <a href="#" class="button red">Xóa Lựa Chọn</a>
    
     </div>
-<!-- <ul id="tabsmenu" class="tabsmenu">
+ <ul id="tabsmenu" class="tabsmenu">
         <li class="active"><a href="#tab1">Thông Tin người dùng</a></li>
       
     </ul>
     <div id="tab1" class="tabcontent">
         <form method="post" action="#">
         <div class="form"  >
-            
+             <div class="form_row">
+            <label>Tài khoản:</label>
+            <input type="text" class="form_input" name="" readonly="readonly" value=""/>
+            </div>
             <div class="form_row">
             <label>Tên:</label>
             <input type="text" class="form_input" name="" readonly="readonly" value=""/>
@@ -131,7 +134,7 @@
             <input style="float: left;" type="submit" class="form_submit" value="Xóa" />
             </div>
             <div class="clear"></div>
-            </div> -->
+            </div> 
             
 
 	  
