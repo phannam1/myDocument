@@ -1,0 +1,165 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>Infor</servlet-name>
+  	<display-name>Infor</display-name>
+  	<description></description>
+  	<servlet-class>controller.Infor</servlet-class>
+  </servlet>
+ 
+ 
+  <servlet>
+  	<servlet-name>update</servlet-name>
+  	<display-name>update</display-name>
+  	<description></description>
+  	<servlet-class>controller.update</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>detailDocument</servlet-name>
+  	<display-name>detailDocument</display-name>
+  	<description></description>
+  	<servlet-class>controller.detailDocument</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>news</servlet-name>
+  	<display-name>news</display-name>
+  	<description></description>
+  	<servlet-class>controller.news</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>upload</servlet-name>
+  	<display-name>upload</display-name>
+  	<description></description>
+  	<servlet-class>controller.upload</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>answer</servlet-name>
+  	<display-name>answer</display-name>
+  	<description></description>
+  	<servlet-class>controller.answer</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>question</servlet-name>
+  	<display-name>question</display-name>
+  	<description></description>
+  	<servlet-class>controller.question</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>indexAdmin</servlet-name>
+  	<display-name>indexAdmin</display-name>
+  	<description></description>
+  	<servlet-class>controller.indexAdmin</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>accountAdmin</servlet-name>
+  	<display-name>accountAdmin</display-name>
+  	<description></description>
+  	<servlet-class>controller.accountAdmin</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>roleAdmin</servlet-name>
+  	<display-name>roleAdmin</display-name>
+  	<description></description>
+  	<servlet-class>controller.roleAdmin</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>functionAdmin</servlet-name>
+  	<display-name>functionAdmin</display-name>
+  	<description></description>
+  	<servlet-class>controller.functionAdmin</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>roleFunctionAdmin</servlet-name>
+  	<display-name>roleFunctionAdmin</display-name>
+  	<description></description>
+  	<servlet-class>controller.roleFunctionAdmin</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>newsAdmin</servlet-name>
+  	<display-name>newsAdmin</display-name>
+  	<description></description>
+  	<servlet-class>controller.newsAdmin</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>helpAdmin</servlet-name>
+  	<display-name>helpAdmin</display-name>
+  	<description></description>
+  	<servlet-class>controller.helpAdmin</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>updateIsActiveAccount</servlet-name>
+  	<display-name>updateIsActiveAccount</display-name>
+  	<description></description>
+  	<servlet-class>controller.updateIsActiveAccount</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	 <servlet-name>Infor</servlet-name>
+  	<url-pattern>/Infor</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>update</servlet-name>
+  	<url-pattern>/update</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>detailDocument</servlet-name>
+  	<url-pattern>/detailDocument</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>news</servlet-name>
+  	<url-pattern>/news</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>upload</servlet-name>
+  	<url-pattern>/upload</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>answer</servlet-name>
+  	<url-pattern>/answer</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>question</servlet-name>
+  	<url-pattern>/question</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>indexAdmin</servlet-name>
+  	<url-pattern>/indexAdmin</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>accountAdmin</servlet-name>
+  	<url-pattern>/accountAdmin</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>roleAdmin</servlet-name>
+  	<url-pattern>/roleAdmin</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>functionAdmin</servlet-name>
+  	<url-pattern>/functionAdmin</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>roleFunctionAdmin</servlet-name>
+  	<url-pattern>/roleFunctionAdmin</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>newsAdmin</servlet-name>
+  	<url-pattern>/newsAdmin</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>helpAdmin</servlet-name>
+  	<url-pattern>/helpAdmin</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>updateIsActiveAccount</servlet-name>
+  	<url-pattern>/updateIsActiveAccount</url-pattern>
+  </servlet-mapping>
+  
+</web-app>
+
