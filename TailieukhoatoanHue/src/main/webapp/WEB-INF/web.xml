@@ -129,6 +129,18 @@
   	<description></description>
   	<servlet-class>controller.updateActiveDelete</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>forgotPassword</servlet-name>
+  	<display-name>forgotPassword</display-name>
+  	<description></description>
+  	<servlet-class>controller.forgotPassword</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>updateForgotPassword</servlet-name>
+  	<display-name>updateForgotPassword</display-name>
+  	<description></description>
+  	<servlet-class>controller.updateForgotPassword</servlet-class>
+  </servlet>
   
   <servlet-mapping>
   	 <servlet-name>Infor</servlet-name>
@@ -211,6 +223,14 @@
   <servlet-mapping>
   	<servlet-name>updateActiveDelete</servlet-name>
   	<url-pattern>/updateActiveDelete</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>forgotPassword</servlet-name>
+  	<url-pattern>/forgotPassword</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>updateForgotPassword</servlet-name>
+  	<url-pattern>/updateForgotPassword</url-pattern>
   </servlet-mapping>
   
   

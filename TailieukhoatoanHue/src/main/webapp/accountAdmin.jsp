@@ -25,7 +25,7 @@
 	<div class="header">
     <div class="title"> Trang Quản Lý</div>
     
-    <div class="header_right">Xin Chào : ${account.userName}, <a href="#" class="settings"><i class="fa fa-cog"></i>Cài đặt</a> <a href="<%=request.getContextPath()%>/index" class="logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Thoát</a> </div>
+    <div class="header_right">Xin Chào : ${account.userName}, <a href="<%=request.getContextPath()%>/index" class="logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Thoát</a> </div>
     
     <div class="menu">
     <ul>
@@ -61,7 +61,7 @@
             <th>Địa chỉ</th>
             <th>Email</th>
             <th>Hoạt Động ?</th>
-            <th>Xóa ?</th>        
+                 
         </tr>
     </thead>
         <tfoot>
@@ -78,15 +78,13 @@
         <td>${account.address} </td>
          <td>${account.email} </td>
           <td > <input  class="isActive" type="checkbox" name="${account.userName}" value="${account.isActive } " onchange = "myFunction(this.name)" id="${account.userName}" /> 	</td>
-          <td><input type="checkbox" name="" /> </td>
+          
     </tr>
   </c:forEach> 
     </tbody>
 </table>
 <!-- <div class="form_sub_buttons">
  <a href="#" class="button red" id="getUserName">Xác nhận sửa</a>
-    <a href="#" class="button red">Xóa Lựa Chọn</a>
-   
     </div> -->
  <ul id="tabsmenu" class="tabsmenu">
         <li class="active"><a href="#tab1">Thông Tin người dùng</a></li>
@@ -97,7 +95,7 @@
         <div class="form"  >
              <div class="form_row">
             <label>Tài khoản:</label>
-            <input type="text" class="form_input" name="" readonly="readonly" value="${user.userName }"/>
+            <input type="text" class="form_input" name="userName" readonly="readonly" value="${user.userName }"/>
             </div>
             <div class="form_row">
             <label>Tên:</label>
@@ -117,20 +115,20 @@
             </div>
             <div class="form_row">
             <label>Hoạt Động:</label>
-            <input class="isActive" style="width: 50px;height: 20px;" type="checkbox" class="form_input" name=""  value="${user.isActive }" />
+            <input class="isActive" style="width: 50px;height: 20px;" type="checkbox" class="form_input" name="isActive"  value="${user.isActive }" />
             </div>
             <div class="form_row">
             <label>Xác nhận Xóa :</label>
-            <input class="isActive" style="width: 50px;height: 20px;" type="checkbox" class="form_input" name=""  value="${user.isDelete }" />
+            <input class="isActive" style="width: 50px;height: 20px;" type="checkbox" class="form_input" name="isDelete"  value="${user.isDelete }" />
             </div>
             
             <div class="col-md-8" >
             <input type="submit" class="form_submit" value="Chỉnh Sửa" />
             </div> 
-             
+               
             </div>
             </form>
-            
+           
             <div class="clear"></div>
             </div> 
             

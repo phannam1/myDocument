@@ -23,7 +23,7 @@
 	<div class="header">
     <div class="title"> Trang Quản Lý</div>
     
-    <div class="header_right">Xin Chào : ${account.userName}, <a href="#" class="settings"><i class="fa fa-cog"></i>Cài đặt</a> <a href="<%=request.getContextPath()%>/index" class="logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Thoát</a> </div>
+    <div class="header_right">Xin Chào : ${account.userName}, <a href="<%=request.getContextPath()%>/index" class="logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Thoát</a> </div>
     
     <div class="menu">
     <ul>
@@ -60,11 +60,11 @@
 <table id="rounded-corner">
     <thead>
     	<tr>
-        	<th></th>
+       
             <th>Tài khoản</th>
             <th>Tên quyền</th>
             <th>Mô tả</th>      
-            <th>Xóa</th>
+         
         </tr>
     </thead>
         <tfoot>
@@ -74,22 +74,14 @@
     </tfoot>
     <tbody>
     	<tr class="odd">
-        	<td><input type="checkbox" name="" /></td>
+        
             <td>User4</td>
-            <td>Account</td>
+            <td>User</td>
             <td>Người dùng</td>
            
-            <td><a href="#"><img src="img/trash.gif" alt="" title="" border="0" /></a></td>
+         
         </tr>
-    	<tr class="even">
-        	<td><input type="checkbox" name="" /></td>
-            <td>User3</td>
-            <td>Account</td>
-            <td>Người dùng</td>
-           
-     
-            <td><a href="#"><img src="img/trash.gif" alt="" title="" border="0" /></a></td>
-        </tr>
+    	
     	
     	
     	
@@ -97,31 +89,30 @@
         
     </tbody>
 </table>
-<div class="form_sub_buttons">
-	
-    <a href="#" class="button red">Xóa Lựa Chọn</a>
-    </div>
-<ul id="tabsmenu" class="tabsmenu">
-        <li class="active"><a href="#tab1">Thông Tin các quyền của người dùng</a></li>
-        <!-- <li><a href="#tab2">Tab two</a></li>
-        <li><a href="#tab3">Tab three</a></li>
-        <li><a href="#tab4">Tab four</a></li> -->
+
+<ul class="tabsmenu">
+        <li class="active"><a href="#">Thông Tin các quyền của người dùng</a></li>
+       
     </ul>
     <div id="tab1" class="tabcontent">
         <form method="post" action="#">
         <div class="form"  >
             
             <div class="form_row">
-            <label>Tài Khoản:</label>
+            <label>Chọn Tài Khoản:</label>
             <select class="form_select" name="">
-            <option>Chọn tài khoản</option>
+            
             <option>User4</option>
             <option>User3</option>
             </select>
             </div>
             <div class="form_row">
-            <label>Tên quyền:</label>
-            <input type="text" class="form_input" name="" value="Account" />
+             <label>Chọn quyền:</label>
+             <select class="form_select" name="">
+           
+             <option>Admin</option>
+            <option>User</option>
+            </select>
             </div>
             
             <div class="form_row">

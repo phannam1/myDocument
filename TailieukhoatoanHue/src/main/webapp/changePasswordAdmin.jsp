@@ -23,7 +23,7 @@
 	<div class="header">
     <div class="title"> Trang Quản Lý</div>
     
-    <div class="header_right">Xin Chào ${account.userName}, <a href="#" class="settings"><i class="fa fa-cog"></i>Cài đặt</a> <a href="<%=request.getContextPath()%>/index" class="logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Thoát</a> </div>
+    <div class="header_right">Xin Chào ${account.userName},  <a href="<%=request.getContextPath()%>/index" class="logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Thoát</a> </div>
     
     <div class="menu">
     <ul>
@@ -145,102 +145,26 @@
             <input type="submit" class="form_submit" value="Chỉnh Sửa" required="required" />
             </div> 
             </div>
+           
             </form>
-            <div class="clear"></div>
+       <div class="clear"></div>
         </div>
     </div>
-    <!--   <div id="tab2" class="tabcontent">
-        <h3>Tab two title</h3>
-        <ul class="lists">
-        <li>Consectetur adipisicing elit  error sit voluptatem accusantium doloremqu sed</li>
-        <li>Sed do eiusmod tempor incididunt</li>
-        <li>Ut enim ad minim veniam is iste natus error sit</li>
-        <li>Consectetur adipisicing elit sed</li>
-        <li>Sed do eiusmod tempor  error sit voluptatem accus antium dolor emqu incididunt</li>
-        <li>Ut enim ad minim veniam</li>
-        <li>Consectetur adipisi  error sit voluptatem accusantium doloremqu cing elit sed</li>
-        <li>Sed do eiusmod tempor in is iste natus error sit cididunt</li>
-        <li>Ut enim ad minim ve is iste natus error sitniam</li>
-        </ul>
-    </div>
-
-  <div id="tab3" class="tabcontent">
-        <h3>Tab three title</h3>
-        <p>
-    Lorem ipsum <a href="#">dolor sit amet</a>, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. <br /><br />Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
-        </p>
-    </div> 
-    
-    <div id="tab4" class="tabcontent">
-        <h3>Tab four title</h3>
-        <p>
-    Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, ad <br /><br />Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
-        </p>
-    </div>  -->
-     
-    
-
-    
-       <!--  <div class="toogle_wrap">
-            <div class="trigger"><a href="#">Toggle with text</a></div>
-
-            <div class="toggle_container">
-			<p>
-        Lorem ipsum <a href="#">dolor sit amet</a>, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum <a href="#">dolor sit amet</a>, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-			</p>
-            </div>
-        </div> -->
+   
       
      </div>
-     </div><!-- end of right content-->
-                     
-                    
-    <!--  <div class="sidebar" id="sidebar">
-    <h2>Browse categories</h2>
-    
-        <ul>
-            <li><a href="#" class="selected">Main page</a></li>
-            <li><a href="#">Template settings</a></li>
-            <li><a href="#">Add page</a></li>
-            <li><a href="#">Edit section</a></li>
-            <li><a href="#">Templates</a></li>
-            <li><a href="#">Clients</a></li>
-        </ul>
-        
-    <h2>Page Section</h2>
-    
-        <ul>
-            <li><a href="#">Edit section</a></li>
-            <li><a href="#">Templates</a></li>
-            <li><a href="#">Clients</a></li>
-            <li><a href="#">Docs and info</a></li>
-        </ul> 
-        
-    <h2>User Settings</h2>
-    
-        <ul>
-            <li><a href="#">Edit user</a></li>
-            <li><a href="#">Add users</a></li>
-            <li><a href="#">Manage users</a></li>
-            <li><a href="#">Help</a></li>
-        </ul>   
-         
-    <h2>Text Section</h2> 
-    <div class="sidebar_section_text">
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </div>         
-    
-    </div>  -->           
+     </div>  
     
     
     <div class="clear"></div>
-    </div> <!--end of center_content-->
-    
     <div class="footer">
 	Designed by <a href="https://www.facebook.com/PhanNam2433" target="_blank">PTN</a>
 </div>
+    </div> <!--end of center_content-->
+    
+    
 
-</div>
+
 
     	
 </body>

@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+<%@ page isELIgnored="false"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
+<title>Tài Liệu Khoa Toán DHKH Huế</title>
 
 <!-- Favicon -->
 <link rel="shortcut icon" href="img/T.PNG" type="image/x-icon">
@@ -54,61 +55,54 @@
 				<div class="col-md-12">
 					<div class="aa-signin-area">
 						<a style="float: right; font-size: 30px"
-							href="<%=request.getContextPath()%>/index"><i
+							href="<%=request.getContextPath()%>/index
+          "><i
 							class="fa fa-times" aria-hidden="true"></i></a>
 						<div class="aa-signin-form">
+
 							<div class="aa-signin-form-title">
-								<h4>Vui Lòng điền thông tin của bạn</h4>
+
+								<h4>Thay đổi mật khẩu của bạn</h4>
 							</div>
-							<form class="contactform" method="post" action="forgotPassword">
+
+							<form class="contactform" action="updateForgotPassword"
+								method="post">
 								<div class="aa-single-field">
-									<label for="name"> Tài Khoản Của Bạn <span
-										class="required">*</span></label> <input id="taikhoan" type="text"
-										required="required" aria-required="true" value=""
-										name="userName" placeholder="UserName" onmousemove="checkValudationForgotPassword(this.id)">
-										 <p id="checkNulltk"> Tài khoản không được trống</p>
+									
+
 								</div>
 								<div class="aa-single-field">
-									<label>Mật Khẩu Cấp 2 Của Bạn <span class="required">*</span></label>
-									<input id="matkhau" type="password" required="required"
-										name="passwordLevel2" value="" placeholder="passwordLevel2" onmousemove="checkValudationForgotPassword(this.id)">
-										<p id="checkMore6">Mật khẩu cấp 2 không được trống</p>
+									<label>Mật Khẩu mới của bạn <span class="required">*</span></label> <input
+										  id="matkhau" type="password"
+										name="newpassword" value="" placeholder="NewPassword"
+										onmousemove="checkValudationRegister1(this.id)"> 
+										<p id="checkMore6">Mật khẩu phải từ 6 ký tự trở lên</p>
+										<label>Xác
+										Nhận lại mật khẩu <span class="required">*</span>
+									</label> <input  id="confirmmatkhau" type="password"
+										name="confirmpassword" value="" placeholder="RetryPassword"
+										onmousemove="checkValudationRegister1(this.id)">
+									
+									<p id="checkNullConfirm">Mật khẩu phải giống nhau</p>
 								</div>
 
-								<div class="aa-single-field">
-									<label>Câu hỏi bảo mật Của Bạn <span class="required"></span></label>
-									<div class="aa-single-advance-search">
-										<select style="width: 100%; height: 35px;" id="question" name="question" >
-											<option value="" selected></option>
-											<option value="Ten cua ban">Ten cua ban</option>
-											<option value="Dia chi cua ban">Dia chi cua ban</option>
-											<option value="Con vat ban thich">Con vat ban thich</option>
-											<option value="Con vat ban ghet">Con vat ban ghet</option>
-										</select>
-									</div>
-								</div>
-								<div class="aa-single-field">
-									<label for="answer">Câu trả lời bảo mật của bạn <span
-										class="required"></span></label> <input id="answer" type="text"
-										aria-required="true" value="" name="answer"
-										placeholder="answer">
-								</div>
-								
+
+
 
 								<div class="aa-single-submit">
-									<input type="submit" value=" Gửi" class="aa-browse-btn"
-										name="submit">
-
+									<input type="submit" value="Cập Nhật " name="submit">
 								</div>
 							</form>
+
+							
 
 
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 	</section>
+
 
 	<!-- jQuery library -->
 	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->

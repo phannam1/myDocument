@@ -14,15 +14,15 @@ public class accountDTO {
 	private String answerSecurity;
 	private int isActive;
 	private int isDelete;
-	private String roleId;
-	private String createById;
-	private String lasModifiedById;
+	private int roleId;
+	private int createById;
+	private int lasModifiedById;
 	public accountDTO() {
 		
 	}
 	public accountDTO(int accountId, String userName, String password, String name, String avatar, String address,
 			String phone, String email, String passwordLevel2, String questionSecurity, String answerSecurity,
-			int isActive, String roleId, String createById, String lasModifiedById) {
+			int isActive,int isDelete, int roleId, int createById, int lasModifiedById) {
 		super();
 		this.accountId = accountId;
 		this.userName = userName;
@@ -36,14 +36,15 @@ public class accountDTO {
 		this.questionSecurity = questionSecurity;
 		this.answerSecurity = answerSecurity;
 		this.isActive = isActive;
+		this.isDelete = isDelete;
 		this.roleId = roleId;
 		this.createById = createById;
 		this.lasModifiedById = lasModifiedById;
 	}
 
 	public accountDTO(String userName, String password, String name, String avatar, String address, String phone,
-			String email, String passwordLevel2, String questionSecurity, String answerSecurity, int isActive,
-			String roleId, String createById, String lasModifiedById) {
+			String email, String passwordLevel2, String questionSecurity, String answerSecurity, int isActive,int isDelete,
+			int roleId, int createById, int lasModifiedById) {
 		super();
 		this.userName = userName;
 		this.password = password;
@@ -56,24 +57,18 @@ public class accountDTO {
 		this.questionSecurity = questionSecurity;
 		this.answerSecurity = answerSecurity;
 		this.isActive = isActive;
+		this.isDelete = isDelete;
 		this.roleId = roleId;
 		this.createById = createById;
 		this.lasModifiedById = lasModifiedById;
 	}
 	
-	public accountDTO(String name,String userName, String password,  String email) {
-		super();
-		this.name = name;
-		this.userName = userName;
-		this.password = password;		
-		this.email = email;
-	}
+	
 	
 	public accountDTO(String userName, String name,  String address, String email, String phone) {
 		super();
 		this.userName = userName;
-		this.name = name;
-		
+		this.name = name;	
 		this.address = address;
 		this.phone = phone;
 		this.email = email;
@@ -103,6 +98,15 @@ public class accountDTO {
 		this.email = email;
 		this.isActive = isActive;
 		this.isDelete = isDelete;
+	}
+	
+	public  accountDTO(String userName,  String passwordLevel2, String questionSecurity,
+			String answerSecurity) {
+		
+		this.userName = userName;
+		this.passwordLevel2 = passwordLevel2;
+		this.questionSecurity = questionSecurity;
+		this.answerSecurity = answerSecurity;
 	}
 	public int getAccountId() {
 		return accountId;
@@ -176,22 +180,22 @@ public class accountDTO {
 	public void setIsActive(int isActive) {
 		this.isActive = isActive;
 	}
-	public String getRoleId() {
+	public int getRoleId() {
 		return roleId;
 	}
-	public void setRoleId(String roleId) {
+	public void setRoleId(int roleId) {
 		this.roleId = roleId;
 	}
-	public String getCreateById() {
+	public int getCreateById() {
 		return createById;
 	}
-	public void setCreateById(String createById) {
+	public void setCreateById(int createById) {
 		this.createById = createById;
 	}
-	public String getLasModifiedById() {
+	public int getLasModifiedById() {
 		return lasModifiedById;
 	}
-	public void setLasModifiedById(String lasModifiedById) {
+	public void setLasModifiedById(int lasModifiedById) {
 		this.lasModifiedById = lasModifiedById;
 	}
 	public int getIsDelete() {

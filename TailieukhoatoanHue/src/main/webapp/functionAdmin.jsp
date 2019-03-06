@@ -23,7 +23,7 @@
 	<div class="header">
     <div class="title"> Trang Quản Lý</div>
     
-    <div class="header_right">Xin Chào : ${account.userName}, <a href="#" class="settings"><i class="fa fa-cog"></i>Cài đặt</a> <a href="<%=request.getContextPath()%>/index" class="logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Thoát</a> </div>
+    <div class="header_right">Xin Chào : ${account.userName},  <a href="<%=request.getContextPath()%>/index" class="logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Thoát</a> </div>
     
     <div class="menu">
     <ul>

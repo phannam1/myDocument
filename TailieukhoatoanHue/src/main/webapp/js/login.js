@@ -11,10 +11,10 @@ var accountLogin = document.getElementById("account").innerHTML;
 		document.getElementById("hide1"	).style.display = "none";
 	}
 	var accountAdmin = document.getElementById("admin").innerHTML;
-	if(accountAdmin=="admin"){
-	
+	if(accountAdmin==1){	
 		document.getElementById("showAdmin").style.display = "inline-block"; 
 	}
+	
 	
 	
 	

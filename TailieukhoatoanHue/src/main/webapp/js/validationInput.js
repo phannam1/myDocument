@@ -101,4 +101,19 @@ function validateEmail(email) {
 		document.getElementById("checkNullEmail").style.display = 'none';
 	}	
 }
+function checkValudationRegister1(id){
+	if( (document.getElementById(id).value).length <6 && id == "matkhau"){
+		document.getElementById("checkMore6").style.display = 'block';
+	}else{
+		document.getElementById("checkMore6").style.display = 'none';
+	}
+	var password = document.getElementById("matkhau").value;
+	var retryPassword = document.getElementById("confirmmatkhau").value;
+	if(password !=retryPassword){
+		document.getElementById("checkNullConfirm").style.display = 'block';
+	}
+	else{
+		document.getElementById("checkNullConfirm").style.display = 'none';
+	}
+}
 

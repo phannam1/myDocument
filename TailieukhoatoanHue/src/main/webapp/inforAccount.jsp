@@ -82,7 +82,7 @@
 									<label>Câu hỏi bảo mật Của Bạn <span class="required"></span></label>
 									<div class="aa-single-advance-search">
 										<select name="Question" style="width: 100%; height: 35px;">
-											<option  value="0" selected></option>
+											<option  value="0" selected>Ban hoc truong nao</option>
 											<option value="1">Ten cua ban</option>
 											<option  value="2">Đia chi cua ban</option>
 											<option  value="3">Con vat yeu thich cua ban</option>

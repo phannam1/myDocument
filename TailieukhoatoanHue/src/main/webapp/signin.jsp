@@ -74,7 +74,7 @@
                   <input  type="submit" value="Đăng Nhập" class="aa-browse-btn" name="submit">             
                 </div>
               </form>
-              <a href="changePassword.jsp"style="padding-left: 245px;">Quên Mật Khẩu </a>
+              <a href="forgotPassword.jsp"style="padding-left: 245px;">Quên Mật Khẩu </a>
             </div>
           </div>
         </div>
