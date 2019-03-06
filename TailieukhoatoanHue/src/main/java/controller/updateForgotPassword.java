@@ -44,8 +44,9 @@ public class updateForgotPassword extends HttpServlet {
 		if(check.checkSession(Usersession) && dao.changeForgotPassword(userName, password)) {
 			HttpSession Session = request.getSession(false);	
 			Session.invalidate();
-			response.sendRedirect(request.getContextPath()+"/index.jsp");	
-			
+			response.sendRedirect(request.getContextPath()+"/index.jsp");			
+		}else {
+			response.sendRedirect(request.getContextPath()+"/changeForgotPassword.jsp");
 		}
 		
 	}

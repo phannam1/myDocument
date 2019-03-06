@@ -12,17 +12,19 @@ import dao.accountDAO;
 import dto.accountDTO;
 
 /**
- * Servlet implementation class update
+ * Servlet implementation class changePasswordAccount
  */
-public class update extends HttpServlet {
+public class changePasswordAccount extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
+	checkLogin check = null;
 	accountDAO dao = null;
-    public update() {
-        dao = new accountDAO(); 
+    public changePasswordAccount() {
+        check = new checkLogin();
+        dao = new accountDAO();
     }
 
 	/**
@@ -30,24 +32,23 @@ public class update extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		accountDTO Usersession = (accountDTO)session.getAttribute(constants.USER_SESSION);	
-		int id =  Usersession.getAccountId();
-		String passwordLevel2 = request.getParameter("passwordLevel2") ;
-		String question = request.getParameter("Question") ;
-		String answer = request.getParameter("answer") ;
-		String address = request.getParameter("address") ;
-		String phone = request.getParameter("phone") ;
-		String email = request.getParameter("email") ;
-		System.out.println(question);
-		accountDTO account = new accountDTO(id,address,phone,email,passwordLevel2,question,answer);
-		if(dao.updateAccount(account)) {
-			System.out.println("update success");
-			response.sendRedirect(request.getContextPath()+"/index");
+		accountDTO Usersession = (accountDTO)session.getAttribute(constants.USER_SESSION);
+		String userName = Usersession.getUserName();
+		String password = request.getParameter("password");
+		String newPassword = request.getParameter("newPassword");
+		String retryPassword = request.getParameter("confirmPassword");
+		if(check.checkRetryPassword(newPassword, retryPassword)==false) {
+			response.sendRedirect(request.getContextPath()+"/changePassword.jsp");
+		}
+		if(dao.updatePasswordAdmin(userName, password, newPassword)) {				
+			response.sendRedirect(request.getContextPath() + "/index.jsp");
+			HttpSession session1 = request.getSession(false);	
+			session1.invalidate();
 		}
 		else {
-			response.sendRedirect(request.getContextPath()+"/inforAccount.jsp");
+			response.sendRedirect(request.getContextPath()+"/changePassword.jsp");
 		}
-			
+		
 	}
 
 	/**

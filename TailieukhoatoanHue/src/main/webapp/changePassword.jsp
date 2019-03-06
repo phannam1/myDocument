@@ -54,7 +54,7 @@
               <div class="aa-signin-form-title">              
                 <h4>Thay Đổi Mật Khẩu Của Bạn </h4>
               </div>
-              <form class="contactform" method="post">
+              <form class="contactform" method="post" action="changePasswordAccount">
               <div class="aa-single-field">
                   <label for="password">Mật Khẩu Cũ<span class="required">*</span></label>
                   <input id="mk" type="password" name="password" required="required" onmousemove="checkValudationChangePassword(this.id)"> 
@@ -62,12 +62,12 @@
                 </div>                                                 
                 <div class="aa-single-field">
                   <label for="password">Mật Khẩu Mới <span class="required">*</span></label>
-                  <input id="matkhau" type="password" name="password" required="required" onmousemove="checkValudationChangePassword(this.id)">
+                  <input id="matkhau" type="password" name="newPassword" required="required" onmousemove="checkValudationChangePassword(this.id)">
                   <p id="checkMore6">Mật khẩu phải từ 6 ký tự trở lên</p> 
                 </div>
                 <div class="aa-single-field">
                   <label for="confirm-password">Nhập Lại Mật Khẩu <span class="required">*</span></label>
-                  <input id="confirmmatkhau" type="password" name="confirm-password" required="required" onmousemove="checkValudationChangePassword(this.id)"> 
+                  <input id="confirmmatkhau" type="password" name="confirmPassword" required="required" onmousemove="checkValudationChangePassword(this.id)"> 
                   
                   <p id="checkNullConfirm"> Mật khẩu phải giống nhau</p>
                 </div> 

@@ -74,19 +74,19 @@
 								</div>
 								<div class="aa-single-field">
 									<label>Mật Khẩu Cấp 2 Của Bạn <span class="required">*</span></label>
-									<input id="matkhau" type="password" name="passwordLevel2" required="required" name="pwLv2"
+									<input id="matkhau" type="password" name="passwordLevel2" required="required"
 										value="${account.passwordLevel2}" placeholder="passwordLevel2" onmousemove="checkValudationInfor(this.id)">
 										 <p id="checkMore6">Mật khẩu phải từ 6 ký tự trở lên</p>
 								</div>
 								<div class="aa-single-field">
 									<label>Câu hỏi bảo mật Của Bạn <span class="required"></span></label>
 									<div class="aa-single-advance-search">
-										<select name="Question" style="width: 100%; height: 35px;">
-											<option  value="0" selected>Ban hoc truong nao</option>
-											<option value="1">Ten cua ban</option>
-											<option  value="2">Đia chi cua ban</option>
-											<option  value="3">Con vat yeu thich cua ban</option>
-											<option  value="4">con vat ban ghet</option>
+										<select name="Question" style="width: 100%; height: 35px;" >
+											<option  value="Ban hoc truong nao" >Ban hoc truong nao</option>
+											<option value="Ten cua ban">Ten cua ban</option>
+											<option  value="Đia chi cua ban">Đia chi cua ban</option>
+											<option  value="Con vat yeu thich cua ban">Con vat yeu thich cua ban</option>
+											<option  value="con vat ban ghet">con vat ban ghet</option>
 										</select>
 									</div>
 								</div>

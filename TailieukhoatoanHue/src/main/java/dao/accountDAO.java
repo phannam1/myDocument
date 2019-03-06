@@ -187,16 +187,25 @@ public class accountDAO {
 		try {
 			PreparedStatement pr = con.prepareStatement(SQLUPDATEACCOUNT);
 			pr.setString(1, hashUtil.hashmd5( account.getPasswordLevel2()));
-			if (account.getQuestionSecurity()!=null) {
+			if (account.getQuestionSecurity().equals("")) {
+				pr.setString(2, null);
+			}
+			else {
 				pr.setString(2, account.getQuestionSecurity());
 			}
-			if (account.getAnswerSecurity()!=null) {
+			if (account.getAnswerSecurity().equals("")) {
+				pr.setString(3, null);
+			}
+			else {
 				pr.setString(3, account.getAnswerSecurity());
 			}
 			pr.setString(4, account.getAddress());
-			if (account.getAnswerSecurity()!=null) {
-				pr.setString(5, account.getPhone());
+			if (account.getAnswerSecurity().equals("")) {
+				pr.setString(5, null);
 			} 
+			else {
+				pr.setString(5, account.getPhone());
+			}
 			pr.setString(6, account.getEmail());
 			pr.setInt(7, account.getAccountId());
 			int i = pr.executeUpdate();
@@ -315,8 +324,9 @@ public class accountDAO {
 	public boolean changeForgotPassword(String userName,String password) {
 		try {
 			PreparedStatement pr = con.prepareStatement(SQLCHANGEFORGOTPASSWORD);
-			pr.setString(1, userName);
-			pr.setString(2, password);
+			pr.setString(1,hashUtil.hashmd5( password));
+			pr.setString(2, userName);
+		
 			int i = pr.executeUpdate();
 			if(i!=0) {
 				return true;
