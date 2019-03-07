@@ -3,139 +3,125 @@
 <%@ page isELIgnored="false"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <head>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Adminnitrator</title>
 <link rel="stylesheet" type="text/css" href="css/admin.css" />
-<link href='http://fonts.googleapis.com/css?family=Belgrano' rel='stylesheet' type='text/css'/>
+<link href='http://fonts.googleapis.com/css?family=Belgrano'
+	rel='stylesheet' type='text/css' />
 <!-- jQuery file -->
 <script src="js/jquery.min1.js"></script>
 <script src="js/jquery.tabify.js" type="text/javascript" charset="utf-8"></script>
 <!-- Font awesome -->
-    <link href="css/font-awesome.css" rel="stylesheet"/>
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.css" rel="stylesheet"/>   
-    <!-- slick slider -->
+<link href="css/font-awesome.css" rel="stylesheet" />
+<!-- Bootstrap -->
+<link href="css/bootstrap.css" rel="stylesheet" />
+<!-- slick slider -->
 </head>
 <body>
-<div id="panelwrap">
-  	
-	<div class="header">
-    <div class="title"> Trang Quản Lý</div>
-    
-    <div class="header_right">Xin Chào : ${account.userName}, <a href="<%=request.getContextPath()%>/index" class="logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Thoát</a> </div>
-    
-    <div class="menu">
-    <ul>
-    <li><a href="indexAdmin" >Trang Chủ</a></li>
-    <li><a href="accountAdmin" >Người dùng</a></li>
-    <li><a href="roleAdmin" class="selected">Quyền người dùng</a></li>
-    <li><a href="functionAdmin">Chức năng</a></li>
-    <li><a href="roleFunctionAdmin">Chức năng của quyền</a></li>
-    <li><a href="newsAdmin">Tin tức</a></li>
-  
-    <li><a href="helpAdmin">Trợ giúp</a></li>
-    </ul>
-    </div>
-    
-    </div>
-    
-   <!--   <div class="submenu">
-    <ul>
-    <li><a href="#" class="selected">settings</a></li>
-    <li><a href="#">users</a></li>
-    <li><a href="#">categories</a></li>
-    <li><a href="#">edit section</a></li>
-    <li><a href="#">templates</a></li>
-    </ul>
-    </div>   -->       
-                    
-    <div class="center_content">  
- 
-    <div id="right_wrap">
-    <div id="right_content">             
-    <h2>Bảng Người Dùng</h2> 
-                    
-                    
-<table id="rounded-corner">
-    <thead>
-    	<tr>
-       
-            <th>Tài khoản</th>
-            <th>Tên quyền</th>
-            <th>Mô tả</th>      
-         
-        </tr>
-    </thead>
-        <tfoot>
-    	<tr>
-        	<td colspan="12">Trang quản lý của Admin!</td>
-        </tr>
-    </tfoot>
-    <tbody>
-    	<tr class="odd">
-        
-            <td>User4</td>
-            <td>User</td>
-            <td>Người dùng</td>
-           
-         
-        </tr>
-    	
-    	
-    	
-    	
-    	
-        
-    </tbody>
-</table>
+	<div id="panelwrap">
 
-<ul class="tabsmenu">
-        <li class="active"><a href="#">Thông Tin các quyền của người dùng</a></li>
-       
-    </ul>
-    <div id="tab1" class="tabcontent">
-        <form method="post" action="#">
-        <div class="form"  >
-            
-            <div class="form_row">
-            <label>Chọn Tài Khoản:</label>
-            <select class="form_select" name="">
-            
-            <option>User4</option>
-            <option>User3</option>
-            </select>
-            </div>
-            <div class="form_row">
-             <label>Chọn quyền:</label>
-             <select class="form_select" name="">
-           
-             <option>Admin</option>
-            <option>User</option>
-            </select>
-            </div>
-            
-            <div class="form_row">
-            <label>Mô tả:</label>
-            <textarea class="form_textarea" name="" value="Người dùng"></textarea>
-            </div>
-             <div class="col-md-6" >
-            <input type="submit" class="form_submit" value="Thêm Mới" />
-            </div>
-             
-            </div>
-            </form>
-             <div class="col-md-1" >
-            <input type="submit" class="form_submit" value=" Sửa" />
-            </div>
-            <div class="col-md-1" >
-            <input  type="submit" class="form_submit" value="Xóa" />
-            </div>
-            <div class="clear"></div>
-            </div>
-            
+		<div class="header">
+			<div class="title">Trang Quản Lý</div>
 
-	   <!--<div class="form_sub_buttons">
+			<div class="header_right">
+				Xin Chào : ${account.userName}, <a
+					href="<%=request.getContextPath()%>/index" class="logout"><i
+					class="fa fa-sign-out" aria-hidden="true"></i>Thoát</a>
+			</div>
+
+			<div class="menu">
+				<ul>
+					<li><a href="indexAdmin">Trang Chủ</a></li>
+					<li><a href="accountAdmin">Người dùng</a></li>
+					<li><a href="roleAdmin" class="selected">Quyền người dùng</a></li>
+					<li><a href="functionAdmin">Chức năng</a></li>
+					<li><a href="roleFunctionAdmin">Chức năng của quyền</a></li>
+					<li><a href="newsAdmin">Tin tức</a></li>
+
+					<li><a href="helpAdmin">Trợ giúp</a></li>
+				</ul>
+			</div>
+
+		</div>
+
+
+
+		<div class="center_content">
+
+			<div id="right_wrap">
+				<div id="right_content">
+					<h2>Bảng Người Dùng</h2>
+
+
+					<table id="rounded-corner">
+						<thead>
+							<tr>
+
+								<th>Tài khoản</th>
+								<th>Tên quyền</th>
+								<th>Mô tả</th>
+
+							</tr>
+						</thead>
+						<tfoot>
+							<tr>
+								<td colspan="12">Trang quản lý của Admin!</td>
+							</tr>
+						</tfoot>
+						<tbody>
+							<c:forEach items="${listRole}" var="role">
+								<tr class="odd">
+									<td>${role.userName}</td>
+									<td>${role.roleName}</td>
+									<td>${role.description}</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+
+					<ul class="tabsmenu">
+						<li class="active"><a href="#">Thông Tin các quyền của
+								người dùng</a></li>
+
+					</ul>
+					<div id="tab1" class="tabcontent">
+						<form method="post" action="actionRole">
+							<div class="form">
+
+								<div class="form_row">
+									<label>Nhập Tài Khoản:</label>
+									 <input class="form_select" name="chooseUserName" type="text"  list="ide" />
+									<datalist id="ide" >
+									<c:forEach items="${listRole}" var="role">
+										<option value="${role.userName}">${role.userName}</option>
+									</c:forEach> </datalist>
+								</div>
+								<div class="form_row">
+									<label>Chọn quyền:</label> <select class="form_select"
+										name="chooseRole">
+										<option value="1">Admin</option>
+										<option value="2">User</option>
+									</select>
+								</div>
+
+
+								<div class="col-md-7">
+									<input type="submit" class="form_submit" value="Chỉnh Sửa" />
+								</div>
+
+								<div class="col-md-1">
+									<input type="submit" class="form_submit" value="Xóa" />
+								</div>
+							</div>
+						</form>
+
+						<div class="clear"></div>
+					</div>
+
+
+					<!--<div class="form_sub_buttons">
 	<a href="#" class="button green">Sửa Lựa Chọn</a>
     <a href="#" class="button red">Xóa Lựa Chọn</a>
     </div>
@@ -218,12 +204,13 @@
 			</p>
             </div>
         </div> -->
-      
-     </div>
-     </div><!-- end of right content-->
-                     
-                    
-    <!--  <div class="sidebar" id="sidebar">
+
+				</div>
+			</div>
+			<!-- end of right content-->
+
+
+			<!--  <div class="sidebar" id="sidebar">
     <h2>Browse categories</h2>
     
         <ul>
@@ -258,18 +245,20 @@
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     </div>         
     
-    </div>  -->           
-    
-    
-    <div class="clear"></div>
-    </div> <!--end of center_content-->
-    
-    <div class="footer">
-	Designed by <a href="https://www.facebook.com/PhanNam2433" target="_blank">PTN</a>
-</div>
+    </div>  -->
 
-</div>
 
-    	
+			<div class="clear"></div>
+		</div>
+		<!--end of center_content-->
+
+		<div class="footer">
+			Designed by <a href="https://www.facebook.com/PhanNam2433"
+				target="_blank">PTN</a>
+		</div>
+
+	</div>
+
+
 </body>
 </html>

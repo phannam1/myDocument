@@ -62,14 +62,13 @@ public class accountDTO {
 		this.createById = createById;
 		this.lasModifiedById = lasModifiedById;
 	}
-	
-	
-	
-	public accountDTO( String name,String userName, String password, String email) {
+	public accountDTO( String name,String userName, String password, String email,int createById,int lasModifiedById ) {
 		this.userName = userName;
 		this.password = password;
 		this.name = name;
 		this.email = email;
+		this.createById = createById;
+		this.lasModifiedById = lasModifiedById;
 	}
 	public accountDTO(String userName, String name,  String address, String email, String phone) {
 		super();
@@ -106,8 +105,8 @@ public class accountDTO {
 		this.isDelete = isDelete;
 	}
 	
-	public  accountDTO(String userName,  String questionSecurity,String answerSecurity) {
-		
+	public  accountDTO(String userName,String passwordLevel2,  String questionSecurity,String answerSecurity) {
+		this.passwordLevel2 = passwordLevel2;
 		this.userName = userName;
 		this.questionSecurity = questionSecurity;
 		this.answerSecurity = answerSecurity;

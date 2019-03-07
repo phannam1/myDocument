@@ -59,7 +59,7 @@
           "><i class="fa fa-times"
 							aria-hidden="true"></i></a>
 						<div class="aa-signin-form">
-
+<a href="changePassword.jsp">Đổi Mật Khẩu </a>
 							<div class="aa-signin-form-title">
 								<a href="#"><img
 									style="float: right; color: blue; width: 100px; height: 100px"
@@ -119,7 +119,7 @@
 								</div>
 							</form>
 						
-									<a href="changePassword.jsp"style="padding-left: 250px;">Đổi Mật Khẩu </a>
+									
 								
 							
 					</div>

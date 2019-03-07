@@ -1,10 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -12,25 +8,23 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import beans.constants;
-import dao.accountDAO;
 import dao.roleDAO;
 import dto.accountDTO;
-import dto.roleDTO;
 
 /**
- * Servlet implementation class roleAdmin
+ * Servlet implementation class actionRole
  */
-public class roleAdmin extends HttpServlet {
+public class actionRole extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
 	checkLogin check = null;
-	roleDAO dao = null;
-    public roleAdmin() {
-       check = new checkLogin();
-       dao = new roleDAO();
+	roleDAO dao =null;
+    public actionRole() {
+        check = new checkLogin();
+        dao =  new roleDAO();
     }
 
 	/**
@@ -38,18 +32,15 @@ public class roleAdmin extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		accountDTO Usersession = (accountDTO)session.getAttribute(constants.USER_SESSION);	
+		accountDTO Usersession = (accountDTO)session.getAttribute(constants.USER_SESSION);
+		String userName = request.getParameter("chooseUserName");
+		String role = request.getParameter("chooseRole");
+		int roleId = Integer.parseInt(role);
 		if(check.checkSession(Usersession)) {	
-			List<roleDTO> listRole = new ArrayList<roleDTO>();
-			listRole = dao.readAllRole();			
-			request.setAttribute("account", Usersession);
-			request.setAttribute("listRole", listRole);	
-			RequestDispatcher rd = request.getRequestDispatcher("roleAdmin.jsp");
-			  rd.forward(request, response);;
-		}
-		else {
-			response.sendRedirect(request.getContextPath()+"/index.jsp");
-		}
+			if(dao.updateRole(roleId, userName)) {
+				response.sendRedirect(request.getContextPath()+"/roleAdmin");	
+			}
+		}		
 	}
 
 	/**

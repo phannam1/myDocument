@@ -82,13 +82,13 @@
 									<p id="account">${account.accountId}</p>
 									<p id="admin">${account.roleId}</p>
 									<p id="show2">Xin Chào: ${account.name}</p>
-									<a id="show" href="<%=request.getContextPath()%>/Infor">
-										Thông Tin </a> <a id="show1"
-										href="<%=request.getContextPath()%>/Logout">Đăng Xuất</a>
+									<a id="show" href="<%=request.getContextPath()%>/Infor"><i class="fa fa-cog"></i>
+										Cài Đặt </a> <a id="show1"
+										href="<%=request.getContextPath()%>/Logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Đăng Xuất</a>
 										<a id="showAdmin"
-										href="indexAdmin">Administrator</a> <a
-										id="hide" href="register.jsp" class="aa-register">Đăng Ký</a>
-									<a id="hide1" href="signin.jsp" class="aa-login">Đăng Nhập</a>
+										href="indexAdmin"><i class="fa fa-user"></i>Administrator</a> <a
+										id="hide" href="register.jsp"><i class="fa fa-user-plus"></i>Đăng Ký</a>
+									<a id="hide1" href="signin.jsp"><i class="fa fa-sign-in" aria-hidden="true"></i>Đăng Nhập</a>
 
 								</div>
 							</div>

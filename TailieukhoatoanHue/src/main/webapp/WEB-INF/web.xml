@@ -147,6 +147,12 @@
   	<description></description>
   	<servlet-class>controller.changePasswordAccount</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>actionRole</servlet-name>
+  	<display-name>actionRole</display-name>
+  	<description></description>
+  	<servlet-class>controller.actionRole</servlet-class>
+  </servlet>
   
   <servlet-mapping>
   	 <servlet-name>Infor</servlet-name>
@@ -241,6 +247,10 @@
   <servlet-mapping>
   	<servlet-name>changePasswordAccount</servlet-name>
   	<url-pattern>/changePasswordAccount</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>actionRole</servlet-name>
+  	<url-pattern>/actionRole</url-pattern>
   </servlet-mapping>
   
   

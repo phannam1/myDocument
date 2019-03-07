@@ -64,7 +64,7 @@ public class register extends HttpServlet {
 			if(email=="") {
 				response.sendRedirect(request.getContextPath()+"/register.jsp");
 			}
-			accountDTO account = new accountDTO(name,userName,password,email);
+			accountDTO account = new accountDTO(name,userName,password,email,1,1);
 			if(dao.create(account)!=null && check.checkRetryPassword(password, retryPassword) ) {
 				System.out.println("create success");
 				response.sendRedirect(request.getContextPath()+"/signin.jsp");	

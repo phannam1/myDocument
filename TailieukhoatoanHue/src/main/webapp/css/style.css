@@ -106,7 +106,16 @@ padding-right: 5px;
 	color:#59abe3; 
 }
 #hide{
- 
+	color: #fff;
+}
+#hide1{
+	color: #fff;
+}
+#hide:hover{
+ color:#59abe3; 
+}
+#hide1:hover{
+ color:#59abe3; 
 }
 #show1{
   display: none;
