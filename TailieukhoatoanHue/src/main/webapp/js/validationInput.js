@@ -12,6 +12,7 @@ function checkValudation(id) {
 	}else{
 		document.getElementById("checkMore6").style.display = 'none';
 	}
+	
 }
 function checkValudationRegister(id){
 	var userName = document.getElementById(id).value;
@@ -116,4 +117,5 @@ function checkValudationRegister1(id){
 		document.getElementById("checkNullConfirm").style.display = 'none';
 	}
 }
+
 

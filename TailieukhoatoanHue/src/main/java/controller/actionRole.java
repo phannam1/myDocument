@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import beans.constants;
+import dao.accountDAO;
 import dao.roleDAO;
 import dto.accountDTO;
 
@@ -22,9 +23,11 @@ public class actionRole extends HttpServlet {
      */
 	checkLogin check = null;
 	roleDAO dao =null;
+	accountDAO accDao = null;
     public actionRole() {
         check = new checkLogin();
         dao =  new roleDAO();
+        accDao = new accountDAO();
     }
 
 	/**
@@ -34,6 +37,12 @@ public class actionRole extends HttpServlet {
 		HttpSession session = request.getSession();
 		accountDTO Usersession = (accountDTO)session.getAttribute(constants.USER_SESSION);
 		String userName = request.getParameter("chooseUserName");
+		if(userName.equals("")) {
+			response.sendRedirect(request.getContextPath()+"/roleAdmin");
+		}
+		if(accDao.checkUserName(userName)==false) {
+			response.sendRedirect(request.getContextPath()+"/roleAdmin");
+		}
 		String role = request.getParameter("chooseRole");
 		int roleId = Integer.parseInt(role);
 		if(check.checkSession(Usersession)) {	

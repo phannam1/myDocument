@@ -16,6 +16,7 @@ import utils.HashUtils;
 public class accountDAO {
 	final String SQLREADALLACCOUNT = "SELECT * FROM ACCOUNT WHERE ISDELETE = 0";
 	final String SQLLOGIN = "SELECT * FROM ACCOUNT WHERE USERNAME = ? AND PASSWORD = ? AND ISACTIVE = 1 AND ISDELETE = 0";
+	final String SQLLOGINNOACTIVE = "SELECT * FROM ACCOUNT WHERE USERNAME = ? AND PASSWORD = ? AND ISACTIVE = 0 AND ISDELETE = 0";
 	final String SQLREGISTER ="INSERT INTO ACCOUNT(NAME,USERNAME,PASSWORD,EMAIL,CREATEBYID,LASTMODIFIEDBYID) VALUES(?,?,?,?,?,?)";
 	final String SQLUPDATEACTIVEDELETE = "UPDATE ACCOUNT SET ISACTIVE = ?,ISDELETE = ? WHERE USERNAME = ? ";
 	final String SQLUPDATEACCOUNT="UPDATE ACCOUNT set passWordLevel2 = ? ,questionSecurity = ? ,answerSecurity = ? ,address = ? ,phone = ? ,email = ? where accountId = ? ";
@@ -128,6 +129,23 @@ public class accountDAO {
 	public boolean checkLogin(String userName, String password) {
 		try {
 			PreparedStatement pr = con.prepareStatement(SQLLOGIN);
+			pr.setString(1, userName);
+			pr.setString(2, password);
+			ResultSet rs = pr.executeQuery();
+			if (rs != null) {
+				if (rs.next()) {
+					return true;
+				}
+			}
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+		return false;
+	}
+	public boolean checkLoginNoActive(String userName, String password) {
+		try {
+			PreparedStatement pr = con.prepareStatement(SQLLOGINNOACTIVE);
 			pr.setString(1, userName);
 			pr.setString(2, password);
 			ResultSet rs = pr.executeQuery();

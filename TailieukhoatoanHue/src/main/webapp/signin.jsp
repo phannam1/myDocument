@@ -3,6 +3,7 @@
 <%@ page isELIgnored="false"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
   <head>
+  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -54,12 +55,17 @@
             <div class="aa-signin-form">
               <div class="aa-signin-form-title"> 
                 <h4 >Điền Thông Tin Đăng Nhập </h4>
+                
               </div>
+               <p style="color: red" id="error" >${error}</p>
+               <c:remove var="error" scope="session" /> 
+               <p style="color: red" id="isActive" >${isActive}</p>
+               <c:remove var="isActive" scope="session" /> 
               <form class="contactform" method="post" action="<%=request.getContextPath()%>/login">
-              <p id="error">${error}</p>                                                 
+                                                           
                 <div class="aa-single-field">
                   <label >Tài Khoản <span class="required">*</span></label>
-                  <input id="taikhoan" type="text" required="required" aria-required="true" value="" name="userName" placeholder="UserName" onmousemove="checkValudation(this.id)">
+                  <input id="taikhoan" type="text" required="required" aria-required="true" value="" name="userName" placeholder="UserName" onmousemove="checkValudation(this.id) ">
                     <p id="checkNulltk"> Tài khoản không được trống</p>
                 </div>
                
@@ -89,7 +95,7 @@
   <script src="js/bootstrap.js"></script>   
   <!-- slick slider -->
   <script type="text/javascript" src="js/slick.js"></script>
-
+<script type="text/javascript" src="js/error.js"></script>
   <!-- Price picker slider -->
   <script type="text/javascript" src="js/nouislider.js"></script>
    <!-- mixit slider -->

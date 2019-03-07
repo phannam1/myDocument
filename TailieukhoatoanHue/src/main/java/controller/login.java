@@ -58,8 +58,19 @@ public class login extends HttpServlet {
 			session.setAttribute(constants.USER_SESSION, account);			
 			response.sendRedirect(request.getContextPath()+"/CheckAccountLogin");	
 			
-		}else {
-			response.sendRedirect(request.getContextPath()+"/signin.jsp");		
+		}else {	
+			
+			if(dao.checkLoginNoActive(userName, hashUtil.hashmd5(password))) {
+				String message = "Tài khoản của bạn chưa được hoạt động , Vui lòng đợi quản trị viên phê duyệt Tài khoản và quay lại sau ";
+				request.setAttribute("isActive", message);
+				request.getRequestDispatcher("/signin.jsp").forward(request, response);
+			}else {
+				String message = "Tài khoản hoặc mật khẩu không đúng";
+				request.setAttribute("error", message);
+				request.getRequestDispatcher("/signin.jsp").forward(request, response);
+			}
+			
+			
 		}
 	}
 
