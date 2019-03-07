@@ -69,10 +69,10 @@
                 </div>                                                                           
                 <div class="aa-single-field">
                   <label >Mật Khẩu <span class="required">*</span></label>
-                  <input id = "matkhau" style="width: 35%" id="matkhau" type="password" name="password" value="" placeholder="password" onmousemove="checkValudationRegister(this.id)"> 
+                  <input id = "matkhau"  id="matkhau" type="password" name="password" value="" placeholder="password" onmousemove="checkValudationRegister(this.id)"> 
                
-                  <label >Xác Nhận lại mật khẩu <span class="required">*</span></label>
-                  <input style="width: 36%" id="confirmmatkhau" type="password" name="confirmpassword" value="" placeholder="RetryPassword" onmousemove="checkValudationRegister(this.id)"> 
+                  <label >Xác Nhận  <span class="required">*</span></label>
+                  <input  id="confirmmatkhau" type="password" name="confirmpassword" value="" placeholder="RetryPassword" onmousemove="checkValudationRegister(this.id)"> 
                   <p id="checkMore6">Mật khẩu phải từ 6 ký tự trở lên</p>
                   <p id="checkNullConfirm"> Mật khẩu phải giống nhau</p>
                 </div>

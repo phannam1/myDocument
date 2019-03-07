@@ -65,6 +65,12 @@ public class accountDTO {
 	
 	
 	
+	public accountDTO( String name,String userName, String password, String email) {
+		this.userName = userName;
+		this.password = password;
+		this.name = name;
+		this.email = email;
+	}
 	public accountDTO(String userName, String name,  String address, String email, String phone) {
 		super();
 		this.userName = userName;
@@ -100,11 +106,9 @@ public class accountDTO {
 		this.isDelete = isDelete;
 	}
 	
-	public  accountDTO(String userName,  String passwordLevel2, String questionSecurity,
-			String answerSecurity) {
+	public  accountDTO(String userName,  String questionSecurity,String answerSecurity) {
 		
 		this.userName = userName;
-		this.passwordLevel2 = passwordLevel2;
 		this.questionSecurity = questionSecurity;
 		this.answerSecurity = answerSecurity;
 	}
@@ -204,5 +208,5 @@ public class accountDTO {
 	public void setIsDelete(int isDelete) {
 		this.isDelete = isDelete;
 	}
-	
+
 }
