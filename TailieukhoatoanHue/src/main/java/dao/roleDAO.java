@@ -13,7 +13,8 @@ import utils.HashUtils;
 
 public class roleDAO {
 	final String READALLROLE = "SELECT ROLE.*,ACCOUNT.USERNAME FROM ACCOUNT LEFT JOIN ROLE ON ACCOUNT.ROLEID = ROLE.ROLEID";
-	final String REGISTERROLE = "UPDATE ACCOUNT LEFT JOIN ROLE ON ACCOUNT.ROLEID = ROLE.ROLEID SET ACCOUNT.ROLEID = ?  WHERE ACCOUNT.USERNAME = ? "; 
+	final String REGISTERROLE = "UPDATE ACCOUNT LEFT JOIN ROLE ON ACCOUNT.ROLEID = ROLE.ROLEID SET ACCOUNT.ROLEID = ?  WHERE ACCOUNT.USERNAME = ? ";
+	final String DELETEROLE = "UPDATE ACCOUNT LEFT JOIN ROLE ON ACCOUNT.ROLEID = ROLE.ROLEID SET ACCOUNT.ROLEID = NULL  WHERE ACCOUNT.USERNAME = ? "; 
 	Connection con = null;
 	HashUtils hashUtil = null;
 
@@ -47,6 +48,24 @@ public class roleDAO {
 			PreparedStatement pr = con.prepareStatement(REGISTERROLE);
 			pr.setInt(1, roleId);
 			pr.setString(2, userName);
+			int i  = pr.executeUpdate();
+			if(i!=0) {
+				return true;
+			}
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
+	public boolean deleteRole(String userName) {
+		try {
+			PreparedStatement pr = con.prepareStatement(DELETEROLE);
+			if(userName.equals("")) {
+				return false;
+			}
+			pr.setString(1, userName);
 			int i  = pr.executeUpdate();
 			if(i!=0) {
 				return true;

@@ -5,7 +5,7 @@
 <head>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
 <title>Adminnitrator</title>
 <link rel="stylesheet" type="text/css" href="css/admin.css" />
 <link href='http://fonts.googleapis.com/css?family=Belgrano'

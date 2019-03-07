@@ -2,6 +2,7 @@
  * 
  */
 
+	 $(function () {
       $("#btnShowPopup").click(function () {
           var title = "Xác Nhận";
           var body = "Bạn có chắc chắn thực hiện chức năng này ?";
@@ -9,15 +10,48 @@
           $("#MyPopup .modal-title").html(title);
           $("#MyPopup .modal-body").html(body);
           $("#MyPopup").modal("show");
+          $("#btnClosePopup").click(function () {
+              $("#MyPopup").modal("hide");
+          });
+               
+          $("#btnConfirmPopup").click(function () {
+//        	  $('form[name=actionRoleUpdate]').attr('action','actionRole');
+        	  $('form[name=actionRoleUpdate]').submit();
+              $("#MyPopup").modal("hide");
+              
+          });
       });
+      document.getElementById("nhap").onchange = function() {myFunction()};
 
-      $("#btnClosePopup").click(function () {
-          $("#MyPopup").modal("hide");
-      });
-           
-      $("#btnConfirmPopup").click(function () {
-    	  $('form[name=acctionEventUpdate]').attr('action','updateActiveDelete');
-    	  $('form[name=acctionEventUpdate]').submit();
-          $("#MyPopup").modal("hide");
-          
-      });
+      function myFunction() {
+       document.getElementById("error").style.display = 'none';
+      
+       
+      }
+
+     
+	 });
+	 $(function () {
+	      $("#btnDisplayPopup").click(function () {
+	          var title = "Xác Nhận";
+	          var body = "Bạn có chắc chắn thực hiện chức năng này ?";
+
+	          $("#MyPopup .modal-title").html(title);
+	          $("#MyPopup .modal-body").html(body);
+	          $("#MyPopup").modal("show");
+	          $("#btnClosePopup").click(function () {
+		          $("#MyPopup").modal("hide");
+		      });
+		           
+		      $("#btnConfirmPopup").click(function () {
+		    	  $('form[name=actionRoleUpdate]').attr('action','actionRoleDelete');
+		    	  $('form[name=actionRoleUpdate]').submit();
+		          $("#MyPopup").modal("hide");
+		          
+		      });
+	      });
+
+	     
+		 });
+
+

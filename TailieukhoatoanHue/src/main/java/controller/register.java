@@ -42,7 +42,8 @@ public class register extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
 		String userName = (String) request.getParameter("userName");
 		if(dao.checkUserName(userName)) {
 			

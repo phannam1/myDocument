@@ -61,7 +61,7 @@
                <c:remove var="error" scope="session" /> 
                <p style="color: red" id="isActive" >${isActive}</p>
                <c:remove var="isActive" scope="session" /> 
-              <form class="contactform" method="post" action="<%=request.getContextPath()%>/login">
+              <form class="contactform" method="post" action="login">
                                                            
                 <div class="aa-single-field">
                   <label >Tài Khoản <span class="required">*</span></label>

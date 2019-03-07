@@ -34,13 +34,19 @@ public class actionRole extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 		accountDTO Usersession = (accountDTO)session.getAttribute(constants.USER_SESSION);
 		String userName = request.getParameter("chooseUserName");
+		System.out.println(userName);
 		if(userName.equals("")) {
-			response.sendRedirect(request.getContextPath()+"/roleAdmin");
+			String message = "Bạn phải nhập vào trường này";
+			request.setAttribute("error", message);
+			request.getRequestDispatcher("/roleAdmin").forward(request, response);
+			
 		}
-		if(accDao.checkUserName(userName)==false) {
+		else if(accDao.checkUserName(userName)==false) {
 			response.sendRedirect(request.getContextPath()+"/roleAdmin");
 		}
 		String role = request.getParameter("chooseRole");

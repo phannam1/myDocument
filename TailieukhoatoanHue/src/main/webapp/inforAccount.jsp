@@ -82,11 +82,11 @@
 									<label>Câu hỏi bảo mật Của Bạn <span class="required"></span></label>
 									<div class="aa-single-advance-search">
 										<select name="Question" style="width: 100%; height: 35px;" >
-											<option  value="Ban hoc truong nao" >Ban hoc truong nao</option>
-											<option value="Ten cua ban">Ten cua ban</option>
-											<option  value="Đia chi cua ban">Đia chi cua ban</option>
-											<option  value="Con vat yeu thich cua ban">Con vat yeu thich cua ban</option>
-											<option  value="con vat ban ghet">con vat ban ghet</option>
+											<option value="" selected></option>
+											<option value="Tên của bạn">Tên của bạn</option>
+											<option value="Địa chỉ của bạn">Địa chỉ của bạn</option>
+											<option value="Con vật bạn thích">Con vật bạn thích</option>
+											<option value="Con vật bạn ghét">Con vật bạn ghét</option>
 										</select>
 									</div>
 								</div>

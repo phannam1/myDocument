@@ -31,6 +31,8 @@ public class forgotPassword extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
 		String userName = request.getParameter("userName");
 		String passwordLevel2 = request.getParameter("passwordLevel2");
 		String selectValue = request.getParameter("question");

@@ -31,6 +31,8 @@ public class uploadDocument extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 		accountDTO Usersession = (accountDTO)session.getAttribute(constants.USER_SESSION);	
 		if(check.checkSession(Usersession)) {			

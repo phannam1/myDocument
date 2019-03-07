@@ -59,11 +59,11 @@
 <table id="rounded-corner">
     <thead>
     	<tr>
-        	<th></th>
-            <th>Tài khoản</th>
+       
+            <th>STT</th>
             <th>Tên Chức Năng</th>
             <th>Mô tả</th>      
-            <th>Xóa</th>
+            
         </tr>
     </thead>
         <tfoot>
@@ -73,27 +73,14 @@
     </tfoot>
     <tbody>
     	<tr class="odd">
-        	<td><input type="checkbox" name="" /></td>
+        
             <td>User4</td>
             <td>Xem trang</td>
             <td>Xem các dữ liệu hiển thị trên trang</td>
            
-            <td><a href="#"><img src="img/trash.gif" alt="" title="" border="0" /></a></td>
+            
         </tr>
-    	<tr class="even">
-        	<td><input type="checkbox" name="" /></td>
-            <td>User3</td>
-            <td>Tải file</td>
-            <td>Tải các dữ liệu hiển thị trên trang</td>
-           
-     
-            <td><a href="#"><img src="img/trash.gif" alt="" title="" border="0" /></a></td>
-        </tr>
-    	
-    	
-    	
-    	
-        
+
     </tbody>
 </table>
 <div class="form_sub_buttons">

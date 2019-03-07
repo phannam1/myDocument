@@ -43,7 +43,7 @@
       });
            
       $("#btnConfirmPopup").click(function () {
-    	  $('form[name=acctionEventUpdate]').attr('action','updateActiveDelete');
+    	 
     	  $('form[name=acctionEventUpdate]').submit();
           $("#MyPopup").modal("hide");
           

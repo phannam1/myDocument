@@ -80,10 +80,10 @@
 									<div class="aa-single-advance-search">
 										<select style="width: 100%; height: 35px;" id="question" name="question" >
 											<option value="" selected></option>
-											<option value="Ten cua ban">Ten cua ban</option>
-											<option value="Dia chi cua ban">Dia chi cua ban</option>
-											<option value="Con vat ban thich">Con vat ban thich</option>
-											<option value="Con vat ban ghet">Con vat ban ghet</option>
+											<option value="Tên của bạn">Tên của bạn</option>
+											<option value="Địa chỉ của bạn">Địa chỉ của bạn</option>
+											<option value="Con vật bạn thích">Con vật bạn thích</option>
+											<option value="Con vật bạn ghét">Con vật bạn ghét</option>
 										</select>
 									</div>
 								</div>

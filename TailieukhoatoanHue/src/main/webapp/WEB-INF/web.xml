@@ -153,6 +153,12 @@
   	<description></description>
   	<servlet-class>controller.actionRole</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>actionRoleDelete</servlet-name>
+  	<display-name>actionRoleDelete</display-name>
+  	<description></description>
+  	<servlet-class>controller.actionRoleDelete</servlet-class>
+  </servlet>
   
   <servlet-mapping>
   	 <servlet-name>Infor</servlet-name>
@@ -251,6 +257,10 @@
   <servlet-mapping>
   	<servlet-name>actionRole</servlet-name>
   	<url-pattern>/actionRole</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>actionRoleDelete</servlet-name>
+  	<url-pattern>/actionRoleDelete</url-pattern>
   </servlet-mapping>
   
   

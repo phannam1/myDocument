@@ -5,20 +5,30 @@
 <head>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
 <title>Adminnitrator</title>
 <link rel="stylesheet" type="text/css" href="css/admin.css" />
 <link href='http://fonts.googleapis.com/css?family=Belgrano'
 	rel='stylesheet' type='text/css' />
 <!-- jQuery file -->
-<script src="js/roleAdmin.js" ></script>
 <script src="js/jquery.min1.js"></script>
+<script src="js/roleAdmin.js"></script>
+
 <script src="js/jquery.tabify.js" type="text/javascript" charset="utf-8"></script>
 <!-- Font awesome -->
 <link href="css/font-awesome.css" rel="stylesheet" />
 <!-- Bootstrap -->
 <link href="css/bootstrap.css" rel="stylesheet" />
 <!-- slick slider -->
+<link rel="shortcut icon" href="img/T.PNG" type="image/x-icon">
+
+<script type="text/javascript"
+	src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js'></script>
+<script type="text/javascript"
+	src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js'></script>
+<link rel="stylesheet"
+	href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css'
+	media="screen" />
 </head>
 <body>
 	<div id="panelwrap">
@@ -93,7 +103,9 @@
 
 								<div class="form_row">
 									<label>Nhập Tài Khoản:</label>
-									 <input required="required"  class="form_select" name="chooseUserName" type="text"  list="ide" />
+									 <input id="nhap" required="required"  class="form_select" name="chooseUserName" type="text"  list="ide" />
+									 <p style="color: red; padding-left: 100px" id="error" >${error}</p>
+									 <c:remove var="error" scope="session" /> 
 									<datalist id="ide" >
 									<c:forEach items="${listRole}" var="role">
 										<option value="${role.userName}">${role.userName}</option>
@@ -114,7 +126,8 @@
 							</div>
 						</form>
 							<div class="col-md-1">
-									<input type="button" class="form_submit" value="Xóa" />
+							<input id="btnDisplayPopup" type="button" class="form_submit" value="Xóa" />
+									
 								</div>
 						<div class="clear"></div>
 					</div>

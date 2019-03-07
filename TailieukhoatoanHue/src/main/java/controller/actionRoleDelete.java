@@ -5,19 +5,24 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import beans.constants;
+import dao.roleDAO;
+import dto.accountDTO;
 
 /**
- * Servlet implementation class updateIsActiveAccount
+ * Servlet implementation class actionRoleDelete
  */
-public class updateIsActiveAccount extends HttpServlet {
+public class actionRoleDelete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public updateIsActiveAccount() {
-        super();
-        // TODO Auto-generated constructor stub
+	roleDAO dao = null;
+    public actionRoleDelete() {
+       dao = new roleDAO();
     }
 
 	/**
@@ -26,7 +31,21 @@ public class updateIsActiveAccount extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
-		String userName = request.getParameter("userName");
+		HttpSession session = request.getSession();
+		accountDTO Usersession = (accountDTO)session.getAttribute(constants.USER_SESSION);
+		String userName = request.getParameter("chooseUserName");
+		if(userName.equals("")) {
+			String message = "Bạn phải nhập vào trường này";
+			request.setAttribute("error", message);
+			request.getRequestDispatcher("/roleAdmin").forward(request, response);
+			
+		}else if(dao.deleteRole(userName)==false) {
+			response.sendRedirect(request.getContextPath()+"/roleAdmin");
+		}
+		else {
+			response.sendRedirect(request.getContextPath()+"/roleAdmin");
+		}
+		
 	}
 
 	/**
