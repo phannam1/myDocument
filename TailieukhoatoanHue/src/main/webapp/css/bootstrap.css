@@ -131,12 +131,15 @@ input[type="submit"] {
   -webkit-appearance: button;
   cursor: pointer;
  border: none;
- background-color: #fff;
- color :#59abe3;
+ background-color: #0291d4;
+ color :#fff;
+}
+input[type="button"]:hover{
+	background-color: #333;
 }
 button:hover {
-	background-color: #59abe3;
-	color : #fff;
+	background-color: #333;
+
 }
 button[disabled],
 html input[disabled] {

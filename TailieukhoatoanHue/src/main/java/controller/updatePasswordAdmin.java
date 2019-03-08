@@ -33,12 +33,14 @@ public class updatePasswordAdmin extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
+        HttpSession session = request.getSession();
+		accountDTO Usersession = (accountDTO)session.getAttribute(constants.USER_SESSION);
 		String userName = request.getParameter("userName");
 		String password = request.getParameter("password");
 		String newPassword = request.getParameter("newPassword");
 		String retryPassword = request.getParameter("retryPassword");
 		accountDTO account = new accountDTO(userName,newPassword);
-		if(dao.updatePasswordAdmin(userName,password, newPassword) && check.checkRetryPassword(newPassword, retryPassword)) {
+		if(dao.updatePasswordAdmin(userName,password, newPassword,Usersession.getAccountId()) && check.checkRetryPassword(newPassword, retryPassword)) {
 			HttpSession usSession = request.getSession();	
 			usSession.setAttribute(constants.USER_SESSION, account);
 			System.out.println("update success");

@@ -1,15 +1,17 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <%@ page isELIgnored="false"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Adminnitrator</title>
 <link rel="stylesheet" type="text/css" href="css/admin.css" />
 <link href='http://fonts.googleapis.com/css?family=Belgrano' rel='stylesheet' type='text/css'/>
 <!-- jQuery file -->
 <script src="js/jquery.min1.js"></script>
+<script src="js/functionAdmin.js"></script>
 <script src="js/jquery.tabify.js" type="text/javascript" charset="utf-8"></script>
 <!-- Font awesome -->
     <link href="css/font-awesome.css" rel="stylesheet"/>
@@ -39,15 +41,7 @@
     
     </div>
     
-   <!--   <div class="submenu">
-    <ul>
-    <li><a href="#" class="selected">settings</a></li>
-    <li><a href="#">users</a></li>
-    <li><a href="#">categories</a></li>
-    <li><a href="#">edit section</a></li>
-    <li><a href="#">templates</a></li>
-    </ul>
-    </div>   -->       
+        
                     
     <div class="center_content">  
  
@@ -72,189 +66,53 @@
         </tr>
     </tfoot>
     <tbody>
-    	<tr class="odd">
-        
-            <td>User4</td>
-            <td>Xem trang</td>
-            <td>Xem các dữ liệu hiển thị trên trang</td>
-           
-            
+    <c:forEach items="${list}" var="function">
+    	<tr class="odd"> 
+            <td><a href="getFunction?id=${function.functionId }">${function.functionId }</a></td>
+            <td>${function.functionName }</td>
+            <td>${function.description }</td> 
         </tr>
-
+</c:forEach>
     </tbody>
 </table>
-<div class="form_sub_buttons">
-	
-    <a href="#" class="button red">Xóa Lựa Chọn</a>
-    </div>
+
 <ul id="tabsmenu" class="tabsmenu">
         <li class="active"><a href="#tab1">Thông Tin các chức năng người dùng</a></li>
-        <!-- <li><a href="#tab2">Tab two</a></li>
-        <li><a href="#tab3">Tab three</a></li>
-        <li><a href="#tab4">Tab four</a></li> -->
+        
     </ul>
     <div id="tab1" class="tabcontent">
-        <form method="post" action="#">
+        <form name ="actionFunction" method="post" action="" >
         <div class="form"  >
             
-            <div class="form_row">
-            <label>Tài Khoản:</label>
-            <select class="form_select" name="">
-            <option>Chọn tài khoản</option>
-            <option>User4</option>
-            <option>User3</option>
-            </select>
-            </div>
+            
             <div class="form_row">
             <label>Tên Chức Năng:</label>
-            <input type="text" class="form_input" name="" value="Xem trang" />
+            <input type="text" class="form_input" name="functionName" value="" />
             </div>
             
             <div class="form_row">
             <label>Mô tả:</label>
-            <textarea class="form_textarea" name="" value="Xem các dữ liệu hiển thị trên trang" ></textarea>
+            <textarea class="form_textarea" name="descriptionFunction" value="" ></textarea>
             </div>
              <div class="col-md-6" >
-            <input type="submit" class="form_submit" value="Thêm Mới" />
-            </div>
-             
+            <input id="btnRegister" type="button" class="form_submit" value="Thêm Mới" />
+            </div>        
             </div>
             </form>
              <div class="col-md-1" >
-            <input type="submit" class="form_submit" value=" Sửa" />
+            <input id="btnUpdate" type="button" class="form_submit" value=" Sửa" />
             </div>
             <div class="col-md-1" >
-            <input  type="submit" class="form_submit" value="Xóa" />
+            <input  type="button" class="form_submit" value="Xóa" />
             </div>
             <div class="clear"></div>
             </div>
             
 
-	   <!--<div class="form_sub_buttons">
-	<a href="#" class="button green">Sửa Lựa Chọn</a>
-    <a href="#" class="button red">Xóa Lựa Chọn</a>
-    </div>
-    
-    <ul id="tabsmenu" class="tabsmenu">
-        <li class="active"><a href="#tab1">Form Design Structure</a></li>
-        <li><a href="#tab2">Tab two</a></li>
-        <li><a href="#tab3">Tab three</a></li>
-        <li><a href="#tab4">Tab four</a></li>
-    </ul>
-    <div id="tab1" class="tabcontent">
-        <h3>Tab one title</h3>
-        <div class="form">
-            
-            <div class="form_row">
-            <label>Name:</label>
-            <input type="text" class="form_input" name="" />
-            </div>
-             
-            <div class="form_row">
-            <label>Email:</label>
-            <input type="text" class="form_input" name="" />
-            </div>
-            
-            <div class="form_row">
-            <label>Subject:</label>
-            <select class="form_select" name="">
-            <option>Select one</option>
-            </select>
-            </div>
-            
-             <div class="form_row">
-            <label>Message:</label>
-            <textarea class="form_textarea" name=""></textarea>
-            </div>
-            <div class="form_row">
-            <input type="submit" class="form_submit" value="Submit" />
-            </div> 
-            <div class="clear"></div>
-        </div>
-    </div>
-    <div id="tab2" class="tabcontent">
-        <h3>Tab two title</h3>
-        <ul class="lists">
-        <li>Consectetur adipisicing elit  error sit voluptatem accusantium doloremqu sed</li>
-        <li>Sed do eiusmod tempor incididunt</li>
-        <li>Ut enim ad minim veniam is iste natus error sit</li>
-        <li>Consectetur adipisicing elit sed</li>
-        <li>Sed do eiusmod tempor  error sit voluptatem accus antium dolor emqu incididunt</li>
-        <li>Ut enim ad minim veniam</li>
-        <li>Consectetur adipisi  error sit voluptatem accusantium doloremqu cing elit sed</li>
-        <li>Sed do eiusmod tempor in is iste natus error sit cididunt</li>
-        <li>Ut enim ad minim ve is iste natus error sitniam</li>
-        </ul>
-    </div>
-
-    <div id="tab3" class="tabcontent">
-        <h3>Tab three title</h3>
-        <p>
-    Lorem ipsum <a href="#">dolor sit amet</a>, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. <br /><br />Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
-        </p>
-    </div> 
-    
-    <div id="tab4" class="tabcontent">
-        <h3>Tab four title</h3>
-        <p>
-    Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, ad <br /><br />Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
-        </p>
-    </div> 
-     
-    
-
-    
-      <div class="toogle_wrap">
-            <div class="trigger"><a href="#">Toggle with text</a></div>
-
-            <div class="toggle_container">
-			<p>
-        Lorem ipsum <a href="#">dolor sit amet</a>, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum <a href="#">dolor sit amet</a>, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-			</p>
-            </div>
-        </div> -->
+	   
       
      </div>
-     </div><!-- end of right content-->
-                     
-                    
-    <!--  <div class="sidebar" id="sidebar">
-    <h2>Browse categories</h2>
-    
-        <ul>
-            <li><a href="#" class="selected">Main page</a></li>
-            <li><a href="#">Template settings</a></li>
-            <li><a href="#">Add page</a></li>
-            <li><a href="#">Edit section</a></li>
-            <li><a href="#">Templates</a></li>
-            <li><a href="#">Clients</a></li>
-        </ul>
-        
-    <h2>Page Section</h2>
-    
-        <ul>
-            <li><a href="#">Edit section</a></li>
-            <li><a href="#">Templates</a></li>
-            <li><a href="#">Clients</a></li>
-            <li><a href="#">Docs and info</a></li>
-        </ul> 
-        
-    <h2>User Settings</h2>
-    
-        <ul>
-            <li><a href="#">Edit user</a></li>
-            <li><a href="#">Add users</a></li>
-            <li><a href="#">Manage users</a></li>
-            <li><a href="#">Help</a></li>
-        </ul>   
-         
-    <h2>Text Section</h2> 
-    <div class="sidebar_section_text">
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </div>         
-    
-    </div>  -->           
-    
+     </div>
     
     <div class="clear"></div>
     </div> <!--end of center_content-->

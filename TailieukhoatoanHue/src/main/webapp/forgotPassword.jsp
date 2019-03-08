@@ -70,7 +70,7 @@
 								</div>
 								<div class="aa-single-field">
 									<label>Mật Khẩu Cấp 2 Của Bạn <span class="required">*</span></label>
-									<input id="matkhau" type="password" required="required"
+									<input id="matkhau" type="password" 
 										name="passwordLevel2" value="" placeholder="passwordLevel2" onmousemove="checkValudationForgotPassword(this.id)">
 										<p id="checkMore6">Mật khẩu cấp 2 không được trống</p>
 								</div>

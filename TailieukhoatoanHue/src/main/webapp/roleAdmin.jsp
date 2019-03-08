@@ -57,7 +57,66 @@
 
 		</div>
 
+		<ul class="tabsmenu">
+			<li class="active">
+				<form name="searchInputRole" method="post" action="searchInputRole">
+					<div>
+						<div>
+							<input id="btnSearchRole" type="button" class="form_submit"
+								value="Search" />
 
+						</div>
+						<div>
+							<input id="valueInputSearch" type="text" class="form_input"
+								name="valueInputSearch" value="" />
+						</div>
+
+
+					</div>
+				</form>
+			</li>
+			<li class="active"><a>Thông Tin các quyền của người dùng</a></li>
+
+		</ul>
+		<div id="tab1" class="tabcontent">
+			<form method="post" action="actionRole" name="actionRoleUpdate">
+				<div class="form">
+
+					<div class="form_row">
+						<label>Nhập Tài Khoản:</label> <input value="${role.userName}"
+							id="nhap" required="required" class="form_select"
+							name="chooseUserName" type="text" list="ide" />
+						<p style="color: red; padding-left: 100px" id="error">${error}</p>
+						<c:remove var="error" scope="session" />
+						<datalist id="ide">
+							<c:forEach items="${listRole}" var="role">
+								<option value="${role.userName}">${role.userName}</option>
+							</c:forEach>
+						</datalist>
+					</div>
+					<div class="form_row">
+						<label>Chọn quyền:</label> <select class="form_select"
+							name="chooseRole">
+							<option value="1">Admin</option>
+							<option value="2">User</option>
+						</select>
+					</div>
+					<div class="form_row">
+						<label>Mô tả :</label> <input type="text" readonly="readonly"
+							class="form_input" name="description"
+							value="${role.description }" />
+					</div>
+					<div class="col-md-8">
+						<input id="btnShowPopup" type="button" class="form_submit"
+							value="Chỉnh Sửa" />
+					</div>
+
+
+				</div>
+			</form>
+
+			<div class="clear"></div>
+		</div>
 
 		<div class="center_content">
 
@@ -84,7 +143,7 @@
 						<tbody>
 							<c:forEach items="${listRole}" var="role">
 								<tr class="odd">
-									<td>${role.userName}</td>
+									<td><a href="clickUserNameOfRole?id=${role.userName}">${role.userName}</a></td>
 									<td>${role.roleName}</td>
 									<td>${role.description}</td>
 								</tr>
@@ -92,72 +151,34 @@
 						</tbody>
 					</table>
 
-					<ul class="tabsmenu">
-						<li class="active"><a href="#">Thông Tin các quyền của
-								người dùng</a></li>
 
-					</ul>
-					<div id="tab1" class="tabcontent">
-						<form method="post" action="actionRole" name = "actionRoleUpdate">
-							<div class="form">
-
-								<div class="form_row">
-									<label>Nhập Tài Khoản:</label>
-									 <input id="nhap" required="required"  class="form_select" name="chooseUserName" type="text"  list="ide" />
-									 <p style="color: red; padding-left: 100px" id="error" >${error}</p>
-									 <c:remove var="error" scope="session" /> 
-									<datalist id="ide" >
-									<c:forEach items="${listRole}" var="role">
-										<option value="${role.userName}">${role.userName}</option>
-									</c:forEach> </datalist>
-								</div>
-								<div class="form_row">
-									<label>Chọn quyền:</label> <select class="form_select"
-										name="chooseRole">
-										<option value="1">Admin</option>
-										<option value="2">User</option>
-									</select>
-								</div>
-								<div class="col-md-7">
-									<input id="btnShowPopup" type="button" class="form_submit" value="Chỉnh Sửa" />
-								</div>
-
-								
-							</div>
-						</form>
-							<div class="col-md-1">
-							<input id="btnDisplayPopup" type="button" class="form_submit" value="Xóa" />
-									
-								</div>
-						<div class="clear"></div>
-					</div>
 
 
 					<!-- Modal Popup -->
-			<div id="MyPopup" class="modal fade" role="dialog">
-				<div class="modal-dialog">
-					<!-- Modal content-->
-					<div class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal">
-								&times;</button>
-							<h4 class="modal-title"></h4>
-						</div>
-						<div class="modal-body"></div>
-						<div class="modal-footer">
-						<input type="button" id="btnConfirmPopup" value="Xác Nhận"
-								class="btn btn-danger" />
-							<input type="button" id="btnClosePopup" value="Close"
-								class="btn btn-danger" />
+					<div id="MyPopup" class="modal fade" role="dialog">
+						<div class="modal-dialog">
+							<!-- Modal content-->
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">
+										&times;</button>
+									<h4 class="modal-title"></h4>
+								</div>
+								<div class="modal-body"></div>
+								<div class="modal-footer">
+									<input type="button" id="btnConfirmPopup" value="Xác Nhận"
+										class="btn btn-danger" /> <input type="button"
+										id="btnClosePopup" value="Close" class="btn btn-danger" />
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
-			</div><!-- end popup -->
-					
+					<!-- end popup -->
+
 
 				</div>
 			</div>
-			
+
 
 			<div class="clear"></div>
 		</div>

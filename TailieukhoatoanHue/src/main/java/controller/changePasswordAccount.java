@@ -42,7 +42,7 @@ public class changePasswordAccount extends HttpServlet {
 		if(check.checkRetryPassword(newPassword, retryPassword)==false) {
 			response.sendRedirect(request.getContextPath()+"/changePassword.jsp");
 		}
-		if(dao.updatePasswordAdmin(userName, password, newPassword)) {				
+		if(dao.updatePasswordAdmin(userName, password, newPassword,Usersession.getAccountId())) {				
 			response.sendRedirect(request.getContextPath() + "/index.jsp");
 			HttpSession session1 = request.getSession(false);	
 			session1.invalidate();

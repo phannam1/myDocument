@@ -53,70 +53,12 @@
  
     <div id="right_wrap">
     <div id="right_content">             
-    <!--<h2>Thông Tin Admin</h2> 
-                    
-                    
- <table id="rounded-corner">
-    <thead>
-    	<tr>
-        	<th></th>
-            <th>Tên</th>
-            <th>Phone</th>
-            <th>Address</th>
-            <th>Email</th>
-            <th>IsActive</th>
-            <th>IsDelete</th>
-            <th>Sửa</th>
-            <th>Xóa</th>
-        </tr>
-    </thead>
-        <tfoot>
-    	<tr>
-        	<td colspan="12">Trang quản lý người dùng.</td>
-        </tr>
-    </tfoot>
-    <tbody>
-    	<tr class="odd">
-        	<td><input type="checkbox" name="" /></td>
-            <td>User4</td>
-            <td>19001900</td>
-            <td>Hue</td>
-            <td>a@gmail.com</td>
-            <td>No</td>
-            <td>No</td>
-            <td><a href="#"><img src="img/edit.png" alt="" title="" border="0" /></a></td>
-            <td><a href="#"><img src="img/trash.gif" alt="" title="" border="0" /></a></td>
-        </tr>
-    	<tr class="even">
-        	<td><input type="checkbox" name="" /></td>
-            <td>User4</td>
-            <td>19001900</td>
-            <td>Hue</td>
-            <td>a@gmail.com</td>
-            <td>No</td>
-            <td>No</td>
-            <td><a href="#"><img src="img/edit.png" alt="" title="" border="0" /></a></td>
-            <td><a href="#"><img src="img/trash.gif" alt="" title="" border="0" /></a></td>
-        </tr>
-    	
-    	
-    	
-    	
-        
-    </tbody>
-</table>
-
-	<div class="form_sub_buttons">
-	<a href="#" class="button green">Sửa Lựa Chọn</a>
-    <a href="#" class="button red">Xóa Lựa Chọn</a>
-    </div> -->
+   
     
     <ul  class="tabsmenu">
         <li class="active"><a href="indexAdmin">Thông Tin Admin</a></li>
-        <li><a href="changePasswordAdmin">Đổi Mật Khẩu</a></li>
-        <!-- <li><a href="#tab2">Tab two</a></li>
-        <li><a href="#tab3">Tab three</a></li>
-        <li><a href="#tab4">Tab four</a></li> -->
+        <li class="active"><a href="changePasswordAdmin">Đổi Mật Khẩu</a></li>
+        
     </ul>
     <div id="tab1" class="tabcontent">
         <form method="post" action="updatePasswordAdmin">

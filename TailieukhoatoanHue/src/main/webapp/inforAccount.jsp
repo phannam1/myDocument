@@ -3,6 +3,7 @@
 <%@ page isELIgnored="false"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <head>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -55,33 +56,40 @@
 				<div class="col-md-12">
 					<div class="aa-signin-area">
 						<a style="float: right; font-size: 30px"
-							href="<%=request.getContextPath()%>/index
-          "><i class="fa fa-times"
-							aria-hidden="true"></i></a>
+							href="<%=request.getContextPath()%>/index"><i
+							class="fa fa-times" aria-hidden="true"></i></a>
 						<div class="aa-signin-form">
-<a href="changePassword.jsp">Đổi Mật Khẩu </a>
+							<a href="changePassword.jsp">Đổi Mật Khẩu </a>
 							<div class="aa-signin-form-title">
 								<a href="#"><img
 									style="float: right; color: blue; width: 100px; height: 100px"
 									src="${account.avatar}" alt="Avatar"></a>
 								<h4>Cập Nhật Thông Tin Của Bạn</h4>
 							</div>
-							
-							<form class="contactform" action="<%=request.getContextPath()%>/update" method="post">
+
+							<form class="contactform" action="update" method="post">
 								<div class="aa-single-field">
-									<label for="name" >Xin Chào :<span style="color: red"> ${account.name}</span></label>
+									<label for="name">Xin Chào :<span style="color: red">
+											${account.name}</span></label>
 
 								</div>
-								<div class="aa-single-field">
-									<label>Mật Khẩu Cấp 2 Của Bạn <span class="required">*</span></label>
-									<input id="matkhau" type="password" name="passwordLevel2" required="required"
-										value="${account.passwordLevel2}" placeholder="passwordLevel2" onmousemove="checkValudationInfor(this.id)">
-										 <p id="checkMore6">Mật khẩu phải từ 6 ký tự trở lên</p>
+								<div id="checkValue" class="aa-single-field">
+									<label>Mật Khẩu Cấp 2 Của Bạn : <span class="required"></span></label>
+									<input id="matkhau" type="password" name="passwordLevel2"
+										value="${account.passwordLevel2}" placeholder="passwordLevel2"
+										onmousemove="checkValudationInfor(this.id)">
+									<p id="checkMore6">Mật khẩu phải từ 6 ký tự trở lên</p>
+									<label>Xác Nhận mật khẩu cấp 2: <span class="required"></span></label>
+									<input id="confirmmatkhau" type="password"
+										name="confirmpassword" value="${account.passwordLevel2}" placeholder="RetryPassword"
+										onmousemove="checkValudationInfor(this.id)">
+									<p id="checkNullConfirm">Mật khẩu phải giống nhau</p>
 								</div>
-								<div class="aa-single-field">
-									<label>Câu hỏi bảo mật Của Bạn <span class="required"></span></label>
+								<div id="questionAndAnswer" class="aa-single-field">
+									<label>Câu hỏi bảo mật Của Bạn : <span class="required"></span></label>
 									<div class="aa-single-advance-search">
-										<select name="Question" style="width: 100%; height: 35px;" >
+										<select name="Question" id="mySelect"
+											style="width: 100%; height: 35px;">
 											<option value="" selected></option>
 											<option value="Tên của bạn">Tên của bạn</option>
 											<option value="Địa chỉ của bạn">Địa chỉ của bạn</option>
@@ -89,43 +97,46 @@
 											<option value="Con vật bạn ghét">Con vật bạn ghét</option>
 										</select>
 									</div>
-								</div>
-								<div class="aa-single-field">
-									<label for="answer">Câu trả lời bảo mật của bạn <span
+									<label for="answer">Câu trả lời bảo mật của bạn : <span
 										class="required"></span></label> <input id="answer" type="text"
-										 aria-required="true" value="${account.answerSecurity}"
+										aria-required="true" value="${account.answerSecurity}"
 										name="answer" placeholder="answer">
+									   <p style="color: red" id="error" >${error}</p>
+               							<c:remove var="error" scope="session" />
+								</div>
+
+								<div class="aa-single-field">
+									<label>Địa chỉ : <span class="required"></span></label> <input
+										id="mk" type="text" aria-required="true"
+										value="${account.address}" name="address"
+										placeholder="address"
+										onmousemove="checkValudationInfor(this.id)">
+
 								</div>
 								<div class="aa-single-field">
-									<label>Address <span class="required">*</span></label> <input id="mk"
-										type="text" required="required" aria-required="true" value="${account.address}"
-										name="address" placeholder="address" onmousemove="checkValudationInfor(this.id)">
-										<p id="checkNullmk">Địa chỉ không được trống</p> 
-								</div>
-								<div class="aa-single-field">
-									<label>Phone <span class="required"></span></label> <input
-										type="text"  aria-required="true" value="${account.phone}"
+									<label>Điện thoại: <span class="required"></span></label> <input
+										type="text" aria-required="true" value="${account.phone}"
 										name="phone" placeholder="phone">
-										
+
 								</div>
 								<div class="aa-single-field">
-									<label for="email">Email <span class="required">*</span></label>
-									<input id="email" type="email" required="required" aria-required="true"
+									<label for="email">Email <span class="required"></span></label>
+									<input id="email" type="email" aria-required="true"
 										value="${account.email}" name="email" placeholder="email">
-										<p id="checkNullEmail" onmousemove="validateEmail(this.id)"> Email phải đúng định dạng</p>
+									<p id="checkNullEmail" onmousemove="validateEmail(this.id)">
 								</div>
 								<div class="aa-single-submit">
 									<input type="submit" value="Cập Nhật " name="submit">
 								</div>
 							</form>
-						
-									
-								
-							
+
+
+
+
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 	</section>
 
 
@@ -144,6 +155,7 @@
 	<script type="text/javascript" src="js/jquery.fancybox.pack.js"></script>
 	<!-- Custom js -->
 	<script src="js/custom.js"></script>
-	<script type="text/javascript" src="js/validationInput.js"></script>
+	<script type="text/javascript" src="js/checkValueInfor.js"></script>
+	<script type="text/javascript" src="js/onchange.js"></script>
 </body>
 </html>

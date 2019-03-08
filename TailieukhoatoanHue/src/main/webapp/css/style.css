@@ -59,7 +59,12 @@ a {
   text-decoration: none;
 padding-right: 5px;
 
-}#checkMore6{
+}
+#notNullok{
+
+	display: none;
+}
+#checkMore6{
 	color: red;
 	display: none;
 }
@@ -1762,12 +1767,14 @@ img {
   border-radius: 0;
   margin-left: 0;
   margin-right: 1px;
+      background-color: #0291d4;
 }
 .aa-properties-content-bottom .pagination li:last-child a {
   border: 1px solid #ccc !important;
   border-radius: 0;
   margin-left: 0;
   margin-right: 2px;
+      background-color: #0291d4;
 }
 .aa-properties-content-bottom .pagination li a {
   border: 1px solid transparent;

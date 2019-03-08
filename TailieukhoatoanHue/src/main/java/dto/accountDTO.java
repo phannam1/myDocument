@@ -62,11 +62,12 @@ public class accountDTO {
 		this.createById = createById;
 		this.lasModifiedById = lasModifiedById;
 	}
-	public accountDTO( String name,String userName, String password, String email,int createById,int lasModifiedById ) {
+	public accountDTO( String name,String userName, String password, String email,int roleId,int createById,int lasModifiedById ) {
 		this.userName = userName;
 		this.password = password;
 		this.name = name;
 		this.email = email;
+		this.roleId = roleId;
 		this.createById = createById;
 		this.lasModifiedById = lasModifiedById;
 	}

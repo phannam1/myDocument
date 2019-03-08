@@ -6,8 +6,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import beans.constants;
 import dao.accountDAO;
+import dto.accountDTO;
 
 /**
  * Servlet implementation class updateActiveDelete
@@ -31,7 +34,8 @@ public class updateActiveDelete extends HttpServlet {
 			throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
-		
+    	HttpSession session = request.getSession();
+		accountDTO Usersession = (accountDTO)session.getAttribute(constants.USER_SESSION);
 		try {
 			String userName = request.getParameter("userName");
 			String checkBoxisActive = "";
@@ -56,7 +60,7 @@ public class updateActiveDelete extends HttpServlet {
 					isDelete = 0;
 				}
 			}
-			if(dao.updateActiveDelete(isActive, isDelete, userName)) {
+			if(dao.updateActiveDelete(isActive, isDelete,Usersession.getAccountId(), userName)) {
 				
 				response.sendRedirect(request.getContextPath()+"/accountAdmin");
 			}

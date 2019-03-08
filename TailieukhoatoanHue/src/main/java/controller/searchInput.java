@@ -1,8 +1,10 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
-
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -11,22 +13,23 @@ import javax.servlet.http.HttpSession;
 
 import beans.constants;
 import dao.accountDAO;
+
 import dto.accountDTO;
 
+
 /**
- * Servlet implementation class updateForgotPassword
+ * Servlet implementation class searchInput
  */
-public class updateForgotPassword extends HttpServlet {
+public class searchInput extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-	checkLogin check = null;
 	accountDAO dao = null;
-    public updateForgotPassword() {
-       check = new checkLogin();
-       dao = new accountDAO();
+	
+    public searchInput() {
+     dao = new accountDAO();
     }
 
 	/**
@@ -36,21 +39,17 @@ public class updateForgotPassword extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
-		accountDTO Usersession = (accountDTO)session.getAttribute(constants.USER_SESSION);
-		String userName = Usersession.getUserName();
-		String password = request.getParameter("newpassword");
-		String retryPassword = request.getParameter("confirmpassword");
-		if(check.checkRetryPassword(password, retryPassword)==false) {
-			response.sendRedirect(request.getContextPath()+"/changeForgotPassword.jsp");	
+		accountDTO Usersession = (accountDTO)session.getAttribute(constants.USER_SESSION);	
+		String value = request.getParameter("valueInput");
+		if(dao.searchLike(value)!=null) {
+			List<accountDTO> list = new ArrayList<accountDTO>();
+			list = dao.searchLike(value);
+			request.setAttribute("account", Usersession);		
+			request.setAttribute("list", list);			
+			RequestDispatcher rd = request.getRequestDispatcher("accountAdmin.jsp");
+			  rd.forward(request, response);;
+			
 		}
-		if(check.checkSession(Usersession) && dao.changeForgotPassword(userName, password,Usersession.getAccountId())) {
-			HttpSession Session = request.getSession(false);	
-			Session.invalidate();
-			response.sendRedirect(request.getContextPath()+"/index.jsp");			
-		}else {
-			response.sendRedirect(request.getContextPath()+"/changeForgotPassword.jsp");
-		}
-		
 	}
 
 	/**

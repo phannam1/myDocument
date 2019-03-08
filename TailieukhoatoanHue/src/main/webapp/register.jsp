@@ -3,6 +3,7 @@
 <%@ page isELIgnored="false"%>
  <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <head>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,7 +12,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="img/T.PNG" type="image/x-icon">
-    
     
     <!-- Font awesome -->
     <link href="css/font-awesome.css" rel="stylesheet">
@@ -66,20 +66,22 @@
                   <label for="name"> Tài Khoản <span class="required">*</span></label>
                   <input id ="taikhoan" type="text" required="required" aria-required="true" value="" name="userName" placeholder="UserName" onmousemove="checkValudationRegister(this.id)">
                    <p id="checkNulltk"> Tài khoản không được trống</p>
+                   <p style="color: red;" id="error" >${error}</p>
+					<c:remove var="error" scope="session" /> 
                 </div>                                                                           
                 <div class="aa-single-field">
                   <label >Mật Khẩu <span class="required">*</span></label>
                   <input id = "matkhau"  id="matkhau" type="password" name="password" value="" placeholder="password" onmousemove="checkValudationRegister(this.id)"> 
-               
+                <p id="checkMore6">Mật khẩu phải từ 6 ký tự trở lên</p>
                   <label >Xác Nhận  <span class="required">*</span></label>
                   <input  id="confirmmatkhau" type="password" name="confirmpassword" value="" placeholder="RetryPassword" onmousemove="checkValudationRegister(this.id)"> 
-                  <p id="checkMore6">Mật khẩu phải từ 6 ký tự trở lên</p>
+                 
                   <p id="checkNullConfirm"> Mật khẩu phải giống nhau</p>
                 </div>
                 <div class="aa-single-field">
                   <label for="email">Email <span class="required">*</span></label>
-                  <input id = "email" type="email" required="required" aria-required="true" value="" name="email" placeholder="Email" onmousemove="validateEmail(this.id)">
-                   <p id="checkNullEmail"> Email phải đúng định dạng</p>
+                  <input id = "email" type="email" required="required" aria-required="true" value="" name="email" placeholder="Email" ">
+                  
                 </div> 
                 <div class="aa-single-submit">
                   <input type="submit" value="Đăng Ký" name="submit">                                    
@@ -109,5 +111,14 @@
   <!-- Custom js -->
   <script src="js/custom.js"></script> 
 <script type="text/javascript" src="js/validationInput.js"></script>
+<script type="text/javascript">
+document.getElementById("taikhoan").onchange = function() {
+	myFunction123()
+};
+
+function myFunction123() {
+	document.getElementById("error").style.display = 'none';
+
+}</script>
   </body>
 </html>

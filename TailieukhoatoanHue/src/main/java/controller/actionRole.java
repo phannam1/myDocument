@@ -52,7 +52,7 @@ public class actionRole extends HttpServlet {
 		String role = request.getParameter("chooseRole");
 		int roleId = Integer.parseInt(role);
 		if(check.checkSession(Usersession)) {	
-			if(dao.updateRole(roleId, userName)) {
+			if(dao.updateRole(roleId, userName,Usersession.getAccountId())) {
 				response.sendRedirect(request.getContextPath()+"/roleAdmin");	
 			}
 		}		

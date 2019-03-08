@@ -159,6 +159,36 @@
   	<description></description>
   	<servlet-class>controller.actionRoleDelete</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>clickUserNameOfRole</servlet-name>
+  	<display-name>clickUserNameOfRole</display-name>
+  	<description></description>
+  	<servlet-class>controller.clickUserNameOfRole</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>searchInput</servlet-name>
+  	<display-name>searchInput</display-name>
+  	<description></description>
+  	<servlet-class>controller.searchInput</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>searchInputRole</servlet-name>
+  	<display-name>searchInputRole</display-name>
+  	<description></description>
+  	<servlet-class>controller.searchInputRole</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>functionRegister</servlet-name>
+  	<display-name>functionRegister</display-name>
+  	<description></description>
+  	<servlet-class>controller.functionRegister</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>functionUpdate</servlet-name>
+  	<display-name>functionUpdate</display-name>
+  	<description></description>
+  	<servlet-class>controller.functionUpdate</servlet-class>
+  </servlet>
   
   <servlet-mapping>
   	 <servlet-name>Infor</servlet-name>
@@ -261,6 +291,26 @@
   <servlet-mapping>
   	<servlet-name>actionRoleDelete</servlet-name>
   	<url-pattern>/actionRoleDelete</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>clickUserNameOfRole</servlet-name>
+  	<url-pattern>/clickUserNameOfRole</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>searchInput</servlet-name>
+  	<url-pattern>/searchInput</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>searchInputRole</servlet-name>
+  	<url-pattern>/searchInputRole</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>functionRegister</servlet-name>
+  	<url-pattern>/functionRegister</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>functionUpdate</servlet-name>
+  	<url-pattern>/functionUpdate</url-pattern>
   </servlet-mapping>
   
   

@@ -17,19 +17,17 @@ import dto.accountDTO;
 import dto.functionDTO;
 
 /**
- * Servlet implementation class functionAdmin
+ * Servlet implementation class functionRegister
  */
-public class functionAdmin extends HttpServlet {
+public class functionRegister extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-	checkLogin check = null; 
 	functionDAO dao = null;
-    public functionAdmin() {
-        check = new checkLogin();
-        dao = new functionDAO();
+    public functionRegister() {
+       dao  = new functionDAO();
     }
 
 	/**
@@ -38,9 +36,12 @@ public class functionAdmin extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
-		HttpSession session = request.getSession();
+        HttpSession session = request.getSession();
 		accountDTO Usersession = (accountDTO)session.getAttribute(constants.USER_SESSION);	
-		if(check.checkSession(Usersession)) {	
+		String functionName = request.getParameter("functionName");
+		String descriptionFunction = request.getParameter("descriptionFunction");
+		functionDTO function = new functionDTO(functionName,descriptionFunction,Usersession.getAccountId(),Usersession.getAccountId());
+		if(dao.registerFunction(function)!=null) {
 			List<functionDTO> list = new ArrayList<functionDTO>();
 			list = dao.readAllFuction();
 			request.setAttribute("list", list);
@@ -49,7 +50,8 @@ public class functionAdmin extends HttpServlet {
 			  rd.forward(request, response);;
 		}
 		else {
-			response.sendRedirect(request.getContextPath()+"/index.jsp");
+			response.sendRedirect(request.getContextPath()+"/functionAdmin.jsp");
+		
 		}
 	}
 

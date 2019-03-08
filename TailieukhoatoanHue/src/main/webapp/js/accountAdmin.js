@@ -49,5 +49,12 @@
           
       });
   });
+  $(function () {
+      $("#btnSearch").click(function () {
+    	  $('form[name=searchInput]').attr('action','searchInput');
+    	  $('form[name=searchInput]').submit();
+          
+      });
+  });
 
   

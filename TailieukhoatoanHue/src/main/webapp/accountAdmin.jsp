@@ -57,6 +57,75 @@
 
 		</div>
 
+		<ul class="tabsmenu">
+			<li class="active">
+				<form name="searchInput" method="post" action="searchInput">
+					<div>
+						<div>
+							<input id="btnSearch" type="button" class="form_submit"
+								value="Search" />
+
+						</div>
+						<div>
+							<input id="valueInputSearch" type="text" class="form_input"
+								name="valueInput" value="" />
+						</div>
+
+
+					</div>
+				</form>
+			</li>
+
+			<li class="active"><a>Thông Tin người dùng</a></li>
+
+
+		</ul>
+		<div class="tabcontent">
+			<form name="acctionEventUpdate" method="post"
+				action="updateActiveDelete">
+				<div class="form">
+					<div class="form_row">
+						<label>Tài khoản:</label> <input type="text" class="form_input"
+							name="userName" readonly="readonly" value="${user.userName }" />
+					</div>
+					<div class="form_row">
+						<label>Tên:</label> <input type="text" class="form_input" name=""
+							readonly="readonly" value="${user.name }" />
+					</div>
+					<div class="form_row">
+						<label>Điện thoại:</label> <input type="text" class="form_input"
+							name="" value="${user.phone }" readonly="readonly" />
+					</div>
+					<div class="form_row">
+						<label>Địa chỉ:</label> <input type="text" class="form_input"
+							name="" value="${user.address }" readonly="readonly" />
+					</div>
+					<div class="form_row">
+						<label>Email:</label> <input type="text" class="form_input"
+							name="" value="${user.email }" readonly="readonly" />
+					</div>
+					<div class="form_row">
+						<label>Hoạt Động:</label> <input class="isActive"
+							style="width: 50px; height: 20px;" type="checkbox"
+							class="form_input" name="isActive" value="${user.isActive }" />
+					</div>
+					<div class="form_row">
+						<label>Xác nhận Xóa :</label> <input class="isActive"
+							style="width: 50px; height: 20px;" type="checkbox"
+							class="form_input" name="isDelete" value="${user.isDelete }" />
+					</div>
+
+					<div class="col-md-8">
+						<input type="button" id="btnShowPopup" class="form_submit"
+							value="Chỉnh Sửa" />
+
+					</div>
+
+				</div>
+			</form>
+
+			<div class="clear"></div>
+		</div>
 
 
 		<div class="center_content">
@@ -104,61 +173,12 @@
 						</tbody>
 					</table>
 
-					<ul class="tabsmenu">
-						<li class="active"><a>Thông Tin người dùng</a></li>
-
-					</ul>
-					<div class="tabcontent">
-						<form name="acctionEventUpdate" method="post" action="updateActiveDelete">
-							<div class="form">
-								<div class="form_row">
-									<label>Tài khoản:</label> <input type="text" class="form_input"
-										name="userName" readonly="readonly" value="${user.userName }" />
-								</div>
-								<div class="form_row">
-									<label>Tên:</label> <input type="text" class="form_input"
-										name="" readonly="readonly" value="${user.name }" />
-								</div>
-								<div class="form_row">
-									<label>Điện thoại:</label> <input type="text"
-										class="form_input" name="" value="${user.phone }"
-										readonly="readonly" />
-								</div>
-								<div class="form_row">
-									<label>Địa chỉ:</label> <input type="text" class="form_input"
-										name="" value="${user.address }" readonly="readonly" />
-								</div>
-								<div class="form_row">
-									<label>Email:</label> <input type="text" class="form_input"
-										name="" value="${user.email }" readonly="readonly" />
-								</div>
-								<div class="form_row">
-									<label>Hoạt Động:</label> <input class="isActive"
-										style="width: 50px; height: 20px;" type="checkbox"
-										class="form_input" name="isActive" value="${user.isActive }" />
-								</div>
-								<div class="form_row">
-									<label>Xác nhận Xóa :</label> <input class="isActive"
-										style="width: 50px; height: 20px;" type="checkbox"
-										class="form_input" name="isDelete" value="${user.isDelete }" />
-								</div>
-
-								<div class="col-md-8">
-									<input type="button" id="btnShowPopup" class="form_submit" value="Chỉnh Sửa" />
-
-								</div>
-
-							</div>
-						</form>
-
-						<div class="clear"></div>
-					</div>
 
 
 
 				</div>
 			</div>
-			
+
 			<!-- Modal Popup -->
 			<div id="MyPopup" class="modal fade" role="dialog">
 				<div class="modal-dialog">
@@ -171,14 +191,14 @@
 						</div>
 						<div class="modal-body"></div>
 						<div class="modal-footer">
-						<input type="button" id="btnConfirmPopup" value="Xác Nhận"
-								class="btn btn-danger" />
-							<input type="button" id="btnClosePopup" value="Close"
-								class="btn btn-danger" />
+							<input type="button" id="btnConfirmPopup" value="Xác Nhận"
+								class="btn btn-danger" /> <input type="button"
+								id="btnClosePopup" value="Close" class="btn btn-danger" />
 						</div>
 					</div>
 				</div>
-			</div><!-- end popup -->
+			</div>
+			<!-- end popup -->
 
 			<div class="clear"></div>
 		</div>

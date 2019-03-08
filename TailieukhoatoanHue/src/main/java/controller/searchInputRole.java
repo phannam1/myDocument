@@ -1,8 +1,10 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
-
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -10,23 +12,22 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import beans.constants;
-import dao.accountDAO;
+import dao.roleDAO;
 import dto.accountDTO;
+import dto.roleDTO;
 
 /**
- * Servlet implementation class updateForgotPassword
+ * Servlet implementation class searchInputRole
  */
-public class updateForgotPassword extends HttpServlet {
+public class searchInputRole extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-	checkLogin check = null;
-	accountDAO dao = null;
-    public updateForgotPassword() {
-       check = new checkLogin();
-       dao = new accountDAO();
+	roleDAO dao = null;
+    public searchInputRole() {
+       dao = new roleDAO();
     }
 
 	/**
@@ -36,21 +37,16 @@ public class updateForgotPassword extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
-		accountDTO Usersession = (accountDTO)session.getAttribute(constants.USER_SESSION);
-		String userName = Usersession.getUserName();
-		String password = request.getParameter("newpassword");
-		String retryPassword = request.getParameter("confirmpassword");
-		if(check.checkRetryPassword(password, retryPassword)==false) {
-			response.sendRedirect(request.getContextPath()+"/changeForgotPassword.jsp");	
+		accountDTO Usersession = (accountDTO)session.getAttribute(constants.USER_SESSION);	
+		String value = request.getParameter("valueInputSearch");
+		if(dao.searchLike(value)!=null) {	
+			List<roleDTO> listRole = new ArrayList<roleDTO>();
+			listRole = dao.searchLike(value);			
+			request.setAttribute("account", Usersession);
+			request.setAttribute("listRole", listRole);	
+			RequestDispatcher rd = request.getRequestDispatcher("roleAdmin.jsp");
+			  rd.forward(request, response);;
 		}
-		if(check.checkSession(Usersession) && dao.changeForgotPassword(userName, password,Usersession.getAccountId())) {
-			HttpSession Session = request.getSession(false);	
-			Session.invalidate();
-			response.sendRedirect(request.getContextPath()+"/index.jsp");			
-		}else {
-			response.sendRedirect(request.getContextPath()+"/changeForgotPassword.jsp");
-		}
-		
 	}
 
 	/**

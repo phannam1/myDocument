@@ -1,6 +1,5 @@
 package dao;
 
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,14 +16,15 @@ public class accountDAO {
 	final String SQLREADALLACCOUNT = "SELECT * FROM ACCOUNT WHERE ISDELETE = 0";
 	final String SQLLOGIN = "SELECT * FROM ACCOUNT WHERE USERNAME = ? AND PASSWORD = ? AND ISACTIVE = 1 AND ISDELETE = 0";
 	final String SQLLOGINNOACTIVE = "SELECT * FROM ACCOUNT WHERE USERNAME = ? AND PASSWORD = ? AND ISACTIVE = 0 AND ISDELETE = 0";
-	final String SQLREGISTER ="INSERT INTO ACCOUNT(NAME,USERNAME,PASSWORD,EMAIL,CREATEBYID,LASTMODIFIEDBYID) VALUES(?,?,?,?,?,?)";
-	final String SQLUPDATEACTIVEDELETE = "UPDATE ACCOUNT SET ISACTIVE = ?,ISDELETE = ? WHERE USERNAME = ? ";
-	final String SQLUPDATEACCOUNT="UPDATE ACCOUNT set passWordLevel2 = ? ,questionSecurity = ? ,answerSecurity = ? ,address = ? ,phone = ? ,email = ? where accountId = ? ";
+	final String SQLREGISTER = "INSERT INTO ACCOUNT(NAME,USERNAME,PASSWORD,EMAIL,CREATEBYID,LASTMODIFIEDBYID,ROLEID) VALUES(?,?,?,?,?,?,?)";
+	final String SQLUPDATEACTIVEDELETE = "UPDATE ACCOUNT SET ISACTIVE = ?,ISDELETE = ?,lastModifiedById = ? WHERE USERNAME = ? ";
+	final String SQLUPDATEACCOUNT = "UPDATE ACCOUNT set passWordLevel2 = ? ,questionSecurity = ? ,answerSecurity = ? ,address = ? ,phone = ? ,email = ? where accountId = ? ";
 	final String SQLGETACCOUNT = "SELECT * FROM ACCOUNT WHERE USERNAME = ?";
-	final String SQLCHANGEPASSWORDADMIN = "UPDATE ACCOUNT SET PASSWORD = ? WHERE USERNAME = ? AND PASSWORD =? ";
-	final String SQLUPDATEADMIN = "UPDATE ACCOUNT SET NAME = ? , ADDRESS = ? , EMAIL = ? , PHONE = ? WHERE USERNAME = ?"; 
-	final String SQLFORGOTPASSWORD = "SELECT * FROM ACCOUNT WHERE USERNAME = ? AND PASSWORDLEVEL2 = ? OR QUESTIONSECURITY = ? OR ANSWERSECURITY = ? "; 
-	final String SQLCHANGEFORGOTPASSWORD = "UPDATE ACCOUNT SET PASSWORD = ? WHERE USERNAME = ?";
+	final String SQLCHANGEPASSWORDADMIN = "UPDATE ACCOUNT SET PASSWORD = ? ,lastModifiedById = ? WHERE USERNAME = ? AND PASSWORD =? ";
+	final String SQLUPDATEADMIN = "UPDATE ACCOUNT SET NAME = ? , ADDRESS = ? , EMAIL = ? , PHONE = ? WHERE USERNAME = ?";
+	final String SQLFORGOTPASSWORD = "SELECT * FROM ACCOUNT WHERE USERNAME = ? AND PASSWORDLEVEL2 = ? OR QUESTIONSECURITY = ? OR ANSWERSECURITY = ? ";
+	final String SQLCHANGEFORGOTPASSWORD = "UPDATE ACCOUNT SET PASSWORD = ? ,lastModifiedById = ? WHERE USERNAME = ?";
+	final String SQLSEARCHLIKE = "SELECT * FROM ACCOUNT WHERE USERNAME LIKE ? OR NAME LIKE ? OR PHONE LIKE ? OR ADDRESS LIKE ? OR EMAIL LIKE ? ";
 	Connection con = null;
 	HashUtils hashUtil = null;
 
@@ -82,29 +82,29 @@ public class accountDAO {
 //		return false;
 //	}
 
-	
-	public List<accountDTO> readAllAccount(){
+	public List<accountDTO> readAllAccount() {
 		try {
 			Statement sttm = con.createStatement();
 			ResultSet rs = sttm.executeQuery(SQLREADALLACCOUNT);
-			if(rs!=null) {
+			if (rs != null) {
 				List<accountDTO> list = new ArrayList<accountDTO>();
-				while(rs.next()) {
+				while (rs.next()) {
 					accountDTO account = new accountDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
 							rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9),
 							rs.getString(10), rs.getString(11), rs.getInt(12), rs.getInt(13), rs.getInt(14),
-							rs.getInt(15),rs.getInt(16));				
+							rs.getInt(15), rs.getInt(16));
 					list.add(account);
 				}
 				return list;
 			}
 		} catch (SQLException e) {
-		
+
 			e.printStackTrace();
 		}
-		
+
 		return null;
 	}
+
 	public accountDTO create(accountDTO account) {
 		try {
 			PreparedStatement pr = con.prepareStatement(SQLREGISTER);
@@ -114,6 +114,7 @@ public class accountDAO {
 			pr.setString(4, account.getEmail());
 			pr.setInt(5, account.getAccountId());
 			pr.setInt(6, account.getAccountId());
+			pr.setInt(7, account.getRoleId());
 			int i = pr.executeUpdate();
 			if (i != 0) {
 				return account;
@@ -143,6 +144,7 @@ public class accountDAO {
 		}
 		return false;
 	}
+
 	public boolean checkLoginNoActive(String userName, String password) {
 		try {
 			PreparedStatement pr = con.prepareStatement(SQLLOGINNOACTIVE);
@@ -172,7 +174,7 @@ public class accountDAO {
 					accountDTO account = new accountDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
 							rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9),
 							rs.getString(10), rs.getString(11), rs.getInt(12), rs.getInt(13), rs.getInt(14),
-							rs.getInt(15),rs.getInt(16));
+							rs.getInt(15), rs.getInt(16));
 					return account;
 				}
 			}
@@ -186,15 +188,15 @@ public class accountDAO {
 
 	public boolean checkUserName(String userName) {
 		try {
-			PreparedStatement pr =con.prepareStatement(SQLGETACCOUNT);
+			PreparedStatement pr = con.prepareStatement(SQLGETACCOUNT);
 			pr.setString(1, userName);
-				ResultSet rs = pr.executeQuery();
-				if (rs != null) {
-					if (rs.next()) {
-						return true;
-					}
+			ResultSet rs = pr.executeQuery();
+			if (rs != null) {
+				if (rs.next()) {
+					return true;
 				}
-			
+			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -204,30 +206,41 @@ public class accountDAO {
 	public boolean updateAccount(accountDTO account) {
 		try {
 			PreparedStatement pr = con.prepareStatement(SQLUPDATEACCOUNT);
-			pr.setString(1, hashUtil.hashmd5( account.getPasswordLevel2()));
+			if (account.getPasswordLevel2().equals("")) {
+				pr.setString(1, null);
+			} else {
+				pr.setString(1, hashUtil.hashmd5(account.getPasswordLevel2()));
+			}
+
 			if (account.getQuestionSecurity().equals("")) {
 				pr.setString(2, null);
-			}
-			else {
+			} else {
 				pr.setString(2, account.getQuestionSecurity());
 			}
 			if (account.getAnswerSecurity().equals("")) {
 				pr.setString(3, null);
-			}
-			else {
+			} else {
 				pr.setString(3, account.getAnswerSecurity());
 			}
-			pr.setString(4, account.getAddress());
-			if (account.getAnswerSecurity().equals("")) {
+			if (account.getAddress().equals("")) {
+				pr.setString(4, null);
+			} else {
+				pr.setString(4, account.getAddress());
+			}
+
+			if (account.getPhone().equals("")) {
 				pr.setString(5, null);
-			} 
-			else {
+			} else {
 				pr.setString(5, account.getPhone());
 			}
-			pr.setString(6, account.getEmail());
+			if (account.getEmail().equals("")) {
+				pr.setString(6, null);
+			} else {
+				pr.setString(6, account.getEmail());
+			}
 			pr.setInt(7, account.getAccountId());
 			int i = pr.executeUpdate();
-			if (i!=0) {
+			if (i != 0) {
 				return true;
 			}
 		} catch (Exception e) {
@@ -241,23 +254,24 @@ public class accountDAO {
 			PreparedStatement pr = con.prepareStatement(SQLGETACCOUNT);
 			pr.setString(1, userName);
 			ResultSet rs = pr.executeQuery();
-			if(rs!=null) {
-				if(rs.next()) {
+			if (rs != null) {
+				if (rs.next()) {
 					accountDTO account = new accountDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
 							rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9),
 							rs.getString(10), rs.getString(11), rs.getInt(12), rs.getInt(13), rs.getInt(14),
-							rs.getInt(15),rs.getInt(16));
+							rs.getInt(15), rs.getInt(16));
 					return account;
 				}
 			}
 		} catch (SQLException e) {
-			
+
 			e.printStackTrace();
 		}
-		
+
 		return null;
 	}
-	public boolean updateAdmin (accountDTO account) {
+
+	public boolean updateAdmin(accountDTO account) {
 		try {
 			PreparedStatement pr = con.prepareStatement(SQLUPDATEADMIN);
 			pr.setString(1, account.getName());
@@ -266,41 +280,45 @@ public class accountDAO {
 			pr.setString(4, account.getPhone());
 			pr.setString(5, account.getUserName());
 			int i = pr.executeUpdate();
-			if(i!=0) {
+			if (i != 0) {
 				return true;
 			}
 		} catch (SQLException e) {
-			
+
 			e.printStackTrace();
 		}
-		
+
 		return false;
 	}
-	public boolean updatePasswordAdmin(String Admin,String oldPassword,String newPassword) {
+
+	public boolean updatePasswordAdmin(String Admin, String oldPassword, String newPassword,int lastModifiedById) {
 		try {
-			PreparedStatement pr = con .prepareStatement(SQLCHANGEPASSWORDADMIN);
+			PreparedStatement pr = con.prepareStatement(SQLCHANGEPASSWORDADMIN);
 			pr.setString(1, hashUtil.hashmd5(newPassword));
-			pr.setString(2, Admin);
-			pr.setString(3, hashUtil.hashmd5(oldPassword));
+			pr.setInt(2, lastModifiedById);
+			pr.setString(3, Admin);
+			pr.setString(4, hashUtil.hashmd5(oldPassword));
 			int i = pr.executeUpdate();
-			if(i!=0) {
+			if (i != 0) {
 				return true;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return false;
 	}
-	public boolean updateActiveDelete( int isActive , int isDelete,String userName) {
+
+	public boolean updateActiveDelete(int isActive, int isDelete,int lastModifiedById, String userName) {
 		try {
 			PreparedStatement pr = con.prepareStatement(SQLUPDATEACTIVEDELETE);
 			pr.setInt(1, isActive);
 			pr.setInt(2, isDelete);
-			pr.setString(3, userName);
+			pr.setInt(3, lastModifiedById);
+			pr.setString(4, userName);
 			int i = pr.executeUpdate();
-			if(i!=0) {
+			if (i != 0) {
 				return true;
 			}
 		} catch (SQLException e) {
@@ -309,50 +327,78 @@ public class accountDAO {
 		}
 		return false;
 	}
+
 	public boolean forgotPassword(accountDTO account) {
 		try {
 			PreparedStatement pr = con.prepareStatement(SQLFORGOTPASSWORD);
 			pr.setString(1, account.getUserName());
-			pr.setString(2,hashUtil.hashmd5( account.getPasswordLevel2()));
-			if(account.getQuestionSecurity().equals("")) {
+			pr.setString(2, hashUtil.hashmd5(account.getPasswordLevel2()));
+			if (account.getQuestionSecurity().equals("")) {
 				pr.setString(3, null);
-			}
-			else {
+			} else {
 				pr.setString(3, account.getQuestionSecurity());
 			}
-			if(account.getAnswerSecurity().equals("")) {
+			if (account.getAnswerSecurity().equals("")) {
 				pr.setString(4, null);
-			}
-			else {
+			} else {
 				pr.setString(4, account.getAnswerSecurity());
-			}			
-			
+			}
+
 			ResultSet rs = pr.executeQuery();
-			if(rs!=null) {
-				if(rs.next()) {
+			if (rs != null) {
+				if (rs.next()) {
 					return true;
 				}
 			}
 		} catch (SQLException e) {
-		
+
 			e.printStackTrace();
 		}
 		return false;
 	}
-	public boolean changeForgotPassword(String userName,String password) {
+
+	public boolean changeForgotPassword(String userName, String password,int lastModifiedById) {
 		try {
 			PreparedStatement pr = con.prepareStatement(SQLCHANGEFORGOTPASSWORD);
-			pr.setString(1,hashUtil.hashmd5( password));
-			pr.setString(2, userName);
-		
+			
+			pr.setString(1, hashUtil.hashmd5(password));
+			pr.setInt(2, lastModifiedById);
+			pr.setString(3, userName);
 			int i = pr.executeUpdate();
-			if(i!=0) {
+			if (i != 0) {
 				return true;
+			}
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+		return false;
+	}
+	public List<accountDTO> searchLike(String valueInput){
+		try {
+			PreparedStatement pr = con.prepareStatement(SQLSEARCHLIKE);
+			pr.setString(1, '%'+valueInput +'%');
+			pr.setString(2, '%'+valueInput +'%');
+			pr.setString(3, '%'+valueInput +'%');
+			pr.setString(4, '%'+valueInput +'%');
+			pr.setString(5, '%'+valueInput +'%');
+			ResultSet rs = pr.executeQuery();
+			if(rs!=null) {
+				List<accountDTO > list = new ArrayList<accountDTO>();
+				while(rs.next()){
+					accountDTO account = new accountDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
+							rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9),
+							rs.getString(10), rs.getString(11), rs.getInt(12), rs.getInt(13), rs.getInt(14),
+							rs.getInt(15), rs.getInt(16));
+					list.add(account);
+					
+				}
+				return list;
 			}
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
 		}
-		return false;
+		return null;
 	}
 }
