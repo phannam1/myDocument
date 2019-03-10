@@ -13,7 +13,7 @@
 <!-- jQuery file -->
 <script src="js/jquery.min1.js"></script>
 <script src="js/roleAdmin.js"></script>
-
+<script src="js/onclickRole.js"></script>
 <script src="js/jquery.tabify.js" type="text/javascript" charset="utf-8"></script>
 <!-- Font awesome -->
 <link href="css/font-awesome.css" rel="stylesheet" />
@@ -63,7 +63,7 @@
 					<div>
 						<div>
 							<input id="btnSearchRole" type="button" class="form_submit"
-								value="Search" />
+								value="Tìm Kiếm" />
 
 						</div>
 						<div>
@@ -83,14 +83,14 @@
 				<div class="form">
 
 					<div class="form_row">
-						<label>Nhập Tài Khoản:</label> <input value="${role.userName}"
+						<label>Nhập Tài Khoản:</label> <input  id="taikhoan" value="${role.userName}"
 							id="nhap" required="required" class="form_select"
 							name="chooseUserName" type="text" list="ide" />
 						<p style="color: red; padding-left: 100px" id="error">${error}</p>
 						<c:remove var="error" scope="session" />
 						<datalist id="ide">
 							<c:forEach items="${listRole}" var="role">
-								<option value="${role.userName}">${role.userName}</option>
+								<option  value="${role.userName}">${role.userName}</option>
 							</c:forEach>
 						</datalist>
 					</div>
@@ -102,7 +102,7 @@
 						</select>
 					</div>
 					<div class="form_row">
-						<label>Mô tả :</label> <input type="text" readonly="readonly"
+						<label>Mô tả :</label> <input style="width: 506px" id="mota" type="text" readonly="readonly"
 							class="form_input" name="description"
 							value="${role.description }" />
 					</div>
@@ -142,8 +142,8 @@
 						</tfoot>
 						<tbody>
 							<c:forEach items="${listRole}" var="role">
-								<tr class="odd">
-									<td><a href="clickUserNameOfRole?id=${role.userName}">${role.userName}</a></td>
+								<tr class="odd" onclick="getValueRole('${role.userName}','${role.roleName}','${role.description}')">
+									<td><a >${role.userName}</a></td>
 									<td>${role.roleName}</td>
 									<td>${role.description}</td>
 								</tr>

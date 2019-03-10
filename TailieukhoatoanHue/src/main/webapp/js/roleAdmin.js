@@ -21,12 +21,13 @@
               
           });
       });
-      document.getElementById("nhap").onchange = function() {myFunction()};
+	 });
+      document.getElementById("taikhoan").onchange = function() {myFunction()};
 
       function myFunction() {
        document.getElementById("error").style.display = 'none'; 
       } 
-	 });
+	 
 	 $(function () {
 	      $("#btnSearchRole").click(function () {
 	    	  $('form[name=searchInputRole]').attr('action','searchInputRole');

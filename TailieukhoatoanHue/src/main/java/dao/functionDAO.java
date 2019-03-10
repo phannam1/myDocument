@@ -16,7 +16,8 @@ import utils.HashUtils;
 public class functionDAO {
 	final String READALLFUNCTION = "SELECT * FROM MYDOCUMENT.FUNCTION ";
 	final String REGISTERFUNCTION = "INSERT INTO MYDOCUMENT.FUNCTION(functionName,description,createById,lastModifiedById) VALUES(?,?,?,?)";
-	final String UPDATEFUNCTION = "UPDATE FUNCTION SET FUNCTIONNAME = ? , DESCRIPTION = ? ,lastModifiedById = ? WHERE FUNCTIONID = ?";
+	final String UPDATEFUNCTION = "UPDATE MYDOCUMENT.FUNCTION SET FUNCTIONNAME = ? , DESCRIPTION = ? ,lastModifiedById = ? WHERE FUNCTIONID = ?";
+	final String SQLDELETEFUNCTION = "DELETE FROM MYDOCUMENT.FUNCTION WHERE FUNCTIONID = ?";
 	Connection con = null;
 	HashUtils hashUtil = null;
 
@@ -77,5 +78,19 @@ public class functionDAO {
 		}
 		return false;
 		
+	}
+	public boolean deleteFunction(int id) {
+		try {
+			PreparedStatement pr = con.prepareStatement(SQLDELETEFUNCTION);
+			pr.setInt(1, id);
+			int i = pr.executeUpdate();
+			if(i!=0) {
+				return true;
+			}
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		return false;
 	}
 }

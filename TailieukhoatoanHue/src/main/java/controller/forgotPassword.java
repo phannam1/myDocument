@@ -34,7 +34,7 @@ public class forgotPassword extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
 		String userName = request.getParameter("userName");
-		String passwordLevel2 = request.getParameter("passwordLevel2");
+		String passwordLevel2 = request.getParameter("passwordLevel2");		
 		String selectValue = request.getParameter("question");
 		String answer = request.getParameter("answer");
 		accountDTO account = new accountDTO(userName,passwordLevel2,selectValue,answer);

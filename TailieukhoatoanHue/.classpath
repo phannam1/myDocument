@@ -32,9 +32,9 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/STB/Desktop/mysql-connector-java-8.0.15.jar"/>
-	<classpathentry kind="lib" path="C:/Users/STB/Desktop/taglibs-standard-impl-1.2.5.jar"/>
-	<classpathentry kind="lib" path="C:/Users/STB/Desktop/taglibs-standard-spec-1.2.5.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v8.5"/>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v8.0"/>
+	<classpathentry kind="lib" path="C:/Users/Phan Thanh Nam/Desktop/mysql-connector-java-8.0.15.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Phan Thanh Nam/Desktop/taglibs-standard-impl-1.2.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Phan Thanh Nam/Desktop/taglibs-standard-spec-1.2.5.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

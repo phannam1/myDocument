@@ -24,7 +24,8 @@ public class accountDAO {
 	final String SQLUPDATEADMIN = "UPDATE ACCOUNT SET NAME = ? , ADDRESS = ? , EMAIL = ? , PHONE = ? WHERE USERNAME = ?";
 	final String SQLFORGOTPASSWORD = "SELECT * FROM ACCOUNT WHERE USERNAME = ? AND PASSWORDLEVEL2 = ? OR QUESTIONSECURITY = ? OR ANSWERSECURITY = ? ";
 	final String SQLCHANGEFORGOTPASSWORD = "UPDATE ACCOUNT SET PASSWORD = ? ,lastModifiedById = ? WHERE USERNAME = ?";
-	final String SQLSEARCHLIKE = "SELECT * FROM ACCOUNT WHERE USERNAME LIKE ? OR NAME LIKE ? OR PHONE LIKE ? OR ADDRESS LIKE ? OR EMAIL LIKE ? ";
+	final String SQLSEARCHLIKE = "SELECT * FROM ACCOUNT WHERE  USERNAME LIKE ? AND  ISDELETE = 0 OR NAME LIKE ? AND  ISDELETE = 0 OR PHONE LIKE ? AND  ISDELETE = 0 OR ADDRESS LIKE ? AND  ISDELETE = 0 OR EMAIL LIKE ? AND  ISDELETE = 0  ";
+	final String SQLDELETEACCOUNT = "UPDATE ACCOUNT SET ISDELETE = 1 WHERE USERNAME = ?";
 	Connection con = null;
 	HashUtils hashUtil = null;
 
@@ -400,5 +401,19 @@ public class accountDAO {
 			e.printStackTrace();
 		}
 		return null;
+	}
+	public boolean deleteAccount(String userName) {
+		try {
+			PreparedStatement pr = con.prepareStatement(SQLDELETEACCOUNT);
+			pr.setString(1, userName);
+			int i = pr.executeUpdate();
+			if(i!=0) {
+				return true;
+			}
+		} catch (SQLException e) {
+		
+			e.printStackTrace();
+		}
+		return false;
 	}
 }

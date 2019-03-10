@@ -12,12 +12,29 @@
 <!-- jQuery file -->
 <script src="js/jquery.min1.js"></script>
 <script src="js/functionAdmin.js"></script>
+<script src="js/functionOnclickAdmin.js"></script>
 <script src="js/jquery.tabify.js" type="text/javascript" charset="utf-8"></script>
 <!-- Font awesome -->
     <link href="css/font-awesome.css" rel="stylesheet"/>
     <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet"/>   
     <!-- slick slider -->
+    <script src="js/jquery.tabify.js" type="text/javascript" charset="utf-8"></script>
+<!-- Font awesome -->
+<link href="css/font-awesome.css" rel="stylesheet" />
+<script type="text/javascript" src="js/paginationAdmin.js"></script>
+<!-- Bootstrap -->
+<link href="css/bootstrap.css" rel="stylesheet" />
+<!-- slick slider -->
+<link rel="shortcut icon" href="img/T.PNG" type="image/x-icon">
+
+<script type="text/javascript"
+	src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js'></script>
+<script type="text/javascript"
+	src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js'></script>
+<link rel="stylesheet"
+	href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css'
+	media="screen" />
 </head>
 <body>
 <div id="panelwrap">
@@ -41,7 +58,56 @@
     
     </div>
     
+        <ul  class="tabsmenu">
+        <li class="active">
+				<form name="searchInput" method="post" action="searchInputFunction">
+					<div>
+						<div>
+							<input id="btnSearch" type="button" class="form_submit"
+								value="Tìm Kiếm" />
+
+						</div>
+						<div>
+							<input id="valueInputSearch" type="text" class="form_input"
+								name="valueInput" value="" />
+						</div>
+
+
+					</div>
+				</form>
+			</li>
+        <li class="active"><a >Thông Tin các chức năng người dùng</a></li>
         
+    </ul>
+    <div  class="tabcontent">
+        <form name ="actionFunction" method="post" action="functionUpdate" >
+        <div class="form"  >
+            
+            <input id = 'inputfunctionId' style="width: 500px;display: none" type="text" class="form_input" name="functionId" value="" />
+            <div class="form_row">
+            <label>Tên Chức Năng:</label>
+            <input id = 'ten' style="width: 500px;" type="text" class="form_input" name="functionName" value="" />
+            </div>
+            
+            <div class="form_row">
+            <label>Mô tả:</label>
+            <textarea  id = 'mota' class="form_textarea" name="descriptionFunction" value="" ></textarea>
+            </div>
+             <div class="col-md-6" >
+            <input id="btnRegister" type="button" class="form_submit" value="Thêm Mới" />
+            </div>        
+            </div>
+            </form>
+             <div class="col-md-1" >
+           <input  type="button" id="btnDisplayPopup" class="form_submit"
+							value=" Sửa" />
+            </div>
+            <div class="col-md-1" >
+            <input id="btnDelete" type="button" class="form_submit" value="Xóa" />
+            </div>
+            <div class="clear"></div>
+            </div>
+            
                     
     <div class="center_content">  
  
@@ -67,8 +133,8 @@
     </tfoot>
     <tbody>
     <c:forEach items="${list}" var="function">
-    	<tr class="odd"> 
-            <td><a href="getFunction?id=${function.functionId }">${function.functionId }</a></td>
+    	<tr class="odd" onclick="clickTableFunction('${function.functionId }','${function.functionName }','${function.description }')"> 
+            <td><a >${function.functionId }</a></td>
             <td>${function.functionName }</td>
             <td>${function.description }</td> 
         </tr>
@@ -76,38 +142,26 @@
     </tbody>
 </table>
 
-<ul id="tabsmenu" class="tabsmenu">
-        <li class="active"><a href="#tab1">Thông Tin các chức năng người dùng</a></li>
-        
-    </ul>
-    <div id="tab1" class="tabcontent">
-        <form name ="actionFunction" method="post" action="" >
-        <div class="form"  >
-            
-            
-            <div class="form_row">
-            <label>Tên Chức Năng:</label>
-            <input type="text" class="form_input" name="functionName" value="" />
-            </div>
-            
-            <div class="form_row">
-            <label>Mô tả:</label>
-            <textarea class="form_textarea" name="descriptionFunction" value="" ></textarea>
-            </div>
-             <div class="col-md-6" >
-            <input id="btnRegister" type="button" class="form_submit" value="Thêm Mới" />
-            </div>        
-            </div>
-            </form>
-             <div class="col-md-1" >
-            <input id="btnUpdate" type="button" class="form_submit" value=" Sửa" />
-            </div>
-            <div class="col-md-1" >
-            <input  type="button" class="form_submit" value="Xóa" />
-            </div>
-            <div class="clear"></div>
-            </div>
-            
+<!-- Modal Popup -->
+					<div id="MyPopup" class="modal fade" role="dialog">
+						<div class="modal-dialog">
+							<!-- Modal content-->
+							<div class="modal-content">
+								<div class="modal-header">
+								<h4 class="modal-title"></h4>
+									<button type="button" class="close" data-dismiss="modal">
+										&times;</button>									
+								</div>								
+								<div class="modal-body"></div>
+								<div class="modal-footer">
+									<input type="button" id="btnConfirmPopup" value="Xác Nhận"
+										class="btn btn-danger" /> <input type="button"
+										id="btnClosePopup" value="Close" class="btn btn-danger" />
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- end popup -->
 
 	   
       

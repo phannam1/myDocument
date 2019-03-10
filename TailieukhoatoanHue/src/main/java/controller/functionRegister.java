@@ -39,20 +39,25 @@ public class functionRegister extends HttpServlet {
         HttpSession session = request.getSession();
 		accountDTO Usersession = (accountDTO)session.getAttribute(constants.USER_SESSION);	
 		String functionName = request.getParameter("functionName");
-		String descriptionFunction = request.getParameter("descriptionFunction");
-		functionDTO function = new functionDTO(functionName,descriptionFunction,Usersession.getAccountId(),Usersession.getAccountId());
-		if(dao.registerFunction(function)!=null) {
-			List<functionDTO> list = new ArrayList<functionDTO>();
-			list = dao.readAllFuction();
-			request.setAttribute("list", list);
-			request.setAttribute("account", Usersession);
-			RequestDispatcher rd = request.getRequestDispatcher("functionAdmin.jsp");
-			  rd.forward(request, response);;
+		if(functionName.equals("")) {
+			response.sendRedirect(request.getContextPath()+"/functionAdmin");
+		}else {
+			String descriptionFunction = request.getParameter("descriptionFunction");
+			functionDTO function = new functionDTO(functionName,descriptionFunction,Usersession.getAccountId(),Usersession.getAccountId());
+			if(dao.registerFunction(function)!=null) {
+				List<functionDTO> list = new ArrayList<functionDTO>();
+				list = dao.readAllFuction();
+				request.setAttribute("list", list);
+				request.setAttribute("account", Usersession);
+				RequestDispatcher rd = request.getRequestDispatcher("functionAdmin.jsp");
+				  rd.forward(request, response);;
+			}
+			else {
+				response.sendRedirect(request.getContextPath()+"/functionAdmin.jsp");
+			
+			}
 		}
-		else {
-			response.sendRedirect(request.getContextPath()+"/functionAdmin.jsp");
 		
-		}
 	}
 
 	/**

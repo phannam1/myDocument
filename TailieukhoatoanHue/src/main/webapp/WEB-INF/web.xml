@@ -189,6 +189,18 @@
   	<description></description>
   	<servlet-class>controller.functionUpdate</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>deleteAccount</servlet-name>
+  	<display-name>deleteAccount</display-name>
+  	<description></description>
+  	<servlet-class>controller.deleteAccount</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>functionDelete</servlet-name>
+  	<display-name>functionDelete</display-name>
+  	<description></description>
+  	<servlet-class>controller.functionDelete</servlet-class>
+  </servlet>
   
   <servlet-mapping>
   	 <servlet-name>Infor</servlet-name>
@@ -311,6 +323,14 @@
   <servlet-mapping>
   	<servlet-name>functionUpdate</servlet-name>
   	<url-pattern>/functionUpdate</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>deleteAccount</servlet-name>
+  	<url-pattern>/deleteAccount</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>functionDelete</servlet-name>
+  	<url-pattern>/functionDelete</url-pattern>
   </servlet-mapping>
   
   
