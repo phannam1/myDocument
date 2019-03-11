@@ -120,7 +120,7 @@
     <thead>
     	<tr>
        
-            <th>ID</th>
+            <th style="display: none">ID</th>
             <th>Tên Chức Năng</th>
             <th>Mô tả</th>      
             
@@ -134,7 +134,7 @@
     <tbody>
     <c:forEach items="${list}" var="function">
     	<tr class="odd" onclick="clickTableFunction('${function.functionId }','${function.functionName }','${function.description }')"> 
-            <td><a >${function.functionId }</a></td>
+            <td style="display: none"><a >${function.functionId }</a></td>
             <td>${function.functionName }</td>
             <td>${function.description }</td> 
         </tr>

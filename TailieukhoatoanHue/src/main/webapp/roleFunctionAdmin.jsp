@@ -135,7 +135,7 @@
 					<table id="rounded-corner">
 						<thead>
 							<tr>
-								<th>ID</th>
+								<th style="display: none">ID</th>
 								<th>Quyền</th>	
 								<th>Chức Năng</th>						
 								<th>Quyền và Chức Năng</th>
@@ -152,7 +152,7 @@
 
 							<c:forEach items="${listRoleFunction}" var="roleFunction">
 								<tr class="odd" onclick="getRoleFunction('${roleFunction.roleFunctionId }','${roleFunction.functionName}','${roleFunction.description}')">
-									<td ><a>${roleFunction.roleFunctionId }</a></td>
+									<td style="display: none"><a>${roleFunction.roleFunctionId }</a></td>
 									<td>${roleFunction.roleName}</td>	
 									<td>${roleFunction.functionName}</td>					
 									<td>${roleFunction.roleName}-${roleFunction.functionName}</td>

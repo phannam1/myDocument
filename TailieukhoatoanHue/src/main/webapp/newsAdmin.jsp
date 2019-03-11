@@ -3,6 +3,7 @@
 <%@ page isELIgnored="false"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <head>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Adminnitrator</title>
@@ -43,89 +44,29 @@
 			</div>
 
 		</div>
+<ul  class="tabsmenu">
+<li class="active">
+				<form name="searchInput" method="post" action="searchInput">
+					<div>
+						<div>
+							<input id="btnSearch" type="button" class="form_submit"
+								value="Tìm Kiếm" />
 
-		<!--   <div class="submenu">
-    <ul>
-    <li><a href="#" class="selected">settings</a></li>
-    <li><a href="#">users</a></li>
-    <li><a href="#">categories</a></li>
-    <li><a href="#">edit section</a></li>
-    <li><a href="#">templates</a></li>
-    </ul>
-    </div>   -->
-
-		<div class="center_content">
-
-			<div id="right_wrap">
-				<div id="right_content">
-					<h2>Bảng Tin Tức-Sự Kiện</h2>
+						</div>
+						<div>
+							<input id="valueInputSearch" type="text" class="form_input"
+								name="valueInput" value="" />
+						</div>
 
 
-					<table id="rounded-corner">
-						<thead>
-							<tr>
-								<th></th>
-								<th>Tiêu đề</th>
-								<th>Ngày giờ đăng tin</th>
-								<th>Đường dẫn ảnh của bản tin</th>
-								<th>Nội dung</th>
-								<th>Xóa</th>
-							</tr>
-						</thead>
-						<tfoot>
-							<tr>
-								<td colspan="12">Trang quản lý của Admin!</td>
-							</tr>
-						</tfoot>
-						<tbody>
-							<tr class="odd">
-								<td><input type="checkbox" name="" /></td>
-								<td>THÔNG BÁO NHẬN THỰC TẬP SINH NĂM 2018 CỦA CÔNG TY
-									BRYCEN VIỆT NAM</td>
-								<td>08-12-2017</td>
-								<td>img/internship.png</td>
-								<td>Bạn đang tìm kiếm môi trường thực tập phù hợp để thực
-									tập hay đang lo lắng cho công việc sau khi ra trường. Hãy đến
-									với chúng tôi, Brycen Việt Nam với 100% vốn Nhật Bản, môi
-									trường làm việc chuyên nghiệp, mang tính quốc tế cao, luôn tạo
-									điều kiện cho các cá nhân có cơ hội phát triển nghề nghiệp.</td>
-								<td><a href="#"><img src="img/trash.gif" alt=""
-										title="" border="0" /></a></td>
-							</tr>
-							<tr class="even">
-								<td><input type="checkbox" name="" /></td>
-								<td>THÔNG BÁO NHẬN THỰC TẬP SINH NĂM 2018 CỦA CÔNG TY
-									BRYCEN VIỆT NAM</td>
-								<td>08-12-2017</td>
-								<td>img/internship.png</td>
-								<td>Bạn đang tìm kiếm môi trường thực tập phù hợp để thực
-									tập hay đang lo lắng cho công việc sau khi ra trường. Hãy đến
-									với chúng tôi, Brycen Việt Nam với 100% vốn Nhật Bản, môi
-									trường làm việc chuyên nghiệp, mang tính quốc tế cao, luôn tạo
-									điều kiện cho các cá nhân có cơ hội phát triển nghề nghiệp.</td>
-
-								<td><a href="#"><img src="img/trash.gif" alt=""
-										title="" border="0" /></a></td>
-							</tr>
-
-
-
-
-
-						</tbody>
-					</table>
-					<div class="form_sub_buttons">
-
-						<a href="#" class="button red">Xóa Lựa Chọn</a>
 					</div>
-					<ul id="tabsmenu" class="tabsmenu">
-						<li class="active"><a href="#tab1">Thông Tin các tin tức
+				</form>
+			</li>
+						<li class="active"><a href="">Thông Tin các tin tức
 								của trang</a></li>
-						<!-- <li><a href="#tab2">Tab two</a></li>
-        <li><a href="#tab3">Tab three</a></li>
-        <li><a href="#tab4">Tab four</a></li> -->
+						
 					</ul>
-					<div id="tab1" class="tabcontent">
+					<div class="tabcontent">
 						<form method="post" action="#">
 							<div class="form">
 
@@ -158,6 +99,50 @@
 						</div>
 						<div class="clear"></div>
 					</div>
+		
+
+		<div class="center_content">
+
+			<div id="right_wrap">
+				<div id="right_content">
+					<h2>Bảng Tin Tức-Sự Kiện</h2>
+
+
+					<table id="rounded-corner">
+						<thead>
+							<tr>						
+								<th>Tiêu đề</th>
+								<th>Ngày giờ đăng tin</th>
+								<th>Đường dẫn ảnh của bản tin</th>
+								<th>Nội dung</th>
+								
+							</tr>
+						</thead>
+						<tfoot>
+							<tr>
+								<td colspan="12">Trang quản lý của Admin!</td>
+							</tr>
+						</tfoot>
+						<tbody>
+						<c:forEach items="${listNews}" var="listNews">
+							<tr class="odd">
+								<td style="display: none">${listNews.newsId}</td>
+								<td>${listNews.title}</td>
+								 <td>${listNews.dateTime}</td> 
+								<td>${listNews.pictureLink}</td>
+								<td>${listNews.content }</td>
+								
+							</tr>
+							</c:forEach>
+
+
+
+
+
+						</tbody>
+					</table>
+					
+					
 
 
 
