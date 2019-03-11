@@ -1,11 +1,10 @@
 /**
  * 
  */
- 
  $(function () {
 	      $("#btnRegister").click(function () {
-	    	  $('form[name=actionFunction]').attr('action','functionRegister');
-	    	  $('form[name=actionFunction]').submit();
+	    	  $('form[name=formRoleFunction]').attr('action','registerRoleFunction');
+	    	  $('form[name=formRoleFunction]').submit();
 	          
 	      });
 	  });
@@ -22,12 +21,13 @@
 	            $("#MyPopup").modal("hide");
 	        });
 	             
-	        $("#btnConfirmPopup").click(function () {	      	     
-	         	  $('form[name=actionFunction]').submit();
+	        $("#btnConfirmPopup").click(function () {	 
+	        	$('form[name=formRoleFunction]').attr('action','updateRoleFunctionAdmin');
+	         	  $('form[name=formRoleFunction]').submit();
 	            $("#MyPopup").modal("hide");	            
 	        });
 	    });
- $(function () {
+$(function () {
 	    $('input[id=btnDelete]').click(function () {
 	        var title = "Xác Nhận Xóa";
 	        var body = "Bạn có chắc chắn thực hiện chức năng này ?";	
@@ -39,17 +39,16 @@
 	            $("#MyPopup1").modal("hide");
 	        });	             
 	        $("#btnConfirmPopup1").click(function () {
-	      	      $('form[name=actionFunction]').attr('action','functionDelete');
-	         	  $('form[name=actionFunction]').submit();
+	      	      $('form[name=formRoleFunction]').attr('action','deleteRoleFunction');
+	         	  $('form[name=formRoleFunction]').submit();
 	            $("#MyPopup1").modal("hide");
 	            
 	        });
 	    });
- $(function () {
+$(function () {
 	  $('input[id="btnSearch"]').click(function () {
-   	  
-   	  $('form[name=searchInput]').submit();
-         
-     });
- });
- 
+ 	  
+ 	  $('form[name=searchInput]').submit();
+       
+   });
+});

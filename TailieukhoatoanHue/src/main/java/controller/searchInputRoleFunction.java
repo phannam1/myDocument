@@ -19,44 +19,41 @@ import dto.functionDTO;
 import dto.roleFunctionDTO;
 
 /**
- * Servlet implementation class roleFunctionAdmin
+ * Servlet implementation class searchInputRoleFunction
  */
-public class roleFunctionAdmin extends HttpServlet {
+public class searchInputRoleFunction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-	checkLogin check = null;
 	roleFunctionDAO dao = null;
 	functionDAO functiondao = null;
-    public roleFunctionAdmin() {
-        check = new checkLogin();
-        dao = new roleFunctionDAO();
-        functiondao = new functionDAO();
+    public searchInputRoleFunction() {
+       dao = new roleFunctionDAO();
+       functiondao = new functionDAO();
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
-		accountDTO Usersession = (accountDTO)session.getAttribute(constants.USER_SESSION);	
-		if(check.checkSession(Usersession)) {
+		accountDTO Usersession = (accountDTO)session.getAttribute(constants.USER_SESSION);
+		String valueInput = request.getParameter("valueInputSearch");
+		if(dao.searchRoleFunction(valueInput)!=null) {
 			List<functionDTO> listFunction = new ArrayList<functionDTO>();
 			listFunction = functiondao.readAllFuction();
 			request.setAttribute("list", listFunction);
 			List<roleFunctionDTO> list = new ArrayList<roleFunctionDTO>();
-			list =dao.readAllRoleFunction();
+			list =dao.searchRoleFunction(valueInput);
 			request.setAttribute("listRoleFunction", list);
 			request.setAttribute("account", Usersession);
 			RequestDispatcher rd = request.getRequestDispatcher("roleFunctionAdmin.jsp");
 			  rd.forward(request, response);;
-		}
-		else {
-			response.sendRedirect(request.getContextPath()+"/index.jsp");
 		}
 	}
 

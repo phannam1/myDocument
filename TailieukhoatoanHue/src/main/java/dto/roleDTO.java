@@ -1,6 +1,8 @@
 package dto;
 
-public class roleDTO {
+import java.io.Serializable;
+
+public class roleDTO implements Serializable  {
 	private int roleId;
 	private String roleName;
 	private String description;

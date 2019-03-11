@@ -1,6 +1,8 @@
 package dto;
 
-public class functionDTO {
+import java.io.Serializable;
+
+public class functionDTO implements Serializable  {
 	private int functionId;
 	private String functionName;
 	private String description;

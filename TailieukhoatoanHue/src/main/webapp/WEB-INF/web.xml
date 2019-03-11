@@ -201,6 +201,36 @@
   	<description></description>
   	<servlet-class>controller.functionDelete</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>searchInputFunction</servlet-name>
+  	<display-name>searchInputFunction</display-name>
+  	<description></description>
+  	<servlet-class>controller.searchInputFunction</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>registerRoleFunction</servlet-name>
+  	<display-name>registerRoleFunction</display-name>
+  	<description></description>
+  	<servlet-class>controller.registerRoleFunction</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>updateRoleFunctionAdmin</servlet-name>
+  	<display-name>updateRoleFunctionAdmin</display-name>
+  	<description></description>
+  	<servlet-class>controller.updateRoleFunctionAdmin</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>deleteRoleFunction</servlet-name>
+  	<display-name>deleteRoleFunction</display-name>
+  	<description></description>
+  	<servlet-class>controller.deleteRoleFunction</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>searchInputRoleFunction</servlet-name>
+  	<display-name>searchInputRoleFunction</display-name>
+  	<description></description>
+  	<servlet-class>controller.searchInputRoleFunction</servlet-class>
+  </servlet>
   
   <servlet-mapping>
   	 <servlet-name>Infor</servlet-name>
@@ -331,6 +361,26 @@
   <servlet-mapping>
   	<servlet-name>functionDelete</servlet-name>
   	<url-pattern>/functionDelete</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>searchInputFunction</servlet-name>
+  	<url-pattern>/searchInputFunction</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>registerRoleFunction</servlet-name>
+  	<url-pattern>/registerRoleFunction</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>updateRoleFunctionAdmin</servlet-name>
+  	<url-pattern>/updateRoleFunctionAdmin</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>deleteRoleFunction</servlet-name>
+  	<url-pattern>/deleteRoleFunction</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>searchInputRoleFunction</servlet-name>
+  	<url-pattern>/searchInputRoleFunction</url-pattern>
   </servlet-mapping>
   
   

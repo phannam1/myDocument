@@ -91,7 +91,7 @@
             
             <div class="form_row">
             <label>Mô tả:</label>
-            <textarea  id = 'mota' class="form_textarea" name="descriptionFunction" value="" ></textarea>
+            <input  style="width: 500px" id = 'mota' class="form_input" name="descriptionFunction" value="" />
             </div>
              <div class="col-md-6" >
             <input id="btnRegister" type="button" class="form_submit" value="Thêm Mới" />
@@ -120,7 +120,7 @@
     <thead>
     	<tr>
        
-            <th>STT</th>
+            <th>ID</th>
             <th>Tên Chức Năng</th>
             <th>Mô tả</th>      
             
@@ -157,6 +157,26 @@
 									<input type="button" id="btnConfirmPopup" value="Xác Nhận"
 										class="btn btn-danger" /> <input type="button"
 										id="btnClosePopup" value="Close" class="btn btn-danger" />
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- end popup -->
+					<!-- Modal Popup -->
+					<div id="MyPopup1" class="modal fade" role="dialog">
+						<div class="modal-dialog">
+							<!-- Modal content-->
+							<div class="modal-content">
+								<div class="modal-header">
+								<h4 class="modal-title">Xác nhận Xóa</h4>
+									<button type="button" class="close" data-dismiss="modal">
+										&times;</button>									
+								</div>								
+								<div class="modal-body">Bạn có chắc chắn thực hiện chức năng này ?</div>
+								<div class="modal-footer">
+									<input type="button" id="btnConfirmPopup1" value="Xác Nhận"
+										class="btn btn-danger" /> <input type="button"
+										id="btnClosePopup1" value="Close" class="btn btn-danger" />
 								</div>
 							</div>
 						</div>

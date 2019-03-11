@@ -1,10 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,25 +11,22 @@ import beans.constants;
 import dao.functionDAO;
 import dao.roleFunctionDAO;
 import dto.accountDTO;
-import dto.functionDTO;
 import dto.roleFunctionDTO;
 
 /**
- * Servlet implementation class roleFunctionAdmin
+ * Servlet implementation class registerRoleFunction
  */
-public class roleFunctionAdmin extends HttpServlet {
+public class registerRoleFunction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-	checkLogin check = null;
 	roleFunctionDAO dao = null;
-	functionDAO functiondao = null;
-    public roleFunctionAdmin() {
-        check = new checkLogin();
-        dao = new roleFunctionDAO();
-        functiondao = new functionDAO();
+	functionDAO functionDao = null;
+    public registerRoleFunction() {
+       dao = new roleFunctionDAO();
+       functionDao = new functionDAO(); 
     }
 
 	/**
@@ -43,20 +36,19 @@ public class roleFunctionAdmin extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
-		accountDTO Usersession = (accountDTO)session.getAttribute(constants.USER_SESSION);	
-		if(check.checkSession(Usersession)) {
-			List<functionDTO> listFunction = new ArrayList<functionDTO>();
-			listFunction = functiondao.readAllFuction();
-			request.setAttribute("list", listFunction);
-			List<roleFunctionDTO> list = new ArrayList<roleFunctionDTO>();
-			list =dao.readAllRoleFunction();
-			request.setAttribute("listRoleFunction", list);
-			request.setAttribute("account", Usersession);
-			RequestDispatcher rd = request.getRequestDispatcher("roleFunctionAdmin.jsp");
-			  rd.forward(request, response);;
-		}
-		else {
-			response.sendRedirect(request.getContextPath()+"/index.jsp");
+		accountDTO Usersession = (accountDTO)session.getAttribute(constants.USER_SESSION);
+		String chooseRoleFunction = request.getParameter("chooseRoleFunction");
+		int roleId = Integer.parseInt(chooseRoleFunction);
+		String functionName = request.getParameter("chooseFunction");
+		int functionId = functionDao.getfunctionId(functionName);
+		String description = request.getParameter("description");
+		int createById = Usersession.getAccountId();
+		int lastModifiedById = Usersession.getAccountId();
+		roleFunctionDTO roleFunction = new roleFunctionDTO(roleId, functionId, description, createById, lastModifiedById);
+		if(dao.registerRoleFunction(roleFunction)!=null) {
+			response.sendRedirect(request.getContextPath()+"/roleFunctionAdmin");	
+		}else {
+			response.sendRedirect(request.getContextPath()+"/roleFunctionAdmin");	
 		}
 	}
 
