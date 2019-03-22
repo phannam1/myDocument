@@ -57,27 +57,40 @@
                 <h4>Điền Thông Tin Đăng Ký</h4>
               </div>
               <form class="contactform" method="post" action="<%=request.getContextPath()%>/register"> 
+              <div class="row">
+              <div class="col-sm-6">
               <div class="aa-single-field">
                   <label for="name">Tên Của Bạn <span class="required">*</span></label>
                   <input  id = "name" type="text" required="required" aria-required="true" value="" name="name" placeholder="YourName" onmousemove="checkValudationRegister(this.id)">
                  <p id="checkNullName"> Tên của bạn không được trống</p>
                 </div> 
+                </div>
+                 <div class="col-sm-6">
               <div class="aa-single-field">
                   <label for="name"> Tài Khoản <span class="required">*</span></label>
                   <input id ="taikhoan" type="text" required="required" aria-required="true" value="" name="userName" placeholder="UserName" onmousemove="checkValudationRegister(this.id)">
                    <p id="checkNulltk"> Tài khoản không được trống</p>
                    <p style="color: red;" id="error" >${error}</p>
 					<c:remove var="error" scope="session" /> 
-                </div>                                                                           
+                </div> 
+                </div>
+                </div>
+                <div class="row">
+                                                                                        
                 <div class="aa-single-field">
+                <div class="col-sm-6">
                   <label >Mật Khẩu <span class="required">*</span></label>
                   <input id = "matkhau"  id="matkhau" type="password" name="password" value="" placeholder="password" onmousemove="checkValudationRegister(this.id)"> 
                 <p id="checkMore6">Mật khẩu phải từ 6 ký tự trở lên</p>
+                </div>
+                <div class="col-sm-6">
                   <label >Xác Nhận  <span class="required">*</span></label>
                   <input  id="confirmmatkhau" type="password" name="confirmpassword" value="" placeholder="RetryPassword" onmousemove="checkValudationRegister(this.id)"> 
                  
                   <p id="checkNullConfirm"> Mật khẩu phải giống nhau</p>
+                  </div>
                 </div>
+                
                 <div class="aa-single-field">
                   <label for="email">Email <span class="required">*</span></label>
                   <input id = "email" type="email" required="required" aria-required="true" value="" name="email" placeholder="Email" ">

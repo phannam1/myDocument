@@ -1,10 +1,7 @@
 package controller;
 
 import java.io.IOException;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,18 +11,17 @@ import beans.constants;
 import dto.accountDTO;
 
 /**
- * Servlet implementation class contact
+ * Servlet implementation class uploadFullDocument
  */
-@WebServlet("/contact")
-public class contact extends HttpServlet {
+public class uploadFullDocument extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-	checkLogin check = null;
-    public contact() {
-        check = new checkLogin();
+    public uploadFullDocument() {
+        super();
+        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -34,18 +30,23 @@ public class contact extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
-		HttpSession session = request.getSession();
+        HttpSession session = request.getSession();
 		accountDTO Usersession = (accountDTO)session.getAttribute(constants.USER_SESSION);	
-		if(check.checkSession(Usersession)) {			
-			request.setAttribute("account", Usersession);
-			RequestDispatcher rd = request.getRequestDispatcher("contact.jsp");
-			  rd.forward(request, response);;
-		}
-		else {
-			
-			response.sendRedirect(request.getContextPath()+"/contact.jsp");
-			
-		}
+		String nameDocument = request.getParameter("nameDocument");
+		String major = request.getParameter("major");
+		String semester = request.getParameter("semester");
+		String subject = request.getParameter("subject");
+		String courseCredit = request.getParameter("courseCredit");
+		String typeData = request.getParameter("typeData");
+		String nameTeacher = request.getParameter("nameTeacher");
+		System.out.println(nameDocument);
+		System.out.println(major);
+		System.out.println(semester);
+		System.out.println(subject);
+		System.out.println(courseCredit);
+		System.out.println(typeData);
+		System.out.println(nameTeacher);
+		
 	}
 
 	/**

@@ -66,11 +66,11 @@
 							<div class="col-md-6 col-sm-6 col-xs-6">
 								<div class="aa-header-left">
 									<div class="aa-telephone-no">
-										<span class="fa fa-phone"></span>
+										<span class="fa fa-phone">19001900</span>
 
 									</div>
 									<div class="aa-email hidden-xs">
-										<span class="fa fa-envelope-o"></span> @gmail.com
+										<span class="fa fa-envelope-o"></span>KhoaToanDHKHHue@gmail.com
 									</div>
 								</div>
 							</div>

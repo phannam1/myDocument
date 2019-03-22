@@ -24,6 +24,24 @@ public class newsDTO {
 		this.createById = createById;
 		this.lastModifiedById = lastModifiedById;
 	}
+	
+	public newsDTO(String title, String pictureLink, String content, int createById, int lastModifiedById) {
+		super();
+		this.title = title;
+		this.pictureLink = pictureLink;
+		this.content = content;
+		this.createById = createById;
+		this.lastModifiedById = lastModifiedById;
+	}
+	
+	public newsDTO(int newsId, String title, String pictureLink, String content, int lastModifiedById) {
+		super();
+		this.newsId = newsId;
+		this.title = title;
+		this.pictureLink = pictureLink;
+		this.content = content;
+		this.lastModifiedById = lastModifiedById;
+	}
 	public int getNewsId() {
 		return newsId;
 	}

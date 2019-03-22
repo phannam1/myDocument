@@ -231,6 +231,54 @@
   	<description></description>
   	<servlet-class>controller.searchInputRoleFunction</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>registerNews</servlet-name>
+  	<display-name>registerNews</display-name>
+  	<description></description>
+  	<servlet-class>controller.registerNews</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>deleteNews</servlet-name>
+  	<display-name>deleteNews</display-name>
+  	<description></description>
+  	<servlet-class>controller.deleteNews</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>updateNews</servlet-name>
+  	<display-name>updateNews</display-name>
+  	<description></description>
+  	<servlet-class>controller.updateNews</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>searchInputNews</servlet-name>
+  	<display-name>searchInputNews</display-name>
+  	<description></description>
+  	<servlet-class>controller.searchInputNews</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>uploadFullDocument</servlet-name>
+  	<display-name>uploadFullDocument</display-name>
+  	<description></description>
+  	<servlet-class>controller.uploadFullDocument</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>documentAdmin</servlet-name>
+  	<display-name>documentAdmin</display-name>
+  	<description></description>
+  	<servlet-class>controller.documentAdmin</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>updateIsShowDocument</servlet-name>
+  	<display-name>updateIsShowDocument</display-name>
+  	<description></description>
+  	<servlet-class>controller.updateIsShowDocument</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>searchDocumentByInput</servlet-name>
+  	<display-name>searchDocumentByInput</display-name>
+  	<description></description>
+  	<servlet-class>controller.searchDocumentByInput</servlet-class>
+  </servlet>
   
   <servlet-mapping>
   	 <servlet-name>Infor</servlet-name>
@@ -381,6 +429,38 @@
   <servlet-mapping>
   	<servlet-name>searchInputRoleFunction</servlet-name>
   	<url-pattern>/searchInputRoleFunction</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>registerNews</servlet-name>
+  	<url-pattern>/registerNews</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>deleteNews</servlet-name>
+  	<url-pattern>/deleteNews</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>updateNews</servlet-name>
+  	<url-pattern>/updateNews</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>searchInputNews</servlet-name>
+  	<url-pattern>/searchInputNews</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>uploadFullDocument</servlet-name>
+  	<url-pattern>/uploadFullDocument</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>documentAdmin</servlet-name>
+  	<url-pattern>/documentAdmin</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>updateIsShowDocument</servlet-name>
+  	<url-pattern>/updateIsShowDocument</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>searchDocumentByInput</servlet-name>
+  	<url-pattern>/searchDocumentByInput</url-pattern>
   </servlet-mapping>
   
   

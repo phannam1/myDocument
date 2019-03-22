@@ -17,14 +17,14 @@ public class accountDTO implements Serializable {
 	private int isActive;
 	private int isDelete;
 	private int roleId;
-	private int createById;
+
 	private int lasModifiedById;
 	public accountDTO() {
 		
 	}
 	public accountDTO(int accountId, String userName, String password, String name, String avatar, String address,
 			String phone, String email, String passwordLevel2, String questionSecurity, String answerSecurity,
-			int isActive,int isDelete, int roleId, int createById, int lasModifiedById) {
+			int isActive,int isDelete, int roleId,  int lasModifiedById) {
 		super();
 		this.accountId = accountId;
 		this.userName = userName;
@@ -40,13 +40,13 @@ public class accountDTO implements Serializable {
 		this.isActive = isActive;
 		this.isDelete = isDelete;
 		this.roleId = roleId;
-		this.createById = createById;
+	
 		this.lasModifiedById = lasModifiedById;
 	}
 
 	public accountDTO(String userName, String password, String name, String avatar, String address, String phone,
 			String email, String passwordLevel2, String questionSecurity, String answerSecurity, int isActive,int isDelete,
-			int roleId, int createById, int lasModifiedById) {
+			int roleId,  int lasModifiedById) {
 		super();
 		this.userName = userName;
 		this.password = password;
@@ -61,17 +61,16 @@ public class accountDTO implements Serializable {
 		this.isActive = isActive;
 		this.isDelete = isDelete;
 		this.roleId = roleId;
-		this.createById = createById;
+	
 		this.lasModifiedById = lasModifiedById;
 	}
-	public accountDTO( String name,String userName, String password, String email,int roleId,int createById,int lasModifiedById ) {
+	public accountDTO( String name,String userName, String password, String email,int roleId) {
 		this.userName = userName;
 		this.password = password;
 		this.name = name;
 		this.email = email;
 		this.roleId = roleId;
-		this.createById = createById;
-		this.lasModifiedById = lasModifiedById;
+		
 	}
 	public accountDTO(String userName, String name,  String address, String email, String phone) {
 		super();
@@ -87,7 +86,7 @@ public class accountDTO implements Serializable {
 		this.password = password;
 	}
 	public accountDTO(int accountId, String address, String phone, String email, String passwordLevel2,
-			String questionSecurity, String answerSecurity) {
+			String questionSecurity, String answerSecurity,int lasModifiedById) {
 		super();
 		this.accountId = accountId;
 		this.address = address;
@@ -96,6 +95,7 @@ public class accountDTO implements Serializable {
 		this.passwordLevel2 = passwordLevel2;
 		this.questionSecurity = questionSecurity;
 		this.answerSecurity = answerSecurity;
+		this.lasModifiedById = lasModifiedById;
 	}
 	public accountDTO(String userName, String name, String address, String phone, String email, int isActive,int isDelete) {
 		super();
@@ -192,12 +192,7 @@ public class accountDTO implements Serializable {
 	public void setRoleId(int roleId) {
 		this.roleId = roleId;
 	}
-	public int getCreateById() {
-		return createById;
-	}
-	public void setCreateById(int createById) {
-		this.createById = createById;
-	}
+	
 	public int getLasModifiedById() {
 		return lasModifiedById;
 	}

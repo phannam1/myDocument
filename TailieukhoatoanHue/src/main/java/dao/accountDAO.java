@@ -16,16 +16,16 @@ public class accountDAO {
 	final String SQLREADALLACCOUNT = "SELECT * FROM ACCOUNT WHERE ISDELETE = 0";
 	final String SQLLOGIN = "SELECT * FROM ACCOUNT WHERE USERNAME = ? AND PASSWORD = ? AND ISACTIVE = 1 AND ISDELETE = 0";
 	final String SQLLOGINNOACTIVE = "SELECT * FROM ACCOUNT WHERE USERNAME = ? AND PASSWORD = ? AND ISACTIVE = 0 AND ISDELETE = 0";
-	final String SQLREGISTER = "INSERT INTO ACCOUNT(NAME,USERNAME,PASSWORD,EMAIL,CREATEBYID,LASTMODIFIEDBYID,ROLEID) VALUES(?,?,?,?,?,?,?)";
+	final String SQLREGISTER = "INSERT INTO ACCOUNT(NAME,USERNAME,PASSWORD,EMAIL,ROLEID) VALUES(?,?,?,?,?)";
 	final String SQLUPDATEACTIVEDELETE = "UPDATE ACCOUNT SET ISACTIVE = ?,ISDELETE = ?,lastModifiedById = ? WHERE USERNAME = ? ";
-	final String SQLUPDATEACCOUNT = "UPDATE ACCOUNT set passWordLevel2 = ? ,questionSecurity = ? ,answerSecurity = ? ,address = ? ,phone = ? ,email = ? where accountId = ? ";
+	final String SQLUPDATEACCOUNT = "UPDATE ACCOUNT set passWordLevel2 = ? ,questionSecurity = ? ,answerSecurity = ? ,address = ? ,phone = ? ,email = ?,lastModifiedById = ?  where accountId = ? ";
 	final String SQLGETACCOUNT = "SELECT * FROM ACCOUNT WHERE USERNAME = ?";
 	final String SQLCHANGEPASSWORDADMIN = "UPDATE ACCOUNT SET PASSWORD = ? ,lastModifiedById = ? WHERE USERNAME = ? AND PASSWORD =? ";
 	final String SQLUPDATEADMIN = "UPDATE ACCOUNT SET NAME = ? , ADDRESS = ? , EMAIL = ? , PHONE = ? WHERE USERNAME = ?";
 	final String SQLFORGOTPASSWORD = "SELECT * FROM ACCOUNT WHERE USERNAME = ? AND PASSWORDLEVEL2 = ? OR QUESTIONSECURITY = ? OR ANSWERSECURITY = ? ";
 	final String SQLCHANGEFORGOTPASSWORD = "UPDATE ACCOUNT SET PASSWORD = ? ,lastModifiedById = ? WHERE USERNAME = ?";
 	final String SQLSEARCHLIKE = "SELECT * FROM ACCOUNT WHERE  USERNAME LIKE ? AND  ISDELETE = 0 OR NAME LIKE ? AND  ISDELETE = 0 OR PHONE LIKE ? AND  ISDELETE = 0 OR ADDRESS LIKE ? AND  ISDELETE = 0 OR EMAIL LIKE ? AND  ISDELETE = 0  ";
-	final String SQLDELETEACCOUNT = "UPDATE ACCOUNT SET ISDELETE = 1 WHERE USERNAME = ?";
+	final String SQLDELETEACCOUNT = "UPDATE ACCOUNT SET ISDELETE = 1,lastModifiedById = ? WHERE USERNAME = ?";
 	Connection con = null;
 	HashUtils hashUtil = null;
 
@@ -93,7 +93,7 @@ public class accountDAO {
 					accountDTO account = new accountDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
 							rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9),
 							rs.getString(10), rs.getString(11), rs.getInt(12), rs.getInt(13), rs.getInt(14),
-							rs.getInt(15), rs.getInt(16));
+							rs.getInt(15));
 					list.add(account);
 				}
 				return list;
@@ -112,10 +112,8 @@ public class accountDAO {
 			pr.setString(1, account.getName());
 			pr.setString(2, account.getUserName());
 			pr.setString(3, hashUtil.hashmd5(account.getPassword()));
-			pr.setString(4, account.getEmail());
-			pr.setInt(5, account.getAccountId());
-			pr.setInt(6, account.getAccountId());
-			pr.setInt(7, account.getRoleId());
+			pr.setString(4, account.getEmail());		
+			pr.setInt(5, account.getRoleId());
 			int i = pr.executeUpdate();
 			if (i != 0) {
 				return account;
@@ -175,7 +173,7 @@ public class accountDAO {
 					accountDTO account = new accountDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
 							rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9),
 							rs.getString(10), rs.getString(11), rs.getInt(12), rs.getInt(13), rs.getInt(14),
-							rs.getInt(15), rs.getInt(16));
+							rs.getInt(15));
 					return account;
 				}
 			}
@@ -240,6 +238,7 @@ public class accountDAO {
 				pr.setString(6, account.getEmail());
 			}
 			pr.setInt(7, account.getAccountId());
+			pr.setInt(8, account.getAccountId());
 			int i = pr.executeUpdate();
 			if (i != 0) {
 				return true;
@@ -260,7 +259,7 @@ public class accountDAO {
 					accountDTO account = new accountDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
 							rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9),
 							rs.getString(10), rs.getString(11), rs.getInt(12), rs.getInt(13), rs.getInt(14),
-							rs.getInt(15), rs.getInt(16));
+							rs.getInt(15));
 					return account;
 				}
 			}
@@ -390,7 +389,7 @@ public class accountDAO {
 					accountDTO account = new accountDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
 							rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9),
 							rs.getString(10), rs.getString(11), rs.getInt(12), rs.getInt(13), rs.getInt(14),
-							rs.getInt(15), rs.getInt(16));
+							rs.getInt(15));
 					list.add(account);
 					
 				}
@@ -402,10 +401,11 @@ public class accountDAO {
 		}
 		return null;
 	}
-	public boolean deleteAccount(String userName) {
+	public boolean deleteAccount(String userName,int lastModifiedById) {
 		try {
 			PreparedStatement pr = con.prepareStatement(SQLDELETEACCOUNT);
-			pr.setString(1, userName);
+			pr.setInt(1, lastModifiedById);
+			pr.setString(2, userName);			
 			int i = pr.executeUpdate();
 			if(i!=0) {
 				return true;

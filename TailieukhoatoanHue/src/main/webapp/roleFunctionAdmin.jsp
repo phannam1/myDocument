@@ -51,6 +51,7 @@
 					<li><a href="functionAdmin">Chức năng</a></li>
 					<li><a href="roleFunctionAdmin" class="selected">Chức năng
 							của quyền</a></li>
+								<li><a href="documentAdmin">Tài liệu</a></li>
 					<li><a href="newsAdmin">Tin tức</a></li>
 
 					<li><a href="helpAdmin">Trợ giúp</a></li>

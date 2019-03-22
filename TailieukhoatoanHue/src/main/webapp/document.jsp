@@ -65,11 +65,11 @@
 							<div class="col-md-6 col-sm-6 col-xs-6">
 								<div class="aa-header-left">
 									<div class="aa-telephone-no">
-										<span class="fa fa-phone"></span>
+										<span class="fa fa-phone">19001900</span>
 
 									</div>
 									<div class="aa-email hidden-xs">
-										<span class="fa fa-envelope-o"></span> @gmail.com
+										<span class="fa fa-envelope-o"></span>KhoaToanDHKHHue@gmail.com
 									</div>
 								</div>
 							</div>
@@ -362,53 +362,49 @@
 									<input type="text" placeholder="Tên Tài Liệu">
 								</div>
 								<div class="aa-single-advance-search">
-									<select>
-										<option value="0" selected>Toán Học</option>
-										<option value="1">Toán Ứng Dụng</option>
-										<!-- <option value="2">Tối Ưu</option> -->
-										<!-- <option value="3">Plot</option>
-                    <option value="4">Commercial</option> -->
-									</select>
-								</div>
-								<div class="aa-single-advance-search">
-									<select>
-										<option value="0" selected>Kỳ 1</option>
-										<option value="1">Kỳ 2</option>
-										<option value="2">Kỳ 3</option>
-										<option value="3">Kỳ 4</option>
-										<option value="4">Kỳ 5</option>
-										<option value="2">Kỳ 6</option>
-										<option value="3">Kỳ 7</option>
+									<select name="major" >
+											<option value="Toán Học" >Toán Học</option>
+											<option value="Toán Ứng Dụng">Toán Ứng Dụng</option>
 
-									</select>
+										</select>
 								</div>
 								<div class="aa-single-advance-search">
-									<select>
-										<option value="0" selected>Xác Suất Thống Kê</option>
-										<option value="1">Tối Ưu</option>
-										<option value="2">Ứng Dụng</option>
-										<!-- <option value="3">Plot</option>
-                    <option value="4">Commercial</option> -->
-									</select>
+									<select name="semester">
+											<option value="Kỳ 1" >Kỳ 1</option>
+											<option value="Kỳ 2">Kỳ 2</option>
+											<option value="Kỳ 3">Kỳ 3</option>
+											<option value="Kỳ 4">Kỳ 4</option>
+											<option value="Kỳ 5">Kỳ 5</option>
+											<option value="Kỳ 6">Kỳ 6</option>
+											<option value="Kỳ 7">Kỳ 7</option>
+
+										</select>
+								</div>
+								<div class="aa-single-advance-search">
+									<select name="subject" >
+										<option value="Xác Suất Thống Kê" selected>Xác Suất Thống Kê</option>
+										<option value="Tối Ưu">Tối Ưu</option>
+										<option value="Ứng Dụng">Ứng Dụng</option>
+
+										</select>
 								</div>
 
 								<div class="aa-single-advance-search">
-									<select>
-										<option value="0" selected>2 Tín Chỉ</option>
-										<option value="1">3 Tín Chỉ</option>
-										<option value="2">4 Tín Chỉ</option>
-										<!-- <option value="3">Plot</option>
-                    <option value="4">Commercial</option> -->
-									</select>
+									<select name="courseCredit" >
+										<option value="2" selected>2 Tín Chỉ</option>
+										<option value="3">3 Tín Chỉ</option>
+										<option value="4">4 Tín Chỉ</option>
+
+										</select>
 								</div>
 								<div class="aa-single-advance-search">
-									<select>
-										<option value="0" selected>.Txt</option>
-										<option value="1">.Doc</option>
-										<option value="2">.jpg</option>
-										<option value="3">.pdf</option>
-										<!-- <option value="4">Commercial</option> -->
-									</select>
+									<select  name="typeData" >
+										<option value=".pdf" selected>.pdf</option>
+										<option value=".img">.img</option>
+										<option value=".png">.png</option>
+										<option value=".docx">.docx</option>
+										<option value=".txt">.txt</option>
+										</select>
 								</div>
 
 								<div class="aa-single-advance-search">

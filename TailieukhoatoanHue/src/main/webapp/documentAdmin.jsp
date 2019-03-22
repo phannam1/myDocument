@@ -12,8 +12,9 @@
 	rel='stylesheet' type='text/css' />
 <!-- jQuery file -->
 <script src="js/jquery.min1.js"></script>
-<script src="js/roleAdmin.js"></script>
-<script src="js/onclickRole.js"></script>
+<script type="text/javascript" src="js/onclickDocumentAdmin.js"></script>
+<script type="text/javascript" src="js/actionFormDocument.js"></script>
+
 <script src="js/jquery.tabify.js" type="text/javascript" charset="utf-8"></script>
 <!-- Font awesome -->
 <link href="css/font-awesome.css" rel="stylesheet" />
@@ -46,10 +47,10 @@
 				<ul>
 					<li><a href="indexAdmin">Trang Chủ</a></li>
 					<li><a href="accountAdmin">Người dùng</a></li>
-					<li><a href="roleAdmin" class="selected">Quyền người dùng</a></li>
+					<li><a href="roleAdmin" >Quyền người dùng</a></li>
 					<li><a href="functionAdmin">Chức năng</a></li>
 					<li><a href="roleFunctionAdmin">Chức năng của quyền</a></li>
-						<li><a href="documentAdmin">Tài liệu</a></li>
+					<li><a href="documentAdmin" class="selected">Tài liệu</a></li>
 					<li><a href="newsAdmin">Tin tức</a></li>
 
 					<li><a href="helpAdmin">Trợ giúp</a></li>
@@ -60,10 +61,10 @@
 
 		<ul class="tabsmenu">
 			<li class="active">
-				<form name="searchInputRole" method="post" action="searchInputRole">
+				<form name="searchInputDocument" method="post" action="searchDocumentByInput">
 					<div>
 						<div>
-							<input id="btnSearchRole" type="button" class="form_submit"
+							<input id="btnSearchDocument" type="button" class="form_submit"
 								value="Tìm Kiếm" />
 
 						</div>
@@ -76,64 +77,85 @@
 					</div>
 				</form>
 			</li>
-			<li class="active"><a>Thông Tin các quyền của người dùng</a></li>
+			<li class="active"><a>Thông tin tài liệu</a></li>
 
 		</ul>
-		<div id="tab1" class="tabcontent">
-			<form method="post" action="actionRole" name="actionRoleUpdate">
+		<div class="tabcontent">
+			<form name="acctionDocumentUpdate" method="post"
+				action="updateIsShowDocument">
 				<div class="form">
-
-					<div class="form_row">
-						<label>Nhập Tài Khoản:</label> <input  id="taikhoan" value="${role.userName}"
-							id="nhap" required="required" class="form_select"
-							name="chooseUserName" type="text" list="ide" />
-						<p style="color: red; padding-left: 100px" id="error">${error}</p>
-						<c:remove var="error" scope="session" />
-						<datalist id="ide">
-							<c:forEach items="${listRole}" var="role">
-								<option  value="${role.userName}">${role.userName}</option>
-							</c:forEach>
-						</datalist>
+				 <input id = 'documentId' style="width: 500px;display: none" type="text" class="form_input" name="documentId" value="" />
+					 <div class="row">
+						<div class="col-sm-6" >
+							<div class="col-sm-4" ><label>Tên tài liệu:</label> </div>
+							<div class="col-sm-8" >
+								<input id="nameDocument" type="text" class="form_input" name="" readonly="readonly" value="" />
+							</div>
+						</div>
+						<div class="col-sm-6" >
+							<div class="col-sm-4" ><label>Ngành học:</label> </div>
+							<div class="col-sm-8" >
+							<input id="major" type="text" class="form_input" name="" readonly="readonly" value="" />
+							</div>
+						</div>
 					</div>
-					<div class="form_row">
-						<label>Chọn quyền:</label> <select class="form_select"
-							name="chooseRole">
-							<option value="1">Admin</option>
-							<option value="2">User</option>
-						</select>
+					<div class="row">
+					<div class="col-sm-6" >
+					<div class="col-sm-4" >
+						<label>Kỳ học:</label></div> <div class="col-sm-8" > <input id="semester" type="text" class="form_input"
+							name="" value="" readonly="readonly" /></div>
 					</div>
-					<div class="form_row">
-						<label>Mô tả :</label> <input style="width: 506px" id="mota" type="text" readonly="readonly"
-							class="form_input" name="description"
-							value="${role.description }" />
+					<div class="col-sm-6" >
+					<div class="col-sm-4" >
+						<label>Chuyên ngành:</label></div><div class="col-sm-8" > <input id="subject" type="text" class="form_input"
+							name="" value="" readonly="readonly" /></div>
 					</div>
-					<div class="col-md-8">
-						<input id="btnShowPopup" type="button" class="form_submit"
+					</div>
+						<div class="row">
+					<div class="col-sm-6" >
+						<div class="col-sm-4" ><label>Tên giáo viên :</label></div><div class="col-sm-8" > <input id="nameTeacher" type="text" class="form_input"
+							name="" value="" readonly="readonly" /></div>
+					</div>
+					<div class="col-sm-6" >				
+						<div class="col-sm-4" ><label>Hiển thị:</label></div><div  class="col-sm-8" > <input id="isShow" class="isActive"
+							style="width: 50px; height: 20px;" type="checkbox"
+							class="form_input" name="isActive" value="" /></div>
+					</div>
+					</div>
+					
+				<div class="row">
+					<div class="col-sm-12" >
+						<input  type="button" id="btnDisplayPopup" class="form_submit"
 							value="Chỉnh Sửa" />
+
 					</div>
-
-
+					
+					</div>
 				</div>
 			</form>
 
 			<div class="clear"></div>
 		</div>
 
+
 		<div class="center_content">
 
 			<div id="right_wrap">
 				<div id="right_content">
-					<h2>Bảng Người Dùng</h2>
+					<h2>Bảng tài liệu</h2>
 
 
 					<table id="rounded-corner">
 						<thead>
 							<tr>
-
-								<th>Tài khoản</th>
-								<th>Tên quyền</th>
-								<th>Mô tả</th>
-
+								<th>Tên tài liệu</th>
+								<th>Ngành học</th>
+								<th>Kỳ học</th>
+								<th>Chuyên ngành</th>
+								<th>Số tín chỉ</th>
+								<th>Tên giáo viên phụ trách</th>
+							
+								<th>hiển thị</th>
 							</tr>
 						</thead>
 						<tfoot>
@@ -142,11 +164,19 @@
 							</tr>
 						</tfoot>
 						<tbody>
-							<c:forEach items="${listRole}" var="role">
-								<tr class="odd" onclick="getValueRole('${role.userName}','${role.roleName}','${role.description}')">
-									<td><a >${role.userName}</a></td>
-									<td>${role.roleName}</td>
-									<td>${role.description}</td>
+							<c:forEach items="${listDocument}" var="document">
+								<tr class="odd" onclick="getValueDocument('${document.id}','${document.documentName}','${document.major}','${document.semester}','${document.subject}','${document.nameTeacher}','${document.isShow }')">
+								 <td style="display: none"><a >${document.id}</a></td>
+									<td><a >${document.documentName}</a></td>
+									<td>${document.major}</td>
+									<td>${document.semester}</td>
+									<td>${document.subject}</td>
+									<td>${document.courseCredit}</td>
+									<td>${document.nameTeacher}</td>									
+										<td ><input class="isActive" type="checkbox"
+											name="${document.isShow }" value="${document.isShow } "
+											 id="${document.isShow }" />
+										</td>								
 								</tr>
 							</c:forEach>
 						</tbody>

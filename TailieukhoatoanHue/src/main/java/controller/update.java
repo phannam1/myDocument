@@ -57,7 +57,7 @@ public class update extends HttpServlet {
 				String address = request.getParameter("address");
 				String phone = request.getParameter("phone");
 				String email = request.getParameter("email");
-				accountDTO account = new accountDTO(id, address, phone, email, passwordLevel2, question, answer);
+				accountDTO account = new accountDTO(id, address, phone, email, passwordLevel2, question, answer,Usersession.getAccountId());
 				if (dao.updateAccount(account)) {		
 					account = dao.getAccount(Usersession.getUserName(), Usersession.getPassword())	;
 					HttpSession usSession = request.getSession();

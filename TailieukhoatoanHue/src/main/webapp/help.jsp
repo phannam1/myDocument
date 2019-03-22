@@ -61,12 +61,12 @@
               <div class="col-md-6 col-sm-6 col-xs-6">
                 <div class="aa-header-left">
                   <div class="aa-telephone-no">
-                    <span class="fa fa-phone"></span>
-                    
-                  </div>
-                  <div class="aa-email hidden-xs">
-                    <span class="fa fa-envelope-o"></span> @gmail.com
-                  </div>
+										<span class="fa fa-phone">19001900</span>
+
+									</div>
+									<div class="aa-email hidden-xs">
+										<span class="fa fa-envelope-o"></span>KhoaToanDHKHHue@gmail.com
+									</div>
                 </div>              
               </div>
               <div class="col-md-6 col-sm-6 col-xs-6">
@@ -173,15 +173,16 @@
                 <p>Nhập Thông Tin Của Bạn<strong class="required">*</strong></p>
               </div>
               <div class="aa-contact-form">
-                <form class="contactform">                  
+                <form class="contactform"> 
+                 <p class="comment-form-email">
+                    <label for="email">Tài khoản của bạn: <span class="required">*</span></label>
+                    <input type="text" name="userName" value="" aria-required="true" required="required">
+                  </p>                 
                   <p class="comment-form-author">
                     <label for="author">Tên Của Bạn <span class="required">*</span></label>
                     <input type="text" name="author" value="" size="30" required="required">
                   </p>
-                  <p class="comment-form-email">
-                    <label for="email">Email <span class="required">*</span></label>
-                    <input type="email" name="email" value="" aria-required="true" required="required">
-                  </p>
+                  
                   <p class="comment-form-comment">
                     <label for="comment">Tin Nhắn</label>
                     <textarea name="comment" cols="45" rows="8" aria-required="true" required="required"></textarea>

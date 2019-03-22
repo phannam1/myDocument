@@ -5,8 +5,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import beans.constants;
 import dao.accountDAO;
+import dto.accountDTO;
 
 /**
  * Servlet implementation class deleteAccount
@@ -26,9 +29,11 @@ public class deleteAccount extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		accountDTO Usersession = (accountDTO)session.getAttribute(constants.USER_SESSION);
 		String userName = request.getParameter("userName");
 		
-		if(dao.deleteAccount(userName)) {
+		if(dao.deleteAccount(userName,Usersession.getAccountId())) {
 			response.sendRedirect(request.getContextPath()+"/accountAdmin");
 		}
 		else {

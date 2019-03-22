@@ -1,31 +1,29 @@
 package controller;
 
 import java.io.IOException;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import beans.constants;
+import dao.newsDAO;
 import dto.accountDTO;
+import dto.newsDTO;
 
 /**
- * Servlet implementation class contact
+ * Servlet implementation class registerNews
  */
-@WebServlet("/contact")
-public class contact extends HttpServlet {
+public class registerNews extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-	checkLogin check = null;
-    public contact() {
-        check = new checkLogin();
+	newsDAO dao = null;
+    public registerNews() {
+        dao = new newsDAO();
     }
 
 	/**
@@ -36,15 +34,17 @@ public class contact extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 		accountDTO Usersession = (accountDTO)session.getAttribute(constants.USER_SESSION);	
-		if(check.checkSession(Usersession)) {			
-			request.setAttribute("account", Usersession);
-			RequestDispatcher rd = request.getRequestDispatcher("contact.jsp");
-			  rd.forward(request, response);;
+		String titleNews = request.getParameter("titleNews");
+		String picture = request.getParameter("picture");
+		String contentNews = request.getParameter("contentNews");
+		int createById = Usersession.getAccountId();
+		int lastModifiedById = Usersession.getAccountId();
+		newsDTO news = new newsDTO( titleNews, picture, contentNews, createById, lastModifiedById);
+		if(dao.registerNews(news)) {
+			response.sendRedirect(request.getContextPath()+"/newsAdmin");
 		}
 		else {
-			
-			response.sendRedirect(request.getContextPath()+"/contact.jsp");
-			
+			response.sendRedirect(request.getContextPath()+"/newsAdmin");
 		}
 	}
 

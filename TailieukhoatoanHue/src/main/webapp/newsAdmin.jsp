@@ -12,12 +12,31 @@
 	rel='stylesheet' type='text/css' />
 <!-- jQuery file -->
 <script src="js/jquery.min1.js"></script>
+<script src="js/newsAdmin.js"></script>
+<script src="js/onclickNewsAdmin.js"></script>
+<script src="js/actionFormNews.js"></script>
 <script src="js/jquery.tabify.js" type="text/javascript" charset="utf-8"></script>
 <!-- Font awesome -->
 <link href="css/font-awesome.css" rel="stylesheet" />
 <!-- Bootstrap -->
 <link href="css/bootstrap.css" rel="stylesheet" />
 <!-- slick slider -->
+<script src="js/jquery.tabify.js" type="text/javascript" charset="utf-8"></script>
+<!-- Font awesome -->
+<link href="css/font-awesome.css" rel="stylesheet" />
+<script type="text/javascript" src="js/paginationAdmin.js"></script>
+<!-- Bootstrap -->
+<link href="css/bootstrap.css" rel="stylesheet" />
+<!-- slick slider -->
+<link rel="shortcut icon" href="img/T.PNG" type="image/x-icon">
+
+<script type="text/javascript"
+	src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js'></script>
+<script type="text/javascript"
+	src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js'></script>
+<link rel="stylesheet"
+	href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css'
+	media="screen" />
 </head>
 <body>
 	<div id="panelwrap">
@@ -38,6 +57,7 @@
 					<li><a href="roleAdmin">Quyền người dùng</a></li>
 					<li><a href="functionAdmin">Chức năng</a></li>
 					<li><a href="roleFunctionAdmin">Chức năng của quyền</a></li>
+						<li><a href="documentAdmin">Tài liệu</a></li>
 					<li><a href="newsAdmin" class="selected">Tin tức</a></li>
 					<li><a href="helpAdmin">Trợ giúp</a></li>
 				</ul>
@@ -46,10 +66,10 @@
 		</div>
 <ul  class="tabsmenu">
 <li class="active">
-				<form name="searchInput" method="post" action="searchInput">
+				<form name="searchInput" method="post" action="searchInputNews">
 					<div>
 						<div>
-							<input id="btnSearch" type="button" class="form_submit"
+							<input id="btnSearchNews" type="button" class="form_submit"
 								value="Tìm Kiếm" />
 
 						</div>
@@ -67,35 +87,36 @@
 						
 					</ul>
 					<div class="tabcontent">
-						<form method="post" action="#">
+						<form method="post" action="registerNews" name = "formNews">
 							<div class="form">
-
+								<input style="display: none;" id="idNews" type="text"
+										class="form_input" name="idNews"  value=""  />
 								<div class="form_row">
-									<label>Tiêu đề của bản tin:</label> <input type="text"
-										class="form_input" name="" value="" />
+									<label>Tiêu đề của bản tin:</label> <input style="width: 500px;" id="tieude" type="text"
+										class="form_input" name="titleNews" value=""  />
 								</div>
 								<div class="form_row">
-									<label>Đường dẫn ảnh:</label> <input placeholder=".img/.png"  type="text"
-										class="form_input" name="" value=""  />
+									<label>Đường dẫn ảnh:</label> <input  style="width: 500px;" placeholder=".img/.png" id="anh" type="text"
+										class="form_input" name="picture" value=""  />
 								</div>
 								<div class="form_row">
 									<label>Nội dung bản tin:</label>
-									<textarea class="form_textarea" name=""
-										value="Xem các dữ liệu hiển thị trên trang"></textarea>
+									<textarea class="form_textarea" id="noidung" name="contentNews"
+										value=""></textarea>
 								</div>
 
 
 								<div class="col-md-6">
-									<input type="button" class="form_submit" value="Thêm Mới" />
+									<input id="btnRegister" type="button" class="form_submit" value="Thêm Mới" />
 								</div>
 
 							</div>
 						</form>
 						<div class="col-md-1">
-							<input type="button" class="form_submit" value=" Sửa" />
+							<input id="btnDisplayPopup" type="button" class="form_submit" value=" Sửa" />
 						</div>
 						<div class="col-md-1">
-							<input type="button" class="form_submit" value="Xóa" />
+							<input id="btnDelete" type="button" class="form_submit" value="Xóa" />
 						</div>
 						<div class="clear"></div>
 					</div>
@@ -112,10 +133,10 @@
 						<thead>
 							<tr>						
 								<th>Tiêu đề</th>
-								<th>Ngày giờ đăng tin</th>
+								
 								<th>Đường dẫn ảnh của bản tin</th>
 								<th>Nội dung</th>
-								
+								<th>Ngày đăng tin</th>
 							</tr>
 						</thead>
 						<tfoot>
@@ -125,13 +146,13 @@
 						</tfoot>
 						<tbody>
 						<c:forEach items="${listNews}" var="listNews">
-							<tr class="odd">
+							<tr class="odd" onclick="onclickNews('${listNews.newsId}','${listNews.title}','${listNews.pictureLink}','${listNews.content }')">
 								<td style="display: none">${listNews.newsId}</td>
 								<td>${listNews.title}</td>
-								 <td>${listNews.dateTime}</td> 
+								
 								<td>${listNews.pictureLink}</td>
 								<td>${listNews.content }</td>
-								
+								 <td>${listNews.dateTime}</td> 
 							</tr>
 							</c:forEach>
 
@@ -143,7 +164,46 @@
 					</table>
 					
 					
-
+<!-- Modal Popup -->
+					<div id="MyPopup" class="modal fade" role="dialog">
+						<div class="modal-dialog">
+							<!-- Modal content-->
+							<div class="modal-content">
+								<div class="modal-header">
+								<h4 class="modal-title"></h4>
+									<button type="button" class="close" data-dismiss="modal">
+										&times;</button>									
+								</div>								
+								<div class="modal-body"></div>
+								<div class="modal-footer">
+									<input type="button" id="btnConfirmPopup" value="Xác Nhận"
+										class="btn btn-danger" /> <input type="button"
+										id="btnClosePopup" value="Close" class="btn btn-danger" />
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- end popup -->
+					<!-- Modal Popup -->
+					<div id="MyPopup1" class="modal fade" role="dialog">
+						<div class="modal-dialog">
+							<!-- Modal content-->
+							<div class="modal-content">
+								<div class="modal-header">
+								<h4 class="modal-title">Xác nhận Xóa</h4>
+									<button type="button" class="close" data-dismiss="modal">
+										&times;</button>									
+								</div>								
+								<div class="modal-body">Bạn có chắc chắn thực hiện chức năng này ?</div>
+								<div class="modal-footer">
+									<input type="button" id="btnConfirmPopup1" value="Xác Nhận"
+										class="btn btn-danger" /> <input type="button"
+										id="btnClosePopup1" value="Close" class="btn btn-danger" />
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- end popup -->
 
 
 				</div>
