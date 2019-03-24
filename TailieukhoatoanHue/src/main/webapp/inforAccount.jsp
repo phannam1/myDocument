@@ -50,8 +50,10 @@
 
 </head>
 <body>
+
 	<section id="aa-signin">
 		<div class="container">
+		
 			<div class="row">
 				<div class="col-md-12">
 					<div class="aa-signin-area">
@@ -60,83 +62,94 @@
 							class="fa fa-times" aria-hidden="true"></i></a>
 						<div class="aa-signin-form">
 							<a href="changePassword.jsp">Đổi Mật Khẩu </a>
+							
 							<div class="aa-signin-form-title">
-								<a href="#"><img
-									style="float: right; color: blue; width: 100px; height: 100px"
-									src="${account.avatar}" alt="Avatar"></a>
+								
 								<h4>Cập Nhật Thông Tin Của Bạn</h4>
 							</div>
 
-							<form class="contactform" action="update" method="post">
-						
+							<form class="contactform" action="update" method="post" enctype="multipart/form-data">
+								<div class="avatar-wrapper">
+								<img class="profile-pic" src="${account.avatar}" />
+								<div class="upload-button">
+									<i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+								</div>								
+								<input class="file-upload" type="file" name="file"
+											multiple  value="${account.avatar}"/>
+							</div>
 								<div class="aa-single-field">
 									<label for="name">Xin Chào :<span style="color: red">
 											${account.name}</span></label>
 
 								</div>
-									<div class="row">
-								<div id="checkValue" class="aa-single-field">
-								<div class="col-sm-6">
-									<label>Mật Khẩu Cấp 2 Của Bạn : <span class="required"></span></label>
-									<input id="matkhau" type="password" name="passwordLevel2"
-										value="${account.passwordLevel2}" placeholder="passwordLevel2"
-										onmousemove="checkValudationInfor(this.id)">
-									<p id="checkMore6">Mật khẩu phải từ 6 ký tự trở lên</p>
+								<div class="row">
+									<div id="checkValue" class="aa-single-field">
+										<div class="col-sm-6">
+											<label>Mật Khẩu Cấp 2 Của Bạn : <span
+												class="required"></span></label> <input id="matkhau" type="password"
+												name="passwordLevel2" value="${account.passwordLevel2}"
+												placeholder="passwordLevel2"
+												onmousemove="checkValudationInfor(this.id)">
+											<p id="checkMore6">Mật khẩu phải từ 6 ký tự trở lên</p>
+										</div>
+										<div class="col-sm-6">
+											<label>Xác Nhận mật khẩu cấp 2: <span
+												class="required"></span></label> <input id="confirmmatkhau"
+												type="password" name="confirmpassword"
+												value="${account.passwordLevel2}"
+												placeholder="RetryPassword"
+												onmousemove="checkValudationInfor(this.id)">
+											<p id="checkNullConfirm">Mật khẩu phải giống nhau</p>
+										</div>
 									</div>
-									<div class="col-sm-6">
-									<label>Xác Nhận mật khẩu cấp 2: <span class="required"></span></label>
-									<input id="confirmmatkhau" type="password"
-										name="confirmpassword" value="${account.passwordLevel2}" placeholder="RetryPassword"
-										onmousemove="checkValudationInfor(this.id)">
-									<p id="checkNullConfirm">Mật khẩu phải giống nhau</p>
-									</div>
-								</div>
 								</div>
 								<div class="row">
-								<div id="questionAndAnswer" class="aa-single-field">
-								<div class="col-sm-6">
-									<label>Câu hỏi bảo mật Của Bạn : <span class="required"></span></label>
-									<div class="aa-single-advance-search">
-										<select name="Question" id="mySelect"
-											style="width: 100%; height: 35px;">
-											<option value="" selected></option>
-											<option value="Tên của bạn">Tên của bạn</option>
-											<option value="Địa chỉ của bạn">Địa chỉ của bạn</option>
-											<option value="Con vật bạn thích">Con vật bạn thích</option>
-											<option value="Con vật bạn ghét">Con vật bạn ghét</option>
-										</select>
+									<div id="questionAndAnswer" class="aa-single-field">
+										<div class="col-sm-6">
+											<label>Câu hỏi bảo mật Của Bạn : <span
+												class="required"></span></label>
+											<div class="aa-single-advance-search">
+												<select name="Question" id="mySelect"
+													style="width: 100%; height: 35px;">
+													<option value="" selected></option>
+													<option value="Tên của bạn">Tên của bạn</option>
+													<option value="Địa chỉ của bạn">Địa chỉ của bạn</option>
+													<option value="Con vật bạn thích">Con vật bạn
+														thích</option>
+													<option value="Con vật bạn ghét">Con vật bạn ghét</option>
+												</select>
+											</div>
+										</div>
+										<div class="col-sm-6">
+
+											<label for="answer">Câu trả lời bảo mật của bạn : <span
+												class="required"></span></label> <input id="answer" type="text"
+												aria-required="true" value="${account.answerSecurity}"
+												name="answer" placeholder="answer">
+											<p style="color: red" id="error">${error}</p>
+											<c:remove var="error" scope="session" />
+										</div>
 									</div>
-									</div>
-									<div class="col-sm-6">
-									
-									<label for="answer">Câu trả lời bảo mật của bạn : <span
-										class="required"></span></label> <input id="answer" type="text"
-										aria-required="true" value="${account.answerSecurity}"
-										name="answer" placeholder="answer">
-									   <p style="color: red" id="error" >${error}</p>
-               							<c:remove var="error" scope="session" />
-               							</div>
-								</div>
 								</div>
 								<div class="row">
-								<div class="col-sm-6">
-								<div class="aa-single-field">
-									<label>Địa chỉ : <span class="required"></span></label> <input
-										id="mk" type="text" aria-required="true"
-										value="${account.address}" name="address"
-										placeholder="address"
-										onmousemove="checkValudationInfor(this.id)">
+									<div class="col-sm-6">
+										<div class="aa-single-field">
+											<label>Địa chỉ : <span class="required"></span></label> <input
+												id="mk" type="text" aria-required="true"
+												value="${account.address}" name="address"
+												placeholder="address"
+												onmousemove="checkValudationInfor(this.id)">
 
-								</div>
-								</div>
-								<div class="col-sm-6">
-								<div class="aa-single-field">
-									<label>Điện thoại: <span class="required"></span></label> <input
-										type="text" aria-required="true" value="${account.phone}"
-										name="phone" placeholder="phone">
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="aa-single-field">
+											<label>Điện thoại: <span class="required"></span></label> <input
+												type="text" aria-required="true" value="${account.phone}"
+												name="phone" placeholder="phone">
 
-								</div>
-								</div>
+										</div>
+									</div>
 								</div>
 								<div class="aa-single-field">
 									<label for="email">Email <span class="required"></span></label>
@@ -144,6 +157,7 @@
 										value="${account.email}" name="email" placeholder="email">
 									<p id="checkNullEmail" onmousemove="validateEmail(this.id)">
 								</div>
+
 								<div class="aa-single-submit">
 									<input type="submit" value="Cập Nhật " name="submit">
 								</div>
@@ -170,11 +184,13 @@
 	<script type="text/javascript" src="js/nouislider.js"></script>
 	<!-- mixit slider -->
 	<script type="text/javascript" src="js/jquery.mixitup.js"></script>
+	<script type="text/javascript" src="js/detailDocument.js"></script>
 	<!-- Add fancyBox -->
 	<script type="text/javascript" src="js/jquery.fancybox.pack.js"></script>
 	<!-- Custom js -->
 	<script src="js/custom.js"></script>
 	<script type="text/javascript" src="js/checkValueInfor.js"></script>
+
 	<script type="text/javascript" src="js/validationInput.js"></script>
 	<script type="text/javascript" src="js/onchange.js"></script>
 </body>

@@ -3,6 +3,7 @@
 <%@ page isELIgnored="false"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <head>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -147,7 +148,7 @@
 			<div class="aa-top-slider">
 				<!-- Top slider single slide -->
 				<div class="aa-top-slider-single">
-					<img src="img/slider/2.jpg" alt="img">
+					<img src="img/slider/anh.jpg" alt="img">
 				</div>
 			</div>
 		</div>
@@ -164,21 +165,9 @@
 						<div class="aa-properties-content-head">
 							<div class="aa-properties-content-head-left">
 								<form action="" class="aa-sort-form">
-									<label for="">Sắp Xếp Bởi</label> <select name="">
-										<option value="1" selected="Default">Mặc Định</option>
-										<option value="2">Tên</option>
-										<option value="3">Ngày Upload</option>
-										<option value="4">Số Lượt Tải</option>
-									</select>
+									<label for="">TÀI LIỆU KHOA TOÁN</label>
 								</form>
-								<!--  <form action="" class="aa-show-form">
-                  <label for="">Hiển Thị</label>
-                  <select name="">
-                    <option value="1" selected="12">6</option>
-                    <option value="2">12</option>
-                    <option value="3">24</option>
-                  </select>
-                </form>-->
+								
 							</div>
 							<div class="aa-properties-content-head-right">
 								<a id="aa-grid-properties" href="#"><span class="fa fa-th"></span></a>
@@ -187,140 +176,38 @@
 						</div>
 						<!-- Start properties content body -->
 						<div class="aa-properties-content-body">
-							<ul class="aa-properties-nav">
+							<ul class="aa-properties-nav">	
+						
+							<form name = "downloadDocument" method="post">
+							<c:forEach items="${listDocument}" var="document">
 								<li>
+								
 									<article class="aa-properties-item">
-										<a href="<%=request.getContextPath()%>/detailDocument"
+										<a href="<%=request.getContextPath()%>/detailDocument?id=${document.id}"
 											class="aa-properties-item-img"> <img
-											src="data/hambienphuc/document1.jpg" alt="img">
+											src="${document.linkData}" alt="img">
 										</a>
 
 										<div class="aa-properties-item-content">
 
 											<div class="aa-properties-about">
 												<h3>
-													<a href="<%=request.getContextPath()%>/detailDocument">Hàm Biến Phức</a>
+													<a href="<%=request.getContextPath()%>/detailDocument?id=${document.id}">${document.documentName}</a>
 												</h3>
-												<p>Hàm Biến Phức</p>
+												
 											</div>
 											<div class="aa-properties-detial">
-												<a href="#" class="aa-secondary-btn1">tải xuống </a>
+												<a href="${document.linkData}" class="aa-secondary-btn1" download>tải xuống </a>
 
 											</div>
 										</div>
 									</article>
 								</li>
-								<li>
-									<article class="aa-properties-item">
-										<a href="<%=request.getContextPath()%>/detailDocument"
-											class="aa-properties-item-img"> <img
-											src="data/hambienphuc/document1.jpg" alt="img">
-										</a>
-
-										<div class="aa-properties-item-content">
-
-											<div class="aa-properties-about">
-												<h3>
-													<a href="<%=request.getContextPath()%>/detailDocument">Hàm Biến Phức</a>
-												</h3>
-												<p>Hàm Biến Phức</p>
-											</div>
-											<div class="aa-properties-detial">
-												<a href="#" class="aa-secondary-btn1">tải xuống </a>
-
-											</div>
-										</div>
-									</article>
-								</li>
-								<li>
-									<article class="aa-properties-item">
-										<a href="<%=request.getContextPath()%>/detailDocument"
-											class="aa-properties-item-img"> <img
-											src="data/hambienphuc/document1.jpg" alt="img">
-										</a>
-
-										<div class="aa-properties-item-content">
-
-											<div class="aa-properties-about">
-												<h3>
-													<a href="<%=request.getContextPath()%>/detailDocument">Hàm Biến Phức</a>
-												</h3>
-												<p>Hàm Biến Phức</p>
-											</div>
-											<div class="aa-properties-detial">
-												<a href="#" class="aa-secondary-btn1">tải xuống </a>
-
-											</div>
-										</div>
-									</article>
-								</li>
-								<li>
-									<article class="aa-properties-item">
-										<a href="<%=request.getContextPath()%>/detailDocument"
-											class="aa-properties-item-img"> <img
-											src="data/hambienphuc/document1.jpg" alt="img">
-										</a>
-
-										<div class="aa-properties-item-content">
-
-											<div class="aa-properties-about">
-												<h3>
-													<a href="<%=request.getContextPath()%>/detailDocument">Hàm Biến Phức</a>
-												</h3>
-												<p>Hàm Biến Phức</p>
-											</div>
-											<div class="aa-properties-detial">
-												<a href="#" class="aa-secondary-btn1">tải xuống </a>
-
-											</div>
-										</div>
-									</article>
-								</li>
-								<li>
-									<article class="aa-properties-item">
-										<a href="<%=request.getContextPath()%>/detailDocument"
-											class="aa-properties-item-img"> <img
-											src="data/hambienphuc/document1.jpg" alt="img">
-										</a>
-
-										<div class="aa-properties-item-content">
-
-											<div class="aa-properties-about">
-												<h3>
-													<a href="<%=request.getContextPath()%>/detailDocument">Hàm Biến Phức</a>
-												</h3>
-												<p>Hàm Biến Phức</p>
-											</div>
-											<div class="aa-properties-detial">
-												<a href="#" class="aa-secondary-btn1">tải xuống </a>
-
-											</div>
-										</div>
-									</article>
-								</li>
-								<li>
-									<article class="aa-properties-item">
-										<a href="<%=request.getContextPath()%>/detailDocument"
-											class="aa-properties-item-img"> <img
-											src="data/hambienphuc/document1.jpg" alt="img">
-										</a>
-
-										<div class="aa-properties-item-content">
-
-											<div class="aa-properties-about">
-												<h3>
-													<a href="<%=request.getContextPath()%>/detailDocument">Hàm Biến Phức</a>
-												</h3>
-												<p>Hàm Biến Phức</p>
-											</div>
-											<div class="aa-properties-detial">
-												<a href="#" class="aa-secondary-btn1">tải xuống </a>
-
-											</div>
-										</div>
-									</article>
-								</li>
-								<div id="page"></div>
+								</c:forEach>
+								</form>
+								
+								
+								
 							</ul>
 							
 						</div>
@@ -357,9 +244,9 @@
 						<!-- Start Single properties sidebar -->
 						<div class="aa-properties-single-sidebar">
 							<h3>Tìm Kiếm Tài Liệu</h3>
-							<form action="">
+							<form action="searchDetailDocument" method="post">
 								<div class="aa-single-advance-search">
-									<input type="text" placeholder="Tên Tài Liệu">
+									<input type="text" placeholder="Tên Tài Liệu" name="nameDocument">
 								</div>
 								<div class="aa-single-advance-search">
 									<select name="major" >
@@ -398,13 +285,7 @@
 										</select>
 								</div>
 								<div class="aa-single-advance-search">
-									<select  name="typeData" >
-										<option value=".pdf" selected>.pdf</option>
-										<option value=".img">.img</option>
-										<option value=".png">.png</option>
-										<option value=".docx">.docx</option>
-										<option value=".txt">.txt</option>
-										</select>
+									<input type="text" placeholder="Tên giáo viên" name="nameTeacher">
 								</div>
 
 								<div class="aa-single-advance-search">
@@ -415,51 +296,25 @@
 						<!-- Start Single properties sidebar -->
 						<div class="aa-properties-single-sidebar">
 							<h3>Tài Liệu Download Nhiều nhất</h3>
+							<c:forEach items="${listDownloads}" var="downloads">
 							<div class="media">
 								<div class="media-left">
 									<a href="<%=request.getContextPath()%>/detailDocument"> <img
-										class="media-object" src="data/hambienphuc/document1.jpg"
+										class="media-object" src="${downloads.linkData }"
 										alt="img">
 									</a>
 								</div>
 								<div class="media-body">
+							
 									<h4 class="media-heading">
-										<a href="<%=request.getContextPath()%>/detailDocument">Hàm Biến Phức</a>
+										<a href="<%=request.getContextPath()%>/detailDocument">${downloads.documentName }</a>
 									</h4>
-									<p>Hàm Biến Phức.</p>
-									<span>50 lượt tải</span>
+								
+									<span>Số lượt tải : ${downloads.downloads}</span>
 								</div>
 							</div>
-							<div class="media">
-								<div class="media-left">
-									<a href="<%=request.getContextPath()%>/detailDocument"> <img
-										class="media-object" src="data/hambienphuc/document1.jpg"
-										alt="img">
-									</a>
-								</div>
-								<div class="media-body">
-									<h4 class="media-heading">
-										<a href="<%=request.getContextPath()%>/detailDocument">Hàm Biến Phức</a>
-									</h4>
-									<p>Hàm Biến Phức.</p>
-									<span>50 lượt tải</span>
-								</div>
-							</div>
-							<div class="media">
-								<div class="media-left">
-									<a href="<%=request.getContextPath()%>/detailDocument"> <img
-										class="media-object" src="data/hambienphuc/document1.jpg"
-										alt="img">
-									</a>
-								</div>
-								<div class="media-body">
-									<h4 class="media-heading">
-										<a href="<%=request.getContextPath()%>/detailDocument">Hàm Biến Phức</a>
-									</h4>
-									<p>Hàm Biến Phức</p>
-									<span>50 lượt tải</span>
-								</div>
-							</div>
+							</c:forEach>
+							
 						</div>
 					</aside>
 				</div>

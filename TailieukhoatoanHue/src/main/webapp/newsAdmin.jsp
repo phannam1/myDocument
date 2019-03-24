@@ -87,7 +87,7 @@
 						
 					</ul>
 					<div class="tabcontent">
-						<form method="post" action="registerNews" name = "formNews">
+						<form method="post" action="registerNews" name = "formNews" enctype="multipart/form-data">
 							<div class="form">
 								<input style="display: none;" id="idNews" type="text"
 										class="form_input" name="idNews"  value=""  />
@@ -96,8 +96,8 @@
 										class="form_input" name="titleNews" value=""  />
 								</div>
 								<div class="form_row">
-									<label>Đường dẫn ảnh:</label> <input  style="width: 500px;" placeholder=".img/.png" id="anh" type="text"
-										class="form_input" name="picture" value=""  />
+									<label>Đường dẫn ảnh:</label> <input required="required"  style="width: 500px;"   type="file"
+										class="form_input" name="picture" multiple name="file"   />
 								</div>
 								<div class="form_row">
 									<label>Nội dung bản tin:</label>
@@ -146,10 +146,9 @@
 						</tfoot>
 						<tbody>
 						<c:forEach items="${listNews}" var="listNews">
-							<tr class="odd" onclick="onclickNews('${listNews.newsId}','${listNews.title}','${listNews.pictureLink}','${listNews.content }')">
+							<tr class="odd" onclick="onclickNews('${listNews.newsId}','${listNews.title}','${listNews.content }')">
 								<td style="display: none">${listNews.newsId}</td>
-								<td>${listNews.title}</td>
-								
+								<td>${listNews.title}</td>							
 								<td>${listNews.pictureLink}</td>
 								<td>${listNews.content }</td>
 								 <td>${listNews.dateTime}</td> 

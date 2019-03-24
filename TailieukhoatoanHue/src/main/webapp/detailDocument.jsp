@@ -163,7 +163,7 @@
 						<div class="aa-properties-content-head">
 							<div class="aa-properties-content-head-left1">
 								<form action="" class="aa-sort-form">
-									<label>Hàm Biến Phức</label>
+									<label>${document.documentName }</label>
 								</form>
 
 							</div>
@@ -171,21 +171,16 @@
 								<li>
 									<article class="aa-properties-item1">
 										<a class="aa-properties-item-img1"> <img
-											src="data/hambienphuc/document1.jpg" alt="img">
+											src="${document.linkData }" alt="img">
 										</a>
 
 										<div class="aa-properties-item-content">
 
 											<div class="aa-properties-about">
-												<h3>
-													<a>Hàm Biến Phức</a>
-												</h3>
-												<p>Hàm Biến Phức</p>
+												
+												
 											</div>
-											<div class="aa-properties-detial">
-												<a href="#" class="aa-secondary-btn1">tải xuống </a>
-
-											</div>
+											
 											<div class="aa-properties-detial">
 												<a href="document" class="aa-secondary-btn2">Quay lại </a>
 
@@ -207,34 +202,37 @@
 						</div>
 						<div class="detail_Document">
 							<div>
-								<label>HÀM BIẾN PHỨC</label>
+								<label style="font-size: 30px;">${document.documentName }</label>
 							</div>
 							<div>
 								<label>THUỘC KHOA TOÁN</label>
 							</div>
 
 							<div>
-								<label>Bộ môn: ${document}</label>
-							</div>
-
-							<div>
-								<label>Số tín chỉ:${document}</label>
+								<label>Ngành học: ${document.major}</label>
 							</div>
 							<div>
-								<label>Giáo viên giảng dạy:${document}</label>
+								<label>Chuyên ngành: ${document.subject}</label>
+							</div>
+							<div>
+								<label>Số tín chỉ: ${document.courseCredit}</label>
+							</div>
+							<div>
+								<label>Giáo viên giảng dạy: ${document.nameTeacher}</label>
 							</div>
 							<div>
 								<label>Độ khó: 7/10</label>
 							</div>
 							<div>
-								<label>Học Kỳ:${document}</label>
+								<label>Học Kỳ: ${document.semester}</label>
 							</div>
 
-							<div>
-								<label>Loại file:${document}</label>
-							</div>
+							
 						</div>
+						<div class="aa-properties-detial">
+												<a href="${document.linkData}" class="aa-secondary-btn1" download>tải xuống </a>
 
+											</div>
 					</aside>
 				</div>
 			</div>
@@ -288,6 +286,7 @@
 	<script src="js/bootstrap.js"></script>
 	<!-- slick slider -->
 	<script type="text/javascript" src="js/slick.js"></script>
+	
 	<script type="text/javascript" src="js/login.js"></script>
 	<!-- Price picker slider -->
 	<script type="text/javascript" src="js/nouislider.js"></script>

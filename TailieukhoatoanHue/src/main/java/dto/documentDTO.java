@@ -52,6 +52,17 @@ public class documentDTO {
 		this.lastModifiedById = lastModifiedById;
 	}
 
+	public documentDTO(String documentName, String major, String semester, String subject, int courseCredit,
+			String nameTeacher) {
+		super();
+		this.documentName = documentName;
+		this.major = major;
+		this.semester = semester;
+		this.subject = subject;
+		this.courseCredit = courseCredit;
+		this.nameTeacher = nameTeacher;
+	}
+
 	public int getId() {
 		return id;
 	}

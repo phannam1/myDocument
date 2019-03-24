@@ -5,7 +5,7 @@
 <%@ page isELIgnored="false"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <head>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -257,63 +257,64 @@
 				<div class="form">
 					<div class="aa-advance-search-top">
 						<div class="row">
+						<form action="searchDetailDocument" method="post">
 							<div class="col-md-2">
 								<div class="aa-single-advance-search">
-									<input type="text" placeholder="Search">
+									<input type="text" placeholder="Tên tài liệu">
 								</div>
 							</div>
 							<div class="col-md-2">
 								<div class="aa-single-advance-search">
-									<select>
-										<option value="0" selected>Toán Học</option>
-										<option value="1">Toán Ứng Dụng</option>
-										<!-- <option value="2">Tối Ưu</option> -->
-										<!-- <option value="3">Plot</option>
-                    <option value="4">Commercial</option> -->
-									</select>
-								</div>
-							</div>
-							<div class="col-md-2">
-								<div class="aa-single-advance-search">
-									<select>
-										<option value="0" selected>Kỳ 1</option>
-										<option value="1">Kỳ 2</option>
-										<option value="2">Kỳ 3</option>
-										<option value="3">Kỳ 4</option>
-										<option value="4">Kỳ 5</option>
-										<option value="2">Kỳ 6</option>
-										<option value="3">Kỳ 7</option>
+									<select name="major" >
+											<option value="Toán Học" >Toán Học</option>
+											<option value="Toán Ứng Dụng">Toán Ứng Dụng</option>
 
-									</select>
+										</select>
 								</div>
 							</div>
 							<div class="col-md-2">
 								<div class="aa-single-advance-search">
-									<select>
-										<option value="0" selected>Xác Suất Thống Kê</option>
-										<option value="1">Tối Ưu</option>
-										<option value="2">Ứng Dụng</option>
-										<!-- <option value="3">Plot</option>
-                    <option value="4">Commercial</option> -->
-									</select>
+									<select name="semester">
+											<option value="Kỳ 1" >Kỳ 1</option>
+											<option value="Kỳ 2">Kỳ 2</option>
+											<option value="Kỳ 3">Kỳ 3</option>
+											<option value="Kỳ 4">Kỳ 4</option>
+											<option value="Kỳ 5">Kỳ 5</option>
+											<option value="Kỳ 6">Kỳ 6</option>
+											<option value="Kỳ 7">Kỳ 7</option>
+
+										</select>
 								</div>
 							</div>
 							<div class="col-md-2">
 								<div class="aa-single-advance-search">
-									<select>
-										<option value="0" selected>2 Tín Chỉ</option>
-										<option value="1">3 Tín Chỉ</option>
-										<option value="2">4 Tín Chỉ</option>
-										<!-- <option value="3">Plot</option>
-                    <option value="4">Commercial</option> -->
-									</select>
+									<select name="subject" >
+										<option value="Xác Suất Thống Kê" selected>Xác Suất Thống Kê</option>
+										<option value="Tối Ưu">Tối Ưu</option>
+										<option value="Ứng Dụng">Ứng Dụng</option>
+
+										</select>
 								</div>
 							</div>
+							<div class="col-md-2">
+								<div class="aa-single-advance-search">
+									<select name="courseCredit" >
+										<option value="2" selected>2 Tín Chỉ</option>
+										<option value="3">3 Tín Chỉ</option>
+										<option value="4">4 Tín Chỉ</option>
+
+										</select>
+								</div>
+							</div>
+							<div style="display: none" class="aa-single-advance-search">
+									<input type="text" placeholder="Tên giáo viên" name="nameTeacher">
+								</div>
 							<div class="col-md-2">
 								<div class="aa-single-advance-search">
 									<input class="aa-search-btn" type="submit" value="Tìm Kiếm">
 								</div>
 							</div>
+							</form>
 						</div>
 						<div class="row1">
 							<div class="col-md-2">
@@ -390,127 +391,28 @@
 
 					<div class="aa-latest-properties-content">
 						<div class="row">
+						<c:forEach items="${listDocument}" var="document">
 							<div class="col-md-4">
 								<article class="aa-properties-item">
-									<a href="<%=request.getContextPath()%>/detailDocument"
-										class="aa-properties-item-img"> <img
-										src="data/hambienphuc/document1.jpg" alt="img">
-									</a>
+									<a href="<%=request.getContextPath()%>/detailDocument?id=${document.id}"
+											class="aa-properties-item-img"> <img
+											src="${document.linkData}" alt="img">
+										</a>
 									<div class="aa-properties-item-content">
 										<div class="aa-properties-about">
 											<h3>
-												<a href="detailDocument.jsp">Hàm Biến Phức</a>
-											</h3>
-											<p>Hàm Biến Phức</p>
+													<a href="<%=request.getContextPath()%>/detailDocument?id=${document.id}">${document.documentName}</a>
+												</h3>
+											
 										</div>
 										<div class="aa-properties-detial">
-											<a href="detailDocument.jsp" class="aa-secondary-btn">Xem
-												Chi Tiết</a>
+											<a href="<%=request.getContextPath()%>/detailDocument?id=${document.id}">Xem chi tiết</a>
 										</div>
 									</div>
 								</article>
 							</div>
-							<div class="col-md-4">
-								<article class="aa-properties-item">
-									<a href="<%=request.getContextPath()%>/detailDocument"
-										class="aa-properties-item-img"> <img
-										src="data/hambienphuc/document1.jpg" alt="img">
-									</a>
-									<div class="aa-properties-item-content">
-										<div class="aa-properties-about">
-											<h3>
-												<a href="detailDocument.jsp">Hàm Biến Phức</a>
-											</h3>
-											<p>Hàm Biến Phức</p>
-										</div>
-										<div class="aa-properties-detial">
-											<a href="detailDocument.jsp" class="aa-secondary-btn">Xem
-												Chi Tiết</a>
-										</div>
-									</div>
-								</article>
-							</div>
-							<div class="col-md-4">
-								<article class="aa-properties-item">
-									<a href="<%=request.getContextPath()%>/detailDocument"
-										class="aa-properties-item-img"> <img
-										src="data/hambienphuc/document1.jpg" alt="img">
-									</a>
-									<div class="aa-properties-item-content">
-										<div class="aa-properties-about">
-											<h3>
-												<a href="detailDocument.jsp">Hàm Biến Phức</a>
-											</h3>
-											<p>Hàm Biến Phức</p>
-										</div>
-										<div class="aa-properties-detial">
-											<a href="detailDocument.jsp" class="aa-secondary-btn">Xem
-												Chi Tiết</a>
-										</div>
-									</div>
-								</article>
-							</div>
-							<div class="col-md-4">
-								<article class="aa-properties-item">
-									<a href="<%=request.getContextPath()%>/detailDocument"
-										class="aa-properties-item-img"> <img
-										src="data/hambienphuc/document1.jpg" alt="img">
-									</a>
-									<div class="aa-properties-item-content">
-										<div class="aa-properties-about">
-											<h3>
-												<a href="detailDocument.jsp">Hàm Biến Phức</a>
-											</h3>
-											<p>Hàm Biến Phức</p>
-										</div>
-										<div class="aa-properties-detial">
-											<a href="detailDocument.jsp" class="aa-secondary-btn">Xem
-												Chi Tiết</a>
-										</div>
-									</div>
-								</article>
-							</div>
-							<div class="col-md-4">
-								<article class="aa-properties-item">
-									<a href="<%=request.getContextPath()%>/detailDocument"
-										class="aa-properties-item-img"> <img
-										src="data/hambienphuc/document1.jpg" alt="img">
-									</a>
-									<div class="aa-properties-item-content">
-										<div class="aa-properties-about">
-											<h3>
-												<a href="detailDocument.jsp">Hàm Biến Phức</a>
-											</h3>
-											<p>Hàm Biến Phức</p>
-										</div>
-										<div class="aa-properties-detial">
-											<a href="detailDocument.jsp" class="aa-secondary-btn">Xem
-												Chi Tiết</a>
-										</div>
-									</div>
-								</article>
-							</div>
-							<div class="col-md-4">
-								<article class="aa-properties-item">
-									<a href="<%=request.getContextPath()%>/detailDocument"
-										class="aa-properties-item-img"> <img
-										src="data/hambienphuc/document1.jpg" alt="img">
-									</a>
-									<div class="aa-properties-item-content">
-										<div class="aa-properties-about">
-											<h3>
-												<a href="detailDocument.jsp">Hàm Biến Phức</a>
-											</h3>
-											<p>Hàm Biến Phức</p>
-										</div>
-										<div class="aa-properties-detial">
-											<a href="detailDocument.jsp" class="aa-secondary-btn">Xem
-												Chi Tiết</a>
-										</div>
-									</div>
-								</article>
-							</div>
-							<div id="page"></div>
+							</c:forEach>
+							
 						</div>
 					</div>
 					<div class="aa-properties-content-bottom">
@@ -577,7 +479,7 @@
 															CỦA CÔNG TY BRYCEN VIỆT NAM</p></a>
 														<div class="aa-blog-single-bottom">
 															<a href="<%=request.getContextPath()%>/news"
-																class="aa-blog-author"><i class="fa fa-user"></i>
+																class="aa-blog-author">
 																xem chi tiết</a>
 
 														</div>

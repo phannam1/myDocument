@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,7 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import beans.constants;
+import dao.documentDAO;
 import dto.accountDTO;
+import dto.documentDTO;
 
 /**
  * Servlet implementation class index
@@ -23,8 +27,10 @@ public class index extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */checkLogin check = null;
+     documentDAO dao = null;
     public index() {
         check = new checkLogin();
+        dao = new documentDAO();
     }
 
 	/**
@@ -35,7 +41,10 @@ public class index extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 		accountDTO Usersession = (accountDTO)session.getAttribute(constants.USER_SESSION);	
-		if(check.checkSession(Usersession)) {			
+		if(check.checkSession(Usersession)) {
+			List<documentDTO> list = new ArrayList<documentDTO>();
+			list = dao.readAllDocumentShow();
+			request.setAttribute("listDocument", list);
 			request.setAttribute("account", Usersession);
 			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 			  rd.forward(request, response);;

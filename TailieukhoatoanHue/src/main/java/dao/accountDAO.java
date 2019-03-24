@@ -18,7 +18,7 @@ public class accountDAO {
 	final String SQLLOGINNOACTIVE = "SELECT * FROM ACCOUNT WHERE USERNAME = ? AND PASSWORD = ? AND ISACTIVE = 0 AND ISDELETE = 0";
 	final String SQLREGISTER = "INSERT INTO ACCOUNT(NAME,USERNAME,PASSWORD,EMAIL,ROLEID) VALUES(?,?,?,?,?)";
 	final String SQLUPDATEACTIVEDELETE = "UPDATE ACCOUNT SET ISACTIVE = ?,ISDELETE = ?,lastModifiedById = ? WHERE USERNAME = ? ";
-	final String SQLUPDATEACCOUNT = "UPDATE ACCOUNT set passWordLevel2 = ? ,questionSecurity = ? ,answerSecurity = ? ,address = ? ,phone = ? ,email = ?,lastModifiedById = ?  where accountId = ? ";
+	final String SQLUPDATEACCOUNT = "UPDATE ACCOUNT set passWordLevel2 = ? ,questionSecurity = ? ,answerSecurity = ? ,address = ? ,phone = ? ,email = ?,lastModifiedById = ?, avatar = ?  where accountId = ? ";
 	final String SQLGETACCOUNT = "SELECT * FROM ACCOUNT WHERE USERNAME = ?";
 	final String SQLCHANGEPASSWORDADMIN = "UPDATE ACCOUNT SET PASSWORD = ? ,lastModifiedById = ? WHERE USERNAME = ? AND PASSWORD =? ";
 	final String SQLUPDATEADMIN = "UPDATE ACCOUNT SET NAME = ? , ADDRESS = ? , EMAIL = ? , PHONE = ? WHERE USERNAME = ?";
@@ -238,7 +238,8 @@ public class accountDAO {
 				pr.setString(6, account.getEmail());
 			}
 			pr.setInt(7, account.getAccountId());
-			pr.setInt(8, account.getAccountId());
+			pr.setString(8, account.getAvatar());
+			pr.setInt(9, account.getAccountId());
 			int i = pr.executeUpdate();
 			if (i != 0) {
 				return true;

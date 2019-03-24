@@ -163,8 +163,7 @@
 										<option value=".pdf" selected>.pdf</option>
 										<option value=".img">.img</option>
 										<option value=".png">.png</option>
-										<option value=".docx">.docx</option>
-										<option value=".txt">.txt</option>
+										
 										</select>
 									</div>
 								</div>
@@ -184,10 +183,10 @@
 										<div class="aa-single-field">
 									<label for="name">Lựa chọn tài liệu của bạn: <span class="required">*</span></label>
 										 <input required="required"   type="file" name="file"
-											multiple>
+											multiple >
 									
 									<div class="aa-single-submit">
-									<input id="btnUpload"  type="submit" value="UPLOAD" 
+									<input  id="btnUpload"  type="submit" value="UPLOAD"  
 										>
 								</div>
 								</div>

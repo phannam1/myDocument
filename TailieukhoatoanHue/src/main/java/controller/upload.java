@@ -57,9 +57,9 @@ public class upload extends HttpServlet {
 					params.put(item.getFieldName(), item.getString());
 				}
 				else {
-					item.write(new File("C:\\Users\\Phan Thanh Nam\\Desktop\\myDocument\\TailieukhoatoanHue\\src\\main\\webapp\\data\\ "+  item.getName()));
+					item.write(new File("C:\\Users\\Phan Thanh Nam\\Desktop\\myDocument\\TailieukhoatoanHue\\src\\main\\webapp\\data\\"+item.getName()));
 					System.out.println(item.getName());	
-					linkData = "data/"+item.getName();
+					linkData = "data\\"+item.getName();
 				}							
 			}
 			response.setContentType("text/html;charset=UTF-8");

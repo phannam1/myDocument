@@ -85,10 +85,11 @@ public class accountDTO implements Serializable {
 		this.userName = userName;
 		this.password = password;
 	}
-	public accountDTO(int accountId, String address, String phone, String email, String passwordLevel2,
+	public accountDTO(int accountId,String avatar, String address, String phone, String email, String passwordLevel2,
 			String questionSecurity, String answerSecurity,int lasModifiedById) {
 		super();
 		this.accountId = accountId;
+		this.avatar = avatar;
 		this.address = address;
 		this.phone = phone;
 		this.email = email;
