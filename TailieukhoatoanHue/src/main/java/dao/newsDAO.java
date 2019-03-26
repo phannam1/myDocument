@@ -13,9 +13,11 @@ import utils.DBConnector;
 import utils.HashUtils;
 
 public class newsDAO {
-	final String READALLNEWS = "SELECT * FROM NEWS";
+	final String READALLNEWS = "SELECT * FROM NEWS order by dateTime desc";
+	final String READNEWSBYID = "SELECT * FROM NEWS WHERE NEWSID = ? ";
 	final String REGISTERNEWS = "INSERT INTO NEWS(TITLE,PICTURELINK,CONTENT,CREATEBYID,LASTMODIFIEDBYID) VALUES (?,?,?,?,?)";
 	final String UPDATENEWS = "UPDATE NEWS SET TITLE = ?, PICTURELINK = ?, CONTENT = ?, LASTMODIFIEDBYID = ? WHERE NEWSID = ?";
+	final String UPDATENEWS1 = "UPDATE NEWS SET TITLE = ?,  CONTENT = ?, LASTMODIFIEDBYID = ? WHERE NEWSID = ?";
 	final String DELETENEWS = "DELETE FROM NEWS WHERE NEWSID = ?";
 	final String SEARCHNEWS = "SELECT * FROM NEWS WHERE TITLE LIKE ? OR PICTURELINK LIKE ? OR CONTENT LIKE ? OR DATETIME LIKE ? ";
 	Connection con = null;
@@ -77,6 +79,23 @@ public class newsDAO {
 		}
 		return false;
 	}
+	public boolean updateNews1(String title,String content,int las,int id) {
+		try {
+			PreparedStatement pr = con.prepareStatement(UPDATENEWS1);
+			pr.setString(1, title);
+			pr.setString(2, content);		
+			pr.setInt(3, las);
+			pr.setInt(4, id);
+			int i = pr.executeUpdate();
+			if(i!= 0 ) {
+				return true;
+			}
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		return false;
+	}
 	public boolean deleteNews(int Id) {
 		try {
 			PreparedStatement pr = con.prepareStatement(DELETENEWS);
@@ -113,6 +132,23 @@ public class newsDAO {
 			e.printStackTrace();
 		}
 		
+		return null;
+	}
+	public newsDTO readNewsById(int id) {
+		try {
+			PreparedStatement pr = con.prepareStatement(READNEWSBYID);
+			pr.setInt(1, id);
+			ResultSet rs = pr.executeQuery();
+			if(rs!=null) {
+				if(rs.next()) {
+					newsDTO news = new newsDTO(rs.getInt(1),rs.getString(2),rs.getDate(3),rs.getString(4),rs.getString(5),rs.getInt(6),rs.getInt(7));
+					return news;
+				}
+			}
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
 		return null;
 	}
 }

@@ -157,7 +157,7 @@
 			<div class="aa-top-slider">
 				<!-- Top slider single slide -->
 				<div class="aa-top-slider-single">
-					<img src="img/slider/Bike-path.jpg" alt="img">
+					<img src="img/slider/1.PNG" alt="img">
 					<!-- Top slider content -->
 					<!-- <div class="aa-top-slider-content">
             <span class="aa-top-slider-catg">Duplex</span>
@@ -260,12 +260,13 @@
 						<form action="searchDetailDocument" method="post">
 							<div class="col-md-2">
 								<div class="aa-single-advance-search">
-									<input type="text" placeholder="Tên tài liệu">
+									<input type="text" placeholder="Tên tài liệu" value="" name="nameDocument">
 								</div>
 							</div>
 							<div class="col-md-2">
 								<div class="aa-single-advance-search">
 									<select name="major" >
+									<option value="" selected></option>
 											<option value="Toán Học" >Toán Học</option>
 											<option value="Toán Ứng Dụng">Toán Ứng Dụng</option>
 
@@ -275,6 +276,7 @@
 							<div class="col-md-2">
 								<div class="aa-single-advance-search">
 									<select name="semester">
+									<option value="" selected></option>
 											<option value="Kỳ 1" >Kỳ 1</option>
 											<option value="Kỳ 2">Kỳ 2</option>
 											<option value="Kỳ 3">Kỳ 3</option>
@@ -289,7 +291,8 @@
 							<div class="col-md-2">
 								<div class="aa-single-advance-search">
 									<select name="subject" >
-										<option value="Xác Suất Thống Kê" selected>Xác Suất Thống Kê</option>
+									<option value="" selected></option>
+										<option value="Xác Suất Thống Kê" >Xác Suất Thống Kê</option>
 										<option value="Tối Ưu">Tối Ưu</option>
 										<option value="Ứng Dụng">Ứng Dụng</option>
 
@@ -299,7 +302,8 @@
 							<div class="col-md-2">
 								<div class="aa-single-advance-search">
 									<select name="courseCredit" >
-										<option value="2" selected>2 Tín Chỉ</option>
+									<option value="0" selected></option>
+										<option value="2" >2 Tín Chỉ</option>
 										<option value="3">3 Tín Chỉ</option>
 										<option value="4">4 Tín Chỉ</option>
 
@@ -307,8 +311,9 @@
 								</div>
 							</div>
 							<div style="display: none" class="aa-single-advance-search">
-									<input type="text" placeholder="Tên giáo viên" name="nameTeacher">
+									<input type="text" placeholder="Tên giáo viên" name="nameTeacher" value="">
 								</div>
+								
 							<div class="col-md-2">
 								<div class="aa-single-advance-search">
 									<input class="aa-search-btn" type="submit" value="Tìm Kiếm">
@@ -407,6 +412,7 @@
 										</div>
 										<div class="aa-properties-detial">
 											<a href="<%=request.getContextPath()%>/detailDocument?id=${document.id}">Xem chi tiết</a>
+											<span class="aa-date-tag">Lượt xem : ${document.views} </span>
 										</div>
 									</div>
 								</article>
@@ -452,154 +458,42 @@
 
 
 		<!-- Latest blog -->
-		<section id="aa-latest-blog">
+		<section id="aa-latest-property">
 			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="aa-latest-blog-area">
-							<div class="aa-title">
-								<h2>Tin tuyển dụng - Sự Kiện</h2>
-								<span></span>
-								<!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe magni, est harum repellendus. Accusantium, nostrum!</p> -->
-							</div>
-							<div class="aa-latest-blog-content">
-								<div class="row">
-									<!-- start single blog -->
-									<div class="col-md-4">
-										<article class="aa-blog-single">
-											<figure class="aa-blog-img">
-												<a href="<%=request.getContextPath()%>/news"><img
-													src="img/tb.jpg" alt="img"></a>
-												<span class="aa-date-tag">08-12-2017 </span>
-											</figure>
-											<div class="aa-blog-single-content">
-												
-													<a href="<%=request.getContextPath()%>/news">
-														<p class="cl">THÔNG BÁO NHẬN THỰC TẬP SINH NĂM 2018
-															CỦA CÔNG TY BRYCEN VIỆT NAM</p></a>
-														<div class="aa-blog-single-bottom">
-															<a href="<%=request.getContextPath()%>/news"
-																class="aa-blog-author">
-																xem chi tiết</a>
+				<div class="aa-latest-property-area">
+					<div class="aa-title">
+						<h2>Tin Tuyển Dụng-Sự Kiện</h2>
+						<span></span>
+						<!--  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum sit ea nobis quae vero voluptatibus.</p>  -->
+					</div>
 
-														</div>
-											</div>
-
-										</article>
-									</div>
-									<!-- start single blog -->
-									<div class="col-md-4">
-										<article class="aa-blog-single">
-											<figure class="aa-blog-img">
-												<a href="<%=request.getContextPath()%>/news"><img
-													src="img/tb.jpg" alt="img"></a>
-												<span class="aa-date-tag">14-01-2019</span>
-											</figure>
-											<div class="aa-blog-single-content">
-										
-													<a href="<%=request.getContextPath()%>/news">
-														<p class="cl">TOÁN KINH TẾ (MÃ SỐ 7310108) - NGÀNH ĐÀO
-															TẠO MỚI SẼ TUYỂN SINH NĂM 2019.</p></a>
-														<div class="aa-blog-single-bottom">
-															<a href="<%=request.getContextPath()%>/news"
-																class="aa-blog-author"><i class="fa fa-user"></i>
-																xem chi tiết</a>
-
-														</div>
-											</div>
-										</article>
-									</div>
-									<!-- start single blog -->
-									<div class="col-md-4">
-										<article class="aa-blog-single">
-											<figure class="aa-blog-img">
-												<a href="<%=request.getContextPath()%>/news"><img
-													src="img/tb.jpg" alt="img"></a>
-												<span class="aa-date-tag">26-11-2018</span>
-											</figure>
-											<div class="aa-blog-single-content">
-										
-													<a href="<%=request.getContextPath()%>/news"><p
-															class="cl">THÔNG BÁO VỀ VIỆC ĐĂNG KÍ ĐỊA ĐIỂM THỰC
-															TẬP KHÓA 39</p></a>
-														<div class="aa-blog-single-bottom">
-															<a href="<%=request.getContextPath()%>/news"
-																class="aa-blog-author"><i class="fa fa-user"></i>
-																xem chi tiết</a>
-
-														</div>
-											</div>
-										</article>
-									</div>
-									<div class="col-md-4">
-										<article class="aa-blog-single">
-											<figure class="aa-blog-img">
-												<a href="<%=request.getContextPath()%>/news"><img
-													src="img/tb.jpg" alt="img"></a>
-												<span class="aa-date-tag">02-2019 </span>
-											</figure>
-											<div class="aa-blog-single-content">
-										
-													<a href="<%=request.getContextPath()%>/news">
-														<p class="cl">THÔNG BÁO TUYỂN DỤNG CỦA CÔNG TY BRYCEN
-															VIỆT NAM</p></a>
-														<div class="aa-blog-single-bottom">
-															<a href="<%=request.getContextPath()%>/news"
-																class="aa-blog-author"><i class="fa fa-user"></i>
-																xem chi tiết</a>
-
-														</div>
-											</div>
-
-										</article>
-									</div>
-									<!-- start single blog -->
-									<div class="col-md-4">
-										<article class="aa-blog-single">
-											<figure class="aa-blog-img">
-												<a href="<%=request.getContextPath()%>/news"><img
-													src="img/tb.jpg" alt="img"></a>
-												<span class="aa-date-tag">30/05/2016 11:05:48 SA</span>
-											</figure>
-											<div class="aa-blog-single-content">
+					<div class="aa-latest-properties-content">
+						<div class="row">
+								<c:forEach items="${listNews}" var="news">
 									
-													<a href="<%=request.getContextPath()%>/news">
-														<p class="cl">Công ty TNHH MTV Hóa Tam (Hoatamus)
-															thông báo tuyển dụng</p></a>
-														<div class="aa-blog-single-bottom">
-															<a href="<%=request.getContextPath()%>/news"
-																class="aa-blog-author"><i class="fa fa-user"></i>
-																xem chi tiết</a>
-
-														</div>
-											</div>
-										</article>
-									</div>
-									<!-- start single blog -->
 									<div class="col-md-4">
-										<article class="aa-blog-single">
-											<figure class="aa-blog-img">
-												<a href="<%=request.getContextPath()%>/news"><img
-													src="img/tb.jpg" alt="img"></a>
-												<span class="aa-date-tag">15/02/2019 4:04:52 CH</span>
-											</figure>
-											<div class="aa-blog-single-content">
-										
-													<a href="<%=request.getContextPath()%>/news"><p
-															class="cl">HueCIT tuyển dụng nhân sự lập trình
-															website và mobile</p></a>
-														<div class="aa-blog-single-bottom">
-															<a href="<%=request.getContextPath()%>/news"
-																class="aa-blog-author"><i class="fa fa-user"></i>
-																xem chi tiết</a>
-
-														</div>
-											</div>
-										</article>
+								<article class="aa-properties-item">
+									<a href="<%=request.getContextPath()%>/news?id=${news.newsId}"
+											class="aa-properties-item-img"> <img
+											src="${news.pictureLink }" alt="img">
+										</a>
+									<div class="aa-properties-item-content">
+										<div class="aa-properties-about">
+											<h5>
+													<a href="<%=request.getContextPath()%>/news?id=${news.newsId}">${news.title }</a>
+												</h5>
+											
+										</div>
+										<div class="aa-properties-detial">
+											<a href="<%=request.getContextPath()%>/news?id=${news.newsId}">Xem chi tiết</a>
+											<span class="aa-date-tag">${news.dateTime } </span>
+										</div>
 									</div>
-								</div>
+								</article>
 							</div>
-						</div>
+									</c:forEach>
+									
+								</div>
 					</div>
 					<div class="aa-properties-content-bottom">
 						<nav>

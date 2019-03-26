@@ -44,6 +44,7 @@ public class searchDetailDocument extends HttpServlet {
 		HttpSession session = request.getSession();
 		accountDTO Usersession = (accountDTO) session.getAttribute(constants.USER_SESSION);
 		String nameDocument = request.getParameter("nameDocument");
+		System.out.println(nameDocument);
 		String major = request.getParameter("major");
 		String semester = request.getParameter("semester");
 		String subject = request.getParameter("subject");
@@ -52,8 +53,10 @@ public class searchDetailDocument extends HttpServlet {
 		String nameTeacher = request.getParameter("nameTeacher");
 		System.out.println(CourseCredit);
 		documentDTO document = new documentDTO(nameDocument, major, semester, subject, CourseCredit, nameTeacher);
-		if (check.checkSession(Usersession)) {
+		
+		if (check.checkSession(Usersession) ) {
 			List<documentDTO> list = new ArrayList<documentDTO>();
+		
 			list = dao.searchDetailDocument(document);
 			request.setAttribute("listDocument", list);
 			request.setAttribute("account", Usersession);

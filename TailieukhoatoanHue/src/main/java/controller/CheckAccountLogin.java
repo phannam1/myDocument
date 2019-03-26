@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -13,8 +15,11 @@ import javax.servlet.http.HttpSession;
 
 
 import beans.constants;
-
+import dao.documentDAO;
+import dao.newsDAO;
 import dto.accountDTO;
+import dto.documentDTO;
+import dto.newsDTO;
 
 /**
  * Servlet implementation class CheckAccountLogin
@@ -27,8 +32,12 @@ public class CheckAccountLogin extends HttpServlet {
      * @see HttpServlet#HttpServlet()
      */
 	checkLogin check = null;
+	documentDAO dao =null;
+	newsDAO newsDao = null;
     public CheckAccountLogin() {
        check = new checkLogin();
+       dao = new documentDAO(); 
+       newsDao = new newsDAO();
     }
 
 	/**
@@ -47,6 +56,12 @@ public class CheckAccountLogin extends HttpServlet {
 		HttpSession session = request.getSession();
 		accountDTO Usersession = (accountDTO)session.getAttribute(constants.USER_SESSION);			
 		if(check.checkSession(Usersession)) {
+			List<documentDTO> list = new ArrayList<documentDTO>();
+			list = dao.readAllDocumentShow();
+			request.setAttribute("listDocument", list);
+			List<newsDTO> listNews = new ArrayList<>();
+			listNews = newsDao.readAll();
+			request.setAttribute("listNews", listNews);
 			request.setAttribute("account", Usersession);
 			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 			  rd.forward(request, response);	

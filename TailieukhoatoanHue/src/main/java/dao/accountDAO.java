@@ -16,9 +16,13 @@ public class accountDAO {
 	final String SQLREADALLACCOUNT = "SELECT * FROM ACCOUNT WHERE ISDELETE = 0";
 	final String SQLLOGIN = "SELECT * FROM ACCOUNT WHERE USERNAME = ? AND PASSWORD = ? AND ISACTIVE = 1 AND ISDELETE = 0";
 	final String SQLLOGINNOACTIVE = "SELECT * FROM ACCOUNT WHERE USERNAME = ? AND PASSWORD = ? AND ISACTIVE = 0 AND ISDELETE = 0";
+	
 	final String SQLREGISTER = "INSERT INTO ACCOUNT(NAME,USERNAME,PASSWORD,EMAIL,ROLEID) VALUES(?,?,?,?,?)";
 	final String SQLUPDATEACTIVEDELETE = "UPDATE ACCOUNT SET ISACTIVE = ?,ISDELETE = ?,lastModifiedById = ? WHERE USERNAME = ? ";
 	final String SQLUPDATEACCOUNT = "UPDATE ACCOUNT set passWordLevel2 = ? ,questionSecurity = ? ,answerSecurity = ? ,address = ? ,phone = ? ,email = ?,lastModifiedById = ?, avatar = ?  where accountId = ? ";
+	final String SQLUPDATEACCOUNT2 = "UPDATE ACCOUNT set questionSecurity = ? ,answerSecurity = ? ,address = ? ,phone = ? ,email = ?,lastModifiedById = ?, avatar = ?  where accountId = ? ";
+	final String SQLUPDATEACCOUNT3 = "UPDATE ACCOUNT set  passWordLevel2 = ? ,address = ? ,phone = ? ,email = ?,lastModifiedById = ?, avatar = ?  where accountId = ? ";
+	final String SQLUPDATEACCOUNT1 = "UPDATE ACCOUNT set address = ? ,phone = ? ,email = ?,lastModifiedById = ?,avatar = ?  where accountId = ? ";
 	final String SQLGETACCOUNT = "SELECT * FROM ACCOUNT WHERE USERNAME = ?";
 	final String SQLCHANGEPASSWORDADMIN = "UPDATE ACCOUNT SET PASSWORD = ? ,lastModifiedById = ? WHERE USERNAME = ? AND PASSWORD =? ";
 	final String SQLUPDATEADMIN = "UPDATE ACCOUNT SET NAME = ? , ADDRESS = ? , EMAIL = ? , PHONE = ? WHERE USERNAME = ?";
@@ -249,7 +253,121 @@ public class accountDAO {
 		}
 		return false;
 	}
+	public boolean updateAccount3(accountDTO account) {
+		try {
+			PreparedStatement pr = con.prepareStatement(SQLUPDATEACCOUNT3);
+			if (account.getPasswordLevel2().equals("")) {
+				pr.setString(1, null);
+			} else {
+				pr.setString(1, hashUtil.hashmd5(account.getPasswordLevel2()));
+			}
 
+			
+			if (account.getAddress().equals("")) {
+				pr.setString(2, null);
+			} else {
+				pr.setString(2, account.getAddress());
+			}
+
+			if (account.getPhone().equals("")) {
+				pr.setString(3, null);
+			} else {
+				pr.setString(3, account.getPhone());
+			}
+			if (account.getEmail().equals("")) {
+				pr.setString(4, null);
+			} else {
+				pr.setString(4, account.getEmail());
+			}
+			pr.setInt(5, account.getAccountId());
+			pr.setString(6, account.getAvatar());
+			pr.setInt(7, account.getAccountId());
+			int i = pr.executeUpdate();
+			if (i != 0) {
+				return true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	public boolean updateAccount2(accountDTO account) {
+		try {
+			PreparedStatement pr = con.prepareStatement(SQLUPDATEACCOUNT2);
+			
+			if (account.getQuestionSecurity().equals("")) {
+				pr.setString(1, null);
+			} else {
+				pr.setString(1, account.getQuestionSecurity());
+			}
+			if (account.getAnswerSecurity().equals("")) {
+				pr.setString(2, null);
+			} else {
+				pr.setString(2, account.getAnswerSecurity());
+			}
+			if (account.getAddress().equals("")) {
+				pr.setString(3, null);
+			} else {
+				pr.setString(3, account.getAddress());
+			}
+
+			if (account.getPhone().equals("")) {
+				pr.setString(4, null);
+			} else {
+				pr.setString(4, account.getPhone());
+			}
+			if (account.getEmail().equals("")) {
+				pr.setString(5, null);
+			} else {
+				pr.setString(5, account.getEmail());
+			}
+			pr.setInt(6, account.getAccountId());
+			pr.setString(7, account.getAvatar());
+			pr.setInt(8, account.getAccountId());
+			int i = pr.executeUpdate();
+			if (i != 0) {
+				return true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	public boolean updateAccount1(accountDTO account) {
+		try {
+			PreparedStatement pr = con.prepareStatement(SQLUPDATEACCOUNT1);
+			
+
+			
+			
+			if (account.getAddress().equals("")) {
+				pr.setString(1, null);
+			} else {
+				pr.setString(1, account.getAddress());
+			}
+
+			if (account.getPhone().equals("")) {
+				pr.setString(2, null);
+			} else {
+				pr.setString(2, account.getPhone());
+			}
+			if (account.getEmail().equals("")) {
+				pr.setString(3, null);
+			} else {
+				pr.setString(3, account.getEmail());
+			}
+			pr.setInt(4, account.getAccountId());
+			pr.setString(5, account.getAvatar());
+			pr.setInt(6, account.getAccountId());
+			int i = pr.executeUpdate();
+			if (i != 0) {
+				return true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 	public accountDTO getAccountAdmin(String userName) {
 		try {
 			PreparedStatement pr = con.prepareStatement(SQLGETACCOUNT);

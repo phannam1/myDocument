@@ -56,6 +56,7 @@ public class registerNews extends HttpServlet {
 				}
 			HttpSession session = request.getSession();
 			accountDTO Usersession = (accountDTO)session.getAttribute(constants.USER_SESSION);	
+			
 			String titleNews = (String ) params.get("titleNews");
 			byte[] bytes = titleNews.getBytes(StandardCharsets.ISO_8859_1);
 			titleNews = new String(bytes, StandardCharsets.UTF_8);

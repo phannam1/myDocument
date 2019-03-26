@@ -96,14 +96,15 @@
 										class="form_input" name="titleNews" value=""  />
 								</div>
 								<div class="form_row">
-									<label>Đường dẫn ảnh:</label> <input required="required"  style="width: 500px;"   type="file"
-										class="form_input" name="picture" multiple name="file"   />
-								</div>
-								<div class="form_row">
 									<label>Nội dung bản tin:</label>
 									<textarea class="form_textarea" id="noidung" name="contentNews"
 										value=""></textarea>
 								</div>
+								<div class="form_row">
+									<label>Đường dẫn ảnh:</label> <input required="required"  style="width: 500px;"   type="file"
+										class="form_input" name="picture" multiple name="file"   />
+								</div>
+								
 
 
 								<div class="col-md-6">

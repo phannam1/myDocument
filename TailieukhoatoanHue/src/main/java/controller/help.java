@@ -33,7 +33,20 @@ public class help extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+		HttpSession session = request.getSession();
+		accountDTO Usersession = (accountDTO)session.getAttribute(constants.USER_SESSION);	
+		if(check.checkSession(Usersession)) {			
+			request.setAttribute("account", Usersession);
+			RequestDispatcher rd = request.getRequestDispatcher("help.jsp");
+			  rd.forward(request, response);;
+		}
+		else {
+			
 			response.sendRedirect(request.getContextPath()+"/help.jsp");
+			
+		}
 		
 	}
 

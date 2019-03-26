@@ -148,7 +148,7 @@
 			<div class="aa-top-slider">
 				<!-- Top slider single slide -->
 				<div class="aa-top-slider-single">
-					<img src="img/slider/anh.jpg" alt="img">
+					<img src="img/slider/1.PNG" alt="img">
 				</div>
 			</div>
 		</div>
@@ -197,7 +197,7 @@
 												
 											</div>
 											<div class="aa-properties-detial">
-												<a href="${document.linkData}" class="aa-secondary-btn1" download>tải xuống </a>
+												<a href="<%=request.getContextPath()%>/detailDocument?id=${document.id}">Xem chi tiết</a>
 
 											</div>
 										</div>
@@ -246,10 +246,11 @@
 							<h3>Tìm Kiếm Tài Liệu</h3>
 							<form action="searchDetailDocument" method="post">
 								<div class="aa-single-advance-search">
-									<input type="text" placeholder="Tên Tài Liệu" name="nameDocument">
+									<input type="text" placeholder="Tên Tài Liệu" name="nameDocument" value="">
 								</div>
 								<div class="aa-single-advance-search">
 									<select name="major" >
+											<option value="" selected></option>
 											<option value="Toán Học" >Toán Học</option>
 											<option value="Toán Ứng Dụng">Toán Ứng Dụng</option>
 
@@ -257,6 +258,7 @@
 								</div>
 								<div class="aa-single-advance-search">
 									<select name="semester">
+									<option value="" selected></option>
 											<option value="Kỳ 1" >Kỳ 1</option>
 											<option value="Kỳ 2">Kỳ 2</option>
 											<option value="Kỳ 3">Kỳ 3</option>
@@ -269,7 +271,8 @@
 								</div>
 								<div class="aa-single-advance-search">
 									<select name="subject" >
-										<option value="Xác Suất Thống Kê" selected>Xác Suất Thống Kê</option>
+									<option value="" selected></option>
+										<option value="Xác Suất Thống Kê" >Xác Suất Thống Kê</option>
 										<option value="Tối Ưu">Tối Ưu</option>
 										<option value="Ứng Dụng">Ứng Dụng</option>
 
@@ -278,14 +281,15 @@
 
 								<div class="aa-single-advance-search">
 									<select name="courseCredit" >
-										<option value="2" selected>2 Tín Chỉ</option>
+									<option value="0" selected></option>
+										<option value="2" >2 Tín Chỉ</option>
 										<option value="3">3 Tín Chỉ</option>
 										<option value="4">4 Tín Chỉ</option>
 
 										</select>
 								</div>
 								<div class="aa-single-advance-search">
-									<input type="text" placeholder="Tên giáo viên" name="nameTeacher">
+									<input type="text" placeholder="Tên giáo viên" name="nameTeacher" value="">
 								</div>
 
 								<div class="aa-single-advance-search">
@@ -310,7 +314,7 @@
 										<a href="<%=request.getContextPath()%>/detailDocument">${downloads.documentName }</a>
 									</h4>
 								
-									<span>Số lượt tải : ${downloads.downloads}</span>
+									<span>Số lượt xem : ${downloads.views}</span>
 								</div>
 							</div>
 							</c:forEach>

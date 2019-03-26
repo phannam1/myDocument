@@ -14,8 +14,10 @@ import javax.servlet.http.HttpSession;
 
 import beans.constants;
 import dao.documentDAO;
+import dao.newsDAO;
 import dto.accountDTO;
 import dto.documentDTO;
+import dto.newsDTO;
 
 /**
  * Servlet implementation class index
@@ -28,9 +30,11 @@ public class index extends HttpServlet {
      * @see HttpServlet#HttpServlet()
      */checkLogin check = null;
      documentDAO dao = null;
+ 	newsDAO newsDao = null;
     public index() {
         check = new checkLogin();
         dao = new documentDAO();
+        newsDao = new newsDAO();
     }
 
 	/**
@@ -45,6 +49,9 @@ public class index extends HttpServlet {
 			List<documentDTO> list = new ArrayList<documentDTO>();
 			list = dao.readAllDocumentShow();
 			request.setAttribute("listDocument", list);
+			List<newsDTO> listNews = new ArrayList<>();
+			listNews = newsDao.readAll();
+			request.setAttribute("listNews", listNews);
 			request.setAttribute("account", Usersession);
 			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 			  rd.forward(request, response);;

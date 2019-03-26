@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import beans.constants;
+import dao.newsDAO;
 import dto.accountDTO;
+import dto.newsDTO;
 
 /**
  * Servlet implementation class news
@@ -22,8 +24,10 @@ public class news extends HttpServlet {
      * @see HttpServlet#HttpServlet()
      */
 	checkLogin check = null;
+	newsDAO dao = null;
     public news() {
     	 check = new checkLogin();
+    	 dao = new newsDAO();
     }
 
 	/**
@@ -33,8 +37,13 @@ public class news extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
-		accountDTO Usersession = (accountDTO)session.getAttribute(constants.USER_SESSION);	
-		if(check.checkSession(Usersession)) {			
+		accountDTO Usersession = (accountDTO)session.getAttribute(constants.USER_SESSION);
+		String id = request.getParameter("id");
+		int newsId = Integer.parseInt(id);
+		if(check.checkSession(Usersession)) {	
+			newsDTO news = new newsDTO(); 
+			news = dao.readNewsById(newsId);
+			request.setAttribute("news", news);
 			request.setAttribute("account", Usersession);
 			RequestDispatcher rd = request.getRequestDispatcher("news.jsp");
 			  rd.forward(request, response);;

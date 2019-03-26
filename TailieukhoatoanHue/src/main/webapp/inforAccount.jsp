@@ -110,8 +110,8 @@
 												class="required"></span></label>
 											<div class="aa-single-advance-search">
 												<select name="Question" id="mySelect"
-													style="width: 100%; height: 35px;">
-													<option value="" selected></option>
+													style="width: 100%; height: 35px;" >
+													<option value="" ></option>
 													<option value="Tên của bạn">Tên của bạn</option>
 													<option value="Địa chỉ của bạn">Địa chỉ của bạn</option>
 													<option value="Con vật bạn thích">Con vật bạn

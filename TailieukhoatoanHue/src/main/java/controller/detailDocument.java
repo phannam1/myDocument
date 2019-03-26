@@ -40,8 +40,10 @@ public class detailDocument extends HttpServlet {
 		accountDTO Usersession = (accountDTO)session.getAttribute(constants.USER_SESSION);
 		String id = request.getParameter("id");
 		int documentId = Integer.parseInt(id);
-		System.out.println(id);
+		int views = dao.getViews(documentId);
+		
 		if(check.checkSession(Usersession)) {	
+			dao.updateViews(views+1,views, documentId);
 			documentDTO document = new documentDTO();
 			document = dao.getDocumentById(documentId);
 			request.setAttribute("document", document);

@@ -77,26 +77,65 @@ public class update extends HttpServlet {
 				String answer = (String ) params.get("answer");
 				byte[] bytes1 = answer.getBytes(StandardCharsets.ISO_8859_1);
 				answer = new String(bytes1, StandardCharsets.UTF_8);
+				String address = (String ) params.get("address");
+				byte[] bytes2 = address.getBytes(StandardCharsets.ISO_8859_1);
+				address = new String(bytes2, StandardCharsets.UTF_8);
+				String phone = (String ) params.get("phone");
+				String email = (String ) params.get("email");
 				if (!question.equals("") && answer.equals("")) {
 					String message = "Bạn phải nhập câu trả lời bảo mật";
 					request.setAttribute("error", message);
 					request.getRequestDispatcher("/Infor").forward(request, response);
 				} else {
-					String address = (String ) params.get("address");
-					byte[] bytes2 = address.getBytes(StandardCharsets.ISO_8859_1);
-					address = new String(bytes2, StandardCharsets.UTF_8);
-					String phone = (String ) params.get("phone");
-					String email = (String ) params.get("email");
-					accountDTO account = new accountDTO(id,linkData, address, phone, email, passwordLevel2, question, answer,Usersession.getAccountId());
-					if (dao.updateAccount(account)) {		
-						account = dao.getAccount(Usersession.getUserName(), Usersession.getPassword())	;
-						HttpSession usSession = request.getSession();
-						usSession.setAttribute(constants.USER_SESSION, account);		
-						System.out.println("update success");
-						
-					} else {
-						
+					if(dao.getAccountAdmin(Usersession.getUserName()).getPasswordLevel2()!=null && dao.getAccountAdmin(Usersession.getUserName()).getAnswerSecurity()!=null) {
+						accountDTO account1 = new accountDTO(id,linkData, address, phone, email, Usersession.getAccountId());
+						if(dao.updateAccount1(account1)) {
+							account1 = dao.getAccount(Usersession.getUserName(), Usersession.getPassword())	;
+							HttpSession usSession = request.getSession();
+							usSession.setAttribute(constants.USER_SESSION, account1);		
+							response.sendRedirect(request.getContextPath()+"/index");
+						}else {
+							response.sendRedirect(request.getContextPath()+"/index");
+						}
+							
 					}
+					else if(dao.getAccountAdmin(Usersession.getUserName()).getPasswordLevel2()!=null) {
+						accountDTO account2 = new accountDTO(id,linkData, address, phone, email,question, answer, Usersession.getAccountId());
+						if(dao.updateAccount2(account2)) {
+							account2 = dao.getAccount(Usersession.getUserName(), Usersession.getPassword())	;
+							HttpSession usSession = request.getSession();
+							usSession.setAttribute(constants.USER_SESSION, account2);		
+							response.sendRedirect(request.getContextPath()+"/index");
+						}else {
+							response.sendRedirect(request.getContextPath()+"/index");
+						}
+							
+					}
+					else if(dao.getAccountAdmin(Usersession.getUserName()).getAnswerSecurity()!=null) {
+						accountDTO account3 = new accountDTO(id,linkData, address, phone, email, passwordLevel2, Usersession.getAccountId());
+						if(dao.updateAccount3(account3)) {
+							account3 = dao.getAccount(Usersession.getUserName(), Usersession.getPassword())	;
+							HttpSession usSession = request.getSession();
+							usSession.setAttribute(constants.USER_SESSION, account3);		
+							response.sendRedirect(request.getContextPath()+"/index");
+						}else {
+							response.sendRedirect(request.getContextPath()+"/index");
+						}
+					}
+					else{
+						
+						accountDTO account = new accountDTO(id,linkData, address, phone, email, passwordLevel2, question, answer,Usersession.getAccountId());
+						if (dao.updateAccount(account)) {		
+							account = dao.getAccount(Usersession.getUserName(), Usersession.getPassword())	;
+							HttpSession usSession = request.getSession();
+							usSession.setAttribute(constants.USER_SESSION, account);		
+							
+							response.sendRedirect(request.getContextPath()+"/index");
+						} else {
+							response.sendRedirect(request.getContextPath()+"/index");
+						}
+					}
+					
 				}
 			}
 			
@@ -108,7 +147,7 @@ public class update extends HttpServlet {
 			}
 	
 		
-		response.sendRedirect(request.getContextPath()+"/index");
+	
 	}
 
 	/**

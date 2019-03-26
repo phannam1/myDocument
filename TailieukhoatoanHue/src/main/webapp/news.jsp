@@ -163,9 +163,8 @@
 						<div class="aa-properties-content-head">
 							<div class="aa-properties-content-head-left1">
 								<form action="" class="aa-sort-form">
-									<label>THÔNG BÁO NHẬN THỰC TẬP SINH CỦA CÔNG TY BRYCEN
-										VIỆT NAM</label>
-									<div>02/12/2017</div>
+									<label>${news.title }</label>
+									<div>${news.dateTime }</div>
 								</form>
 
 							</div>
@@ -173,19 +172,14 @@
 								<li>
 									<article class="aa-properties-item1">
 										<a class="aa-properties-item-img2"> <img
-											src="img/internship.png" alt="img">
+											src="${news.pictureLink }" alt="img">
 										</a>
 
 										<div class="aa-properties-item-content">
 
 											<div class="aa-properties-about">
 
-												<p style="padding-top: 15px;">Bạn đang tìm kiếm môi
-													trường thực tập phù hợp để thực tập hay đang lo lắng cho
-													công việc sau khi ra trường. Hãy đến với chúng tôi, Brycen
-													Việt Nam với 100% vốn Nhật Bản, môi trường làm việc chuyên
-													nghiệp, mang tính quốc tế cao, luôn tạo điều kiện cho các
-													cá nhân có cơ hội phát triển nghề nghiệp.</p>
+												<p style="padding-top: 15px;">${news.content }</p>
 											</div>
 
 										</div>
@@ -195,51 +189,8 @@
 						</div>
 					</div>
 				</div>
-				<!-- Start properties sidebar -->
-				<div class="col-md-12">
-					<aside class="aa-properties-sidebar">
-						<!-- Start Single properties sidebar -->
-						<div class="aa-properties-single-sidebar">
-							<h3 style="text-align: center;">Thông tin chi tiết</h3>
-
-						</div>
-
-						<div>
-							<div>
-								<label>Điều kiện ứng tuyển :</label>
-							</div>
-							<div>+ Sinh viên Đại Học năm cuối khoa Công Nghệ Thông Tin
-								hay những bạn của khoa Toán Tin /Điện Tử Viễn Thông có định
-								hướng phát triển nghề nghiệp theo mảng Công Nghệ Thông Tin.</div>
-							<div>+ Thành tích học tập loại khá trở lên</div>
-							+
-							<div>Đam mê về lập trình, biết sử dụng một trong những ngôn
-								ngữ Java, C#, PHP</div>
-							<div>+ Ưu tiên có kiến thức cơ bản về phát triển Web hoặc
-								Mobile</div>
-						</div>
-						<div>
-							<div>
-								<label>Số Lượng :</label>
-							</div>
-							<div>Dự định 10 người</div>
-						</div>
-						<div>
-							<div>
-								<label>Thời gian :</label>
-							</div>
-							<div>Từ tháng 1 năm 2018</div>
-						</div>
-						<div>
-							<div>
-								<label>Địa chỉ liên hệ :</label>
-							</div>
-							<div>Công ty TNHH MTV Brycen Việt Nam. 25 Nguyễn Văn Cừ, TP
-								Huế Điện thoại: 0234. 6558332 , Di động: 0168.9937.020 , Mail:
-								n_ha@brycen.com.vn</div>
-						</div>
-					</aside>
-				</div>
+				
+				
 			</div>
 		</div>
 	</section>

@@ -10,7 +10,7 @@ public class documentDTO {
 	private String nameTeacher;
 	private String typeData;
 	private String linkData;
-	private int downloads;
+	private int views;
 	private int isShow;
 	private int createById;
 	private int lastModifiedById;
@@ -34,7 +34,7 @@ public class documentDTO {
 	}
 
 	public documentDTO(int id, String documentName, String major, String semester, String subject, int courseCredit,
-			String nameTeacher, String typeData, String linkData, int downloads, int isShow, int createById,
+			String nameTeacher, String typeData, String linkData, int views, int isShow, int createById,
 			int lastModifiedById) {
 		super();
 		this.id = id;
@@ -46,7 +46,7 @@ public class documentDTO {
 		this.nameTeacher = nameTeacher;
 		this.typeData = typeData;
 		this.linkData = linkData;
-		this.downloads = downloads;
+		this.views = views;
 		this.isShow = isShow;
 		this.createById = createById;
 		this.lastModifiedById = lastModifiedById;
@@ -117,12 +117,15 @@ public class documentDTO {
 	public void setLinkData(String linkData) {
 		this.linkData = linkData;
 	}
-	public int getDownloads() {
-		return downloads;
+	
+	public int getViews() {
+		return views;
 	}
-	public void setDownloads(int downloads) {
-		this.downloads = downloads;
+
+	public void setViews(int views) {
+		this.views = views;
 	}
+
 	public int getIsShow() {
 		return isShow;
 	}

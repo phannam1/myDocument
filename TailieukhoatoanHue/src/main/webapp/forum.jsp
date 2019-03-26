@@ -153,7 +153,7 @@
 			<div class="aa-top-slider">
 				<!-- Top slider single slide -->
 				<div class="aa-top-slider-single">
-					<img src="img/slider/2.jpg" alt="img">
+					<img src="img/slider/2.PNG" alt="img">
 				</div>
 			</div>
 		</div>

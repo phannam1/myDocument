@@ -109,11 +109,46 @@ public class accountDTO implements Serializable {
 		this.isDelete = isDelete;
 	}
 	
+
 	public  accountDTO(String userName,String passwordLevel2,  String questionSecurity,String answerSecurity) {
 		this.passwordLevel2 = passwordLevel2;
 		this.userName = userName;
 		this.questionSecurity = questionSecurity;
 		this.answerSecurity = answerSecurity;
+	}
+	
+	public accountDTO(int accountId, String avatar, String address, String phone, String email, int lasModifiedById) {
+		super();
+		this.accountId = accountId;
+		this.avatar = avatar;
+		this.address = address;
+		this.phone = phone;
+		this.email = email;
+		this.lasModifiedById = lasModifiedById;
+	}
+	public accountDTO(int accountId, String avatar, String address, String phone, String email, String questionSecurity,
+			String answerSecurity, int lasModifiedById) {
+		super();
+		this.accountId = accountId;
+		this.avatar = avatar;
+		this.address = address;
+		this.phone = phone;
+		this.email = email;
+		this.questionSecurity = questionSecurity;
+		this.answerSecurity = answerSecurity;
+		this.lasModifiedById = lasModifiedById;
+	}
+	
+	public accountDTO(int accountId, String avatar, String address, String phone, String email, String passwordLevel2,
+			int lasModifiedById) {
+		super();
+		this.accountId = accountId;
+		this.avatar = avatar;
+		this.address = address;
+		this.phone = phone;
+		this.email = email;
+		this.passwordLevel2 = passwordLevel2;
+		this.lasModifiedById = lasModifiedById;
 	}
 	public int getAccountId() {
 		return accountId;

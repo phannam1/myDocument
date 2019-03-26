@@ -3,6 +3,7 @@
 <%@ page isELIgnored="false"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <head>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -148,7 +149,7 @@
 			<div class="aa-top-slider">
 				<!-- Top slider single slide -->
 				<div class="aa-top-slider-single">
-					<img src="img/slider/7.jpg" alt="img">
+					<img src="img/slider/2.PNG" alt="img">
 				</div>
 			</div>
 		</div>
@@ -163,30 +164,30 @@
 				<div class="col-md-12">
 					<div class="aa-latest-blog-area">
 						<div class="aa-title">
-							<h2>Tin Tức - Sự Kiện</h2>
+							<h2>Tin Tuyển Dụng - Sự Kiện</h2>
 							<span></span>
 							<!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe magni, est harum repellendus. Accusantium, nostrum!</p> -->
 						</div>
 						<div class="aa-latest-blog-content">
 							<div class="row">
 								<!-- start single blog -->
+								<c:forEach items="${listNews}" var="news">
 								<div class="col-md-4">
 									<article class="aa-blog-single">
 										<figure class="aa-blog-img">
 											<a
-												href="<%=request.getContextPath()%>/news"><img
-												src="img/tb.jpg" alt="img"></a>
-											<span class="aa-date-tag">08-12-2017 </span>
+												href="<%=request.getContextPath()%>/news?id=${news.newsId}"><img
+												src="${news.pictureLink }" alt="img"></a>
+											<span class="aa-date-tag">${news.dateTime } </span>
 										</figure>
 										<div class="aa-blog-single-content">
 											
 												<a
-													href="<%=request.getContextPath()%>/news">
-													<p class="cl" >THÔNG BÁO NHẬN THỰC TẬP SINH NĂM 2018 CỦA
-														CÔNG TY BRYCEN VIỆT NAM</p></a>
+													href="<%=request.getContextPath()%>/news?id=${news.newsId}">
+													<p class="cl" >${news.title }</p></a>
 													<div class="aa-blog-single-bottom">
 														<a
-															href="<%=request.getContextPath()%>/news"
+															href="<%=request.getContextPath()%>/news?id=${news.newsId}"
 															class="aa-blog-author"><i class="fa fa-user"></i> xem
 															chi tiết</a>
 
@@ -194,57 +195,12 @@
 										</div>
 
 									</article>
-								</div>
-								<!-- start single blog -->
-								<div class="col-md-4">
-									<article class="aa-blog-single">
-										<figure class="aa-blog-img">
-											<a
-												href="<%=request.getContextPath()%>/news"><img
-												src="img/tb.jpg" alt="img"></a>
-											<span class="aa-date-tag">08-12-2017 </span>
-										</figure>
-										<div class="aa-blog-single-content">
-											
-												<a
-													href="<%=request.getContextPath()%>/news">
-													<p class="cl" >THÔNG BÁO NHẬN THỰC TẬP SINH NĂM 2018 CỦA
-														CÔNG TY BRYCEN VIỆT NAM</p></a>
-													<div class="aa-blog-single-bottom">
-														<a
-															href="<%=request.getContextPath()%>/news"
-															class="aa-blog-author"><i class="fa fa-user"></i> xem
-															chi tiết</a>
-
-													</div>
-										</div>
-
-									</article>
-								</div>
-								<div class="col-md-4">
-									<article class="aa-blog-single">
-										<figure class="aa-blog-img">
-											<a
-												href="<%=request.getContextPath()%>/news"><img
-												src="img/tb.jpg" alt="img"></a>
-											<span class="aa-date-tag">26-11-2018</span>
-										</figure>
-										<div class="aa-blog-single-content">
 									
-												<a
-													href="<%=request.getContextPath()%>/news"><p
-														class="cl">THÔNG BÁO VỀ VIỆC ĐĂNG KÍ ĐỊA ĐIỂM THỰC TẬP
-														KHÓA 39</p></a>
-													<div class="aa-blog-single-bottom">
-														<a
-															href="<%=request.getContextPath()%>/news"
-															class="aa-blog-author"><i class="fa fa-user"></i> xem
-															chi tiết</a>
-													</div>
-										</div>
-									</article>
 								</div>
-								<!-- start single blog -->
+								</c:forEach>
+							
+								
+								
 
 							</div>
 						</div>
@@ -274,122 +230,6 @@
 								</ul>
 							</nav>
 						</div>
-			</div>
-		</div>
-	</section>
-	<section id="aa-latest-blog">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="aa-latest-blog-area">
-						<div class="aa-title">
-							<h2>Tin Tuyển Dụng</h2>
-							<span></span>
-							<!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe magni, est harum repellendus. Accusantium, nostrum!</p> -->
-						</div>
-						<div class="aa-latest-blog-content">
-							<div class="row">
-								<!-- start single blog -->
-								<div class="col-md-4">
-									<article class="aa-blog-single">
-										<figure class="aa-blog-img">
-											<a href="<%=request.getContextPath()%>/news"><img
-												src="img/tb.jpg" alt="img"></a>
-											<span class="aa-date-tag">02-2019 </span>
-										</figure>
-										<div class="aa-blog-single-content">
-										
-												<a href="<%=request.getContextPath()%>/news">
-													<p class="cl">THÔNG BÁO TUYỂN DỤNG CỦA CÔNG TY BRYCEN
-														VIỆT NAM</p></a>
-													<div class="aa-blog-single-bottom">
-														<a href="<%=request.getContextPath()%>/news"
-															class="aa-blog-author"><i class="fa fa-user"></i> xem
-															chi tiết</a>
-
-													</div>
-										</div>
-
-									</article>
-								</div>
-								<!-- start single blog -->
-								<div class="col-md-4">
-									<article class="aa-blog-single">
-										<figure class="aa-blog-img">
-											<a
-												href="<%=request.getContextPath()%>/news"><img
-												src="img/tb.jpg" alt="img"></a>
-											<span class="aa-date-tag">30/05/2016 11:05:48 SA</span>
-										</figure>
-										<div class="aa-blog-single-content">
-									
-												<a
-													href="<%=request.getContextPath()%>/news">
-													<p class="cl">Công ty TNHH MTV Hóa Tam (Hoatamus) thông
-														báo tuyển dụng</p></a>
-													<div class="aa-blog-single-bottom">
-														<a
-															href="<%=request.getContextPath()%>/news"
-															class="aa-blog-author"><i class="fa fa-user"></i> xem
-															chi tiết</a>
-
-													</div>
-										</div>
-									</article>
-								</div>
-								<!-- start single blog -->
-								<div class="col-md-4">
-									<article class="aa-blog-single">
-										<figure class="aa-blog-img">
-											<a
-												href="<%=request.getContextPath()%>/news"><img
-												src="img/tb.jpg" alt="img"></a>
-											<span class="aa-date-tag">15/02/2019 4:04:52 CH</span>
-										</figure>
-										<div class="aa-blog-single-content">
-									
-												<a
-													href="<%=request.getContextPath()%>/news"><p
-														class="cl">HueCIT tuyển dụng nhân sự lập trình website
-														và mobile</p></a>
-													<div class="aa-blog-single-bottom">
-														<a
-															href="<%=request.getContextPath()%>/news"
-															class="aa-blog-author"><i class="fa fa-user"></i> xem
-															chi tiết</a>
-
-													</div>
-										</div>
-									</article>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="aa-properties-content-bottom">
-					<nav>
-						<ul class="pagination">
-							<li><a><button id="btn_first1"
-										onClick="firstPage(this.id)">Đầu Trang</button></a> <a><button
-										id="btn_prev1" onClick="prevPage(this.id)">Trang
-										Trước</button></a></li>
-							<li class="active" id="6"><a><button id="btn_next11"
-										onClick="clickPage1(this.id)">1</button></a></li>
-							<li id="7"><a><button id="btn_next22"
-										onClick="clickPage2(this.id)">2</button></a></li>
-							<li id ="8"><a><button id="btn_next33"
-										onClick="clickPage3(this.id)">3</button></a></li>
-							<li id ="9"><a><button id="btn_next44"
-										onClick="clickPage4(this.id)">4</button></a></li>
-							<li id ="10"><a><button id="btn_next55"
-										onClick="clickPage5(this.id)">5</button></a></li>
-							<li><a><button id="btn_next111"
-										onClick="nextPage(this.id)">Trang Kế</button></a> <a><button
-										id="btn_last1" onClick="lastPage(this.id)">Cuối Trang</button></a>
-							</li>
-						</ul>
-					</nav>
-				</div>
 			</div>
 		</div>
 	</section>

@@ -76,7 +76,7 @@
             </div>
             
             <div class="form_row">
-            <input type="submit" class="form_submit" value="Chỉnh Sửa" />
+            <input style="margin-right: 210px" type="submit" class="form_submit" value="Chỉnh Sửa" />
             </div> 
             </div>
             </form>
