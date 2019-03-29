@@ -127,13 +127,21 @@
 						<div class="col-sm-4" ><label>Số tín chỉ :</label></div><div class="col-sm-8" > <input id="courseCredit" type="text" class="form_input"
 							name="courseCredit" value="" /></div>
 					</div>
-					<div class="col-sm-6" >
-						<input  type="button" id="btnDisplayPopup" class="form_submit"
+					
+					</div>
+					<div class="row">
+					<div class="col-sm-11" >
+						<input style=" margin-right: 5%;" type="button" id="btnDisplayPopup" class="form_submit"
 							value="Chỉnh Sửa" />
 
 					</div>
-					
+					<div class="col-sm-1">
+						<input type="button" id="btnShowPopup"  class="form_submit"
+							value="Xóa tài liệu" />
+
 					</div>
+					</div>
+					
 				</div>
 			</form>
 
@@ -216,7 +224,24 @@
 						</div>
 					</div>
 					<!-- end popup -->
-
+<div id="MyPopup1" class="modal fade" role="dialog">
+						<div class="modal-dialog">
+							<!-- Modal content-->
+							<div class="modal-content">
+								<div class="modal-header">
+								<h4 class="modal-title"></h4>
+									<button type="button" class="close" data-dismiss="modal">
+										&times;</button>									
+								</div>								
+								<div class="modal-body"></div>
+								<div class="modal-footer">
+									<input type="button" id="btnConfirmPopup1" value="Xác Nhận"
+										class="btn btn-danger" /> <input type="button"
+										id="btnClosePopup1" value="Close" class="btn btn-danger" />
+								</div>
+							</div>
+						</div>
+					</div>
 
 				</div>
 			</div>

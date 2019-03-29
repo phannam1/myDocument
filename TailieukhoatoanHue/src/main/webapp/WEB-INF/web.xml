@@ -297,6 +297,12 @@
   	<description></description>
   	<servlet-class>controller.yourDocument</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>deleteDocument</servlet-name>
+  	<display-name>deleteDocument</display-name>
+  	<description></description>
+  	<servlet-class>controller.deleteDocument</servlet-class>
+  </servlet>
   
   <servlet-mapping>
   	 <servlet-name>Infor</servlet-name>
@@ -491,6 +497,10 @@
   <servlet-mapping>
   	<servlet-name>yourDocument</servlet-name>
   	<url-pattern>/yourDocument</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>deleteDocument</servlet-name>
+  	<url-pattern>/deleteDocument</url-pattern>
   </servlet-mapping>
   
   

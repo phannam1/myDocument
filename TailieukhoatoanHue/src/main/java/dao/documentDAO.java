@@ -28,6 +28,7 @@ public class documentDAO {
 	final String GETVIEWS = "SELECT VIEWS FROM DOCUMENT WHERE DOCUMENTID = ? AND ISSHOW = 1";
 	final String UPDATEVIEWS = "UPDATE DOCUMENT SET VIEWS = ? WHERE VIEWS = ? AND DOCUMENTID = ? ";
 	final String READDOCUMENTBYID = "SELECT DOCUMENT.*,a1.USERNAME AS 'createUSer',a2.USERNAME AS 'lastmodifiedUser'  FROM DOCUMENT JOIN ACCOUNT a1 ON DOCUMENT.createbyid = a1.ACCOUNTID JOIN ACCOUNT a2 ON DOCUMENT.lastModifiedById = a2.ACCOUNTID where createbyid = ? order by lastModifiedDate desc ";
+	final String DELETEDOCUMENT = "DELETE FROM DOCUMENT WHERE DOCUMENTID = ? ";
 
 	Connection con = null;
 	HashUtils hashUtil = null;
@@ -387,6 +388,21 @@ public class documentDAO {
 			e.printStackTrace();
 		}
 
+		return false;
+	}
+	public boolean deleteDocument(int id) {
+		try {
+			PreparedStatement pr = con.prepareStatement(DELETEDOCUMENT);
+			pr.setInt(1, id);
+			int i = pr.executeUpdate();
+			if(i!=0) {
+				return true;
+			}
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		
 		return false;
 	}
 
