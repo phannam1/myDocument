@@ -35,7 +35,7 @@ public class roleFunctionDAO {
 			if(rs!=null) {
 				List<roleFunctionDTO> list = new ArrayList<roleFunctionDTO>();
 				while(rs.next()) {
-					roleFunctionDTO roleFunction = new roleFunctionDTO(rs.getInt(1),rs.getInt(2),rs.getInt(3),rs.getString(4),rs.getInt(5),rs.getInt(6),rs.getString(7),rs.getString(8));
+					roleFunctionDTO roleFunction = new roleFunctionDTO(rs.getInt(1),rs.getInt(2),rs.getInt(3),rs.getString(4),rs.getInt(5),rs.getInt(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10));
 					list.add(roleFunction);
 				}
 				return list;
@@ -106,7 +106,7 @@ public class roleFunctionDAO {
 			if(rs!=null) {
 				List<roleFunctionDTO> list =  new ArrayList<roleFunctionDTO>();
 				while(rs.next()) {
-					roleFunctionDTO roleFunction = new roleFunctionDTO(rs.getInt(1),rs.getInt(2),rs.getInt(3),rs.getString(4),rs.getInt(5),rs.getInt(6),rs.getString(7),rs.getString(8));
+					roleFunctionDTO roleFunction = new roleFunctionDTO(rs.getInt(1),rs.getInt(2),rs.getInt(3),rs.getString(4),rs.getInt(5),rs.getInt(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10));
 					list.add(roleFunction);
 				}
 				return list;

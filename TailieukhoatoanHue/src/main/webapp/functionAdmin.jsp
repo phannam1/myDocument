@@ -124,7 +124,8 @@
             <th style="display: none">ID</th>
             <th>Tên Chức Năng</th>
             <th>Mô tả</th>      
-            
+            <th>creationDate</th>
+								<th>lastModifiedDate</th>
         </tr>
     </thead>
         <tfoot>
@@ -138,6 +139,8 @@
             <td style="display: none"><a >${function.functionId }</a></td>
             <td>${function.functionName }</td>
             <td>${function.description }</td> 
+            <td>${function.creationDate}</td>	
+			<td>${function.lastModifiedDate}</td>
         </tr>
 </c:forEach>
     </tbody>

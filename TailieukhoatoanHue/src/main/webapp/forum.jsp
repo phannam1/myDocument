@@ -82,7 +82,7 @@
 										Cài Đặt </a> <a id="show1"
 										href="<%=request.getContextPath()%>/Logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Đăng Xuất</a>
 										<a id="showAdmin"
-										href="indexAdmin"><i class="fa fa-user"></i>Administrator</a> <a
+										href="indexAdmin"><i class="fa fa-user"></i>Quản trị viên</a> <a
 										id="hide" href="register.jsp"><i class="fa fa-user-plus"></i>Đăng Ký</a>
 									<a id="hide1" href="signin.jsp"><i class="fa fa-sign-in" aria-hidden="true"></i>Đăng Nhập</a>
 
@@ -136,8 +136,15 @@
 						<li><a href="<%=request.getContextPath()%>/contact">LIÊN
 								HỆ</a></li>
 						<li><a href="<%=request.getContextPath()%>/help">PHẢN HỒI</a></li>
-						<li><a href="<%=request.getContextPath()%>/uploadDocument">UPLOAD
-								TÀI LIỆU</a></li>
+						<div class="dropdown1">
+						<li class="dropbtn1"><a>TẢI TÀI LIỆU
+								 </a>	
+								<div class="dropdown-content1">
+									<a style="color: blue;" href="<%=request.getContextPath()%>/uploadDocument">Upload</a> <a style="color: blue;" href="yourDocument">Tài liệu của bạn</a>
+								</div>
+							
+							</li>
+							</div>
 					</ul>
 				</div>
 				<!--/.nav-collapse -->
@@ -197,7 +204,7 @@
 					<table id="rounded-corner">
 						<thead>
 							<tr>
-								<th>STT</th>
+								
 								<th>UserName(<i class="fa fa-user"></i>)</th>
 								<th>Câu Hỏi(<i class="fa fa-question"></i>)</th>
 								<th>Câu trả lời(<i class="fa fa-comment"></i>)</th>
@@ -212,7 +219,7 @@
 						</tfoot>
 						<tbody>
 							<tr class="odd">
-								<td>1</td>
+								
 								<td>user4</td>				
 								<td>1+1 = ?</td>
 							<td>2 </td>

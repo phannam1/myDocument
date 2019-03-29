@@ -3,6 +3,7 @@ package dto;
 import java.io.Serializable;
 
 public class accountDTO implements Serializable {
+	
 	private int accountId;
 	private String userName;
 	private String password;
@@ -17,14 +18,17 @@ public class accountDTO implements Serializable {
 	private int isActive;
 	private int isDelete;
 	private int roleId;
-
 	private int lasModifiedById;
+	
+	private String creationDate;
+	private String lastModifiedDate;
+	
 	public accountDTO() {
 		
 	}
 	public accountDTO(int accountId, String userName, String password, String name, String avatar, String address,
 			String phone, String email, String passwordLevel2, String questionSecurity, String answerSecurity,
-			int isActive,int isDelete, int roleId,  int lasModifiedById) {
+			int isActive,int isDelete, int roleId,  int lasModifiedById,String creationDate,String lastModifiedDate  ) {
 		super();
 		this.accountId = accountId;
 		this.userName = userName;
@@ -40,8 +44,9 @@ public class accountDTO implements Serializable {
 		this.isActive = isActive;
 		this.isDelete = isDelete;
 		this.roleId = roleId;
-	
-		this.lasModifiedById = lasModifiedById;
+		this.lasModifiedById = lasModifiedById;		
+		this.creationDate = creationDate;
+		this.lastModifiedDate = lastModifiedDate;
 	}
 
 	public accountDTO(String userName, String password, String name, String avatar, String address, String phone,
@@ -241,5 +246,19 @@ public class accountDTO implements Serializable {
 	public void setIsDelete(int isDelete) {
 		this.isDelete = isDelete;
 	}
+	
+	public String getCreationDate() {
+		return creationDate;
+	}
+	public void setCreationDate(String creationDate) {
+		this.creationDate = creationDate;
+	}
+	public String getLastModifiedDate() {
+		return lastModifiedDate;
+	}
+	public void setLastModifiedDate(String lastModifiedDate) {
+		this.lastModifiedDate = lastModifiedDate;
+	}
+	
 
 }

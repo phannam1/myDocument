@@ -82,13 +82,14 @@
 									<p id="account">${account.accountId}</p>
 									<p id="admin">${account.roleId}</p>
 									<p id="show2">Xin Chào: ${account.name}</p>
-									<a id="show" href="<%=request.getContextPath()%>/Infor"><i class="fa fa-cog"></i>
-										Cài Đặt </a> <a id="show1"
-										href="<%=request.getContextPath()%>/Logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Đăng Xuất</a>
-										<a id="showAdmin"
-										href="indexAdmin"><i class="fa fa-user"></i>Administrator</a> <a
-										id="hide" href="register.jsp"><i class="fa fa-user-plus"></i>Đăng Ký</a>
-									<a id="hide1" href="signin.jsp"><i class="fa fa-sign-in" aria-hidden="true"></i>Đăng Nhập</a>
+									<a id="show" href="<%=request.getContextPath()%>/Infor"><i
+										class="fa fa-cog"></i> Cài Đặt </a> <a id="show1"
+										href="<%=request.getContextPath()%>/Logout"><i
+										class="fa fa-sign-out" aria-hidden="true"></i>Đăng Xuất</a> <a
+										id="showAdmin" href="indexAdmin"><i class="fa fa-user"></i>Quản trị viên</a>
+									<a id="hide" href="register.jsp"><i class="fa fa-user-plus"></i>Đăng
+										Ký</a> <a id="hide1" href="signin.jsp"><i
+										class="fa fa-sign-in" aria-hidden="true"></i>Đăng Nhập</a>
 
 								</div>
 							</div>
@@ -140,8 +141,15 @@
 						<li><a href="<%=request.getContextPath()%>/contact">LIÊN
 								HỆ</a></li>
 						<li><a href="<%=request.getContextPath()%>/help">PHẢN HỒI</a></li>
-						<li><a href="<%=request.getContextPath()%>/uploadDocument">UPLOAD
-								TÀI LIỆU</a></li>
+						<div class="dropdown1">
+						<li class="dropbtn1"><a>TẢI TÀI LIỆU
+								 </a>	
+								<div class="dropdown-content1">
+									<a style="color: blue;" href="<%=request.getContextPath()%>/uploadDocument">Upload</a> <a style="color: blue;" href="yourDocument">Tài liệu của bạn</a>
+								</div>
+							
+							</li>
+							</div>
 					</ul>
 				</div>
 				<!--/.nav-collapse -->
@@ -158,93 +166,36 @@
 				<!-- Top slider single slide -->
 				<div class="aa-top-slider-single">
 					<img src="img/slider/1.PNG" alt="img">
-					<!-- Top slider content -->
-					<!-- <div class="aa-top-slider-content">
-            <span class="aa-top-slider-catg">Duplex</span>
-            <h2 class="aa-top-slider-title">1560 Square Feet</h2>
-            <p class="aa-top-slider-location"><i class="fa fa-map-marker"></i>South Beach, Miami (USA)</p>
-            <span class="aa-top-slider-off">30% OFF</span>
-            <p class="aa-top-slider-price">$460,000</p>
-            <a href="#" class="aa-top-slider-btn">Read More <span class="fa fa-angle-double-right"></span></a>
-          </div> -->
-					<!-- / Top slider content -->
+
 				</div>
-				<!-- / Top slider single slide -->
-				<!-- Top slider single slide -->
+
 				<div class="aa-top-slider-single">
 					<img src="img/slider/2.jpg" alt="img">
-					<!-- Top slider content -->
-					<!-- <div class="aa-top-slider-content">
-            <span class="aa-top-slider-catg">Duplex</span>
-            <h2 class="aa-top-slider-title">1560 Square Feet</h2>
-            <p class="aa-top-slider-location"><i class="fa fa-map-marker"></i>South Beach, Miami (USA)</p>
-            <span class="aa-top-slider-off">30% OFF</span>
-            <p class="aa-top-slider-price">$460,000</p>
-            <a href="#" class="aa-top-slider-btn">Read More <span class="fa fa-angle-double-right"></span></a>
-          </div> -->
-					<!-- / Top slider content -->
+
+
 				</div>
-				<!-- / Top slider single slide -->
-				<!-- Top slider single slide -->
+
 				<div class="aa-top-slider-single">
 					<img src="img/slider/1.jpg" alt="img">
-					<!-- Top slider content -->
-					<!-- <div class="aa-top-slider-content">
-            <span class="aa-top-slider-catg">Duplex</span>
-            <h2 class="aa-top-slider-title">1560 Square Feet</h2>
-            <p class="aa-top-slider-location"><i class="fa fa-map-marker"></i>South Beach, Miami (USA)</p>
-            <span class="aa-top-slider-off">30% OFF</span>
-            <p class="aa-top-slider-price">$460,000</p>
-            <a href="#" class="aa-top-slider-btn">Read More <span class="fa fa-angle-double-right"></span></a>
-          </div> -->
-					<!-- / Top slider content -->
+
 				</div>
-				<!-- / Top slider single slide -->
-				<!-- Top slider single slide -->
+
 				<div class="aa-top-slider-single">
 					<img src="img/slider/7.jpg" alt="img">
-					<!-- Top slider content -->
-					<!-- <div class="aa-top-slider-content">
-            <span class="aa-top-slider-catg">Duplex</span>
-            <h2 class="aa-top-slider-title">1560 Square Feet</h2>
-            <p class="aa-top-slider-location"><i class="fa fa-map-marker"></i>South Beach, Miami (USA)</p>
-            <span class="aa-top-slider-off">30% OFF</span>
-            <p class="aa-top-slider-price">$460,000</p>
-            <a href="#" class="aa-top-slider-btn">Read More <span class="fa fa-angle-double-right"></span></a>
-          </div> -->
-					<!-- / Top slider content -->
+
 				</div>
-				<!-- / Top slider single slide -->
-				<!-- Top slider single slide -->
+
 				<div class="aa-top-slider-single">
 					<img src="img/slider/8.jpg" alt="img">
-					<!-- Top slider content -->
-					<!-- <div class="aa-top-slider-content">
-            <span class="aa-top-slider-catg">Duplex</span>
-            <h2 class="aa-top-slider-title">1560 Square Feet</h2>
-            <p class="aa-top-slider-location"><i class="fa fa-map-marker"></i>South Beach, Miami (USA)</p>
-            <span class="aa-top-slider-off">30% OFF</span>
-            <p class="aa-top-slider-price">$460,000</p>
-            <a href="#" class="aa-top-slider-btn">Read More <span class="fa fa-angle-double-right"></span></a>
-          </div> -->
-					<!-- / Top slider content -->
+
+
 				</div>
-				<!-- / Top slider single slide -->
-				<!-- Top slider single slide -->
+
 				<div class="aa-top-slider-single">
 					<img src="img/slider/9.jpg" alt="img">
-					<!-- Top slider content -->
-					<!-- <div class="aa-top-slider-content">
-            <span class="aa-top-slider-catg">Duplex</span>
-            <h2 class="aa-top-slider-title">1560 Square Feet</h2>
-            <p class="aa-top-slider-location"><i class="fa fa-map-marker"></i>South Beach, Miami (USA)</p>
-            <span class="aa-top-slider-off">30% OFF</span>
-            <p class="aa-top-slider-price">$460,000</p>
-            <a href="#" class="aa-top-slider-btn">Read More <span class="fa fa-angle-double-right"></span></a>
-          </div> -->
-					<!-- / Top slider content -->
+
 				</div>
-				<!-- / Top slider single slide -->
+
 			</div>
 		</div>
 	</section>
@@ -257,331 +208,311 @@
 				<div class="form">
 					<div class="aa-advance-search-top">
 						<div class="row">
-						<form action="searchDetailDocument" method="post">
-							<div class="col-md-2">
-								<div class="aa-single-advance-search">
-									<input type="text" placeholder="Tên tài liệu" value="" name="nameDocument">
+							<form action="searchDetailDocument" method="post">
+								<div class="col-md-2">
+									<div class="aa-single-advance-search">
+										<input type="text" placeholder="Tên tài liệu" value=""
+											name="nameDocument">
+									</div>
 								</div>
-							</div>
-							<div class="col-md-2">
-								<div class="aa-single-advance-search">
-									<select name="major" >
-									<option value="" selected></option>
-											<option value="Toán Học" >Toán Học</option>
+								<div class="col-md-2">
+									<div class="aa-single-advance-search">
+										<select name="major">
+											<option value="" selected>Ngành học</option>
+											<option value="Toán Học">Toán Học</option>
 											<option value="Toán Ứng Dụng">Toán Ứng Dụng</option>
 
 										</select>
+									</div>
 								</div>
-							</div>
-							<div class="col-md-2">
-								<div class="aa-single-advance-search">
-									<select name="semester">
-									<option value="" selected></option>
-											<option value="Kỳ 1" >Kỳ 1</option>
+								<div class="col-md-2">
+									<div class="aa-single-advance-search">
+										<select name="semester">
+											<option value="" selected>Kỳ học</option>
+											<option value="Kỳ 1">Kỳ 1</option>
 											<option value="Kỳ 2">Kỳ 2</option>
 											<option value="Kỳ 3">Kỳ 3</option>
 											<option value="Kỳ 4">Kỳ 4</option>
 											<option value="Kỳ 5">Kỳ 5</option>
 											<option value="Kỳ 6">Kỳ 6</option>
 											<option value="Kỳ 7">Kỳ 7</option>
+											<option value="Kỳ 8">Kỳ 8</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-2">
+									<div class="aa-single-advance-search">
+										<select name="subject">
+											<option value="" selected>Chuyên ngành</option>
+											<option value="Xác Suất Thống Kê">Xác Suất Thống Kê</option>
+											<option value="Tối Ưu">Tối Ưu</option>
+											<option value="Ứng Dụng">Ứng Dụng</option>
 
 										</select>
+									</div>
 								</div>
-							</div>
-							<div class="col-md-2">
-								<div class="aa-single-advance-search">
-									<select name="subject" >
-									<option value="" selected></option>
-										<option value="Xác Suất Thống Kê" >Xác Suất Thống Kê</option>
-										<option value="Tối Ưu">Tối Ưu</option>
-										<option value="Ứng Dụng">Ứng Dụng</option>
+								<div class="col-md-2">
+									<div class="aa-single-advance-search">
+										<select name="courseCredit">
+											<option value="0" selected>Số tín chỉ</option>
+											<option value="2">2 Tín Chỉ</option>
+											<option value="3">3 Tín Chỉ</option>
+											<option value="4">4 Tín Chỉ</option>
 
 										</select>
+									</div>
 								</div>
-							</div>
-							<div class="col-md-2">
-								<div class="aa-single-advance-search">
-									<select name="courseCredit" >
-									<option value="0" selected></option>
-										<option value="2" >2 Tín Chỉ</option>
-										<option value="3">3 Tín Chỉ</option>
-										<option value="4">4 Tín Chỉ</option>
+								<div style="display: none" class="aa-single-advance-search">
+									<input type="text" placeholder="Tên giáo viên"
+										name="nameTeacher" value="">
+								</div>
 
-										</select>
+								<div class="col-md-2">
+									<div class="aa-single-advance-search">
+										<input class="aa-search-btn" type="submit" value="Tìm Kiếm">
+									</div>
 								</div>
-							</div>
-							<div style="display: none" class="aa-single-advance-search">
-									<input type="text" placeholder="Tên giáo viên" name="nameTeacher" value="">
-								</div>
-								
-							<div class="col-md-2">
-								<div class="aa-single-advance-search">
-									<input class="aa-search-btn" type="submit" value="Tìm Kiếm">
-								</div>
-							</div>
 							</form>
 						</div>
 						<div class="row1">
-							<div class="col-md-2">
-								<!-- <div class="aa-single-advance-search">
-                  <input type="text" placeholder="Type Your Location">
-                </div> -->
-							</div>
+							<div class="col-md-2"></div>
 
 
-							<div class="col-md-2">
-								<!-- <div class="aa-single-advance-search">
-                  <input class="aa-search-btn" type="submit" value="Search">
-                </div> -->
-							</div>
+							<div class="col-md-2"></div>
 						</div>
 					</div>
 
 				</div>
 			</div>
 		</div>
-		</section>
-		<!-- / Advance Search -->
+	</section>
+	<!-- / Advance Search -->
 
-		<!-- About us -->
-		<section id="aa-about-us">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="aa-about-us-area">
-							<div class="row">
-								<div class="col-md-5">
-									<div class="aa-about-us-left">
-										<img src="img/kt1.jpg" alt="image">
-									</div>
+	<!-- About us -->
+	<section id="aa-about-us">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="aa-about-us-area">
+						<div class="row">
+							<div class="col-md-5">
+								<div class="aa-about-us-left">
+									<img src="img/kt1.jpg" alt="image">
 								</div>
-								<div class="col-md-7">
-									<div class="aa-about-us-right">
-										<div class="aa-title">
-											<h2>Về Chúng Tôi</h2>
-											<span></span>
-										</div>
-										<p>Khoa Toán là một trong những đơn vị của trường thực
-											hiện có hiệu quả công tác nghiên cứu khoa học. Nhiều đề tài
-											cấp Nhà nước, đề tài cấp Bộ, cấp Cơ sở thường xuyên được
-											triển khai và những kết quả nghiên cứu đã được công bố trên
-											hàng trăm bài báo, được đăng tải trên các tạp chí chuyên
-											ngành trong và ngoài nước, trong đó có nhiều tạp chí thuộc hệ
-											thống ISI. Nhiều cán bộ của khoa thường xuyên đi trao đổi
-											chuyên môn hoặc giảng dạy tại các trường đại học hoặc viện
-											nghiên cứu nước ngoài. Hàng chục giáo trình và sách chuyên
-											khảo có chất lượng cao do cán bộ của khoa biên soạn đã lần
-											lượt được xuất bản để phục vụ công tác giảng dạy và nghiên
-											cứu.</p>
-
+							</div>
+							<div class="col-md-7">
+								<div class="aa-about-us-right">
+									<div class="aa-title">
+										<h2>Về Chúng Tôi</h2>
+										<span></span>
 									</div>
+									<p>Khoa Toán là một trong những đơn vị của trường thực hiện
+										có hiệu quả công tác nghiên cứu khoa học. Nhiều đề tài cấp Nhà
+										nước, đề tài cấp Bộ, cấp Cơ sở thường xuyên được triển khai và
+										những kết quả nghiên cứu đã được công bố trên hàng trăm bài
+										báo, được đăng tải trên các tạp chí chuyên ngành trong và
+										ngoài nước, trong đó có nhiều tạp chí thuộc hệ thống ISI.
+										Nhiều cán bộ của khoa thường xuyên đi trao đổi chuyên môn hoặc
+										giảng dạy tại các trường đại học hoặc viện nghiên cứu nước
+										ngoài. Hàng chục giáo trình và sách chuyên khảo có chất lượng
+										cao do cán bộ của khoa biên soạn đã lần lượt được xuất bản để
+										phục vụ công tác giảng dạy và nghiên cứu.</p>
+
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</section>
-		<!-- / About us -->
+		</div>
+	</section>
+	<!-- / About us -->
 
-		<!-- Latest property -->
-		<section id="aa-latest-property">
-			<div class="container">
-				<div class="aa-latest-property-area">
-					<div class="aa-title">
-						<h2>Tài Liệu Nổi Bật</h2>
-						<span></span>
-						<!--  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum sit ea nobis quae vero voluptatibus.</p>  -->
-					</div>
+	<!-- Latest property -->
+	<section id="aa-latest-property">
+		<div class="container">
+			<div class="aa-latest-property-area">
+				<div class="aa-title">
+					<h2>Tài Liệu Nổi Bật</h2>
+					<span></span>
 
-					<div class="aa-latest-properties-content">
-						<div class="row">
+				</div>
+
+				<div class="aa-latest-properties-content">
+					
+					<div class="row">
 						<c:forEach items="${listDocument}" var="document">
-							<div class="col-md-4">
-								<article class="aa-properties-item">
-									<a href="<%=request.getContextPath()%>/detailDocument?id=${document.id}"
-											class="aa-properties-item-img"> <img
-											src="${document.linkData}" alt="img">
-										</a>
-									<div class="aa-properties-item-content">
-										<div class="aa-properties-about">
-											<h3>
-													<a href="<%=request.getContextPath()%>/detailDocument?id=${document.id}">${document.documentName}</a>
-												</h3>
-											
-										</div>
-										<div class="aa-properties-detial">
-											<a href="<%=request.getContextPath()%>/detailDocument?id=${document.id}">Xem chi tiết</a>
-											<span class="aa-date-tag">Lượt xem : ${document.views} </span>
-										</div>
-									</div>
-								</article>
-							</div>
-							</c:forEach>
-							
-						</div>
-					</div>
-					<div class="aa-properties-content-bottom">
-						<nav>
-							<ul class="pagination">
-								<li><a><button  id="btn_first"
-											onClick="firstPage(this.id)">Đầu Trang</button></a> <a><button
-											id="btn_prev" onClick="prevPage(this.id)">Trang
-											Trước</button></a></li>
-								<li class="active" id="1"><a><button id="btn_next1"
-											onClick="clickPage1(this.id)">1</button></a></li>
-								<li id="2"><a><button id="btn_next2"
-											onClick="clickPage2(this.id)">2</button></a></li>
-								<li id="3"><a><button id="btn_next3"
-											onClick="clickPage3(this.id)">3</button></a></li>
-								<li id="4"><a><button id="btn_next4"
-											onClick="clickPage4(this.id)">4</button></a></li>
-								<li id="5"><a><button id="btn_next5"
-											onClick="clickPage5(this.id)">5</button></a></li>
-								<li><a><button id="btn_next"
-											onClick="nextPage(this.id)">Trang Kế</button></a> <a><button
-											id="btn_last" onClick="lastPage(this.id)">Cuối Trang</button></a></li>
-							</ul>
-						</nav>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- / Latest property -->
-
-
-		<!-- / Promo Banner Section -->
-
-		<!-- Our Agent Section-->
-
-		<!-- / Our Agent Section-->
-
-
-		<!-- Latest blog -->
-		<section id="aa-latest-property">
-			<div class="container">
-				<div class="aa-latest-property-area">
-					<div class="aa-title">
-						<h2>Tin Tuyển Dụng-Sự Kiện</h2>
-						<span></span>
-						<!--  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum sit ea nobis quae vero voluptatibus.</p>  -->
-					</div>
-
-					<div class="aa-latest-properties-content">
-						<div class="row">
-								<c:forEach items="${listNews}" var="news">
+						<div class="col-sm-4">
+							<div  id="jar">
+								<div class=" mx-auto content">
 									
-									<div class="col-md-4">
-								<article class="aa-properties-item">
-									<a href="<%=request.getContextPath()%>/news?id=${news.newsId}"
+										<article class="aa-properties-item">
+											<a
+												href="<%=request.getContextPath()%>/detailDocument?id=${document.id}"
+												class="aa-properties-item-img"> <img
+												src="${document.linkData}" alt="img">
+											</a>
+											<div class="aa-properties-item-content">
+												<div class="aa-properties-about">
+												
+													<h3>
+														<a
+															href="<%=request.getContextPath()%>/detailDocument?id=${document.id}">${document.documentName}</a>
+													</h3>
+												
+												</div>
+												<div class="aa-properties-detial">
+												<a
+														href="<%=request.getContextPath()%>/detailDocument?id=${document.id}"><i
+														class="fa fa-info"></i> Xem chi tiết</a>
+													 <span
+														class="aa-date-tag">Lượt xem : ${document.views} 
+														</span>
+												</div>
+												
+											</div>
+										</article>
+									</div>
+								</div>
+							</div>
+
+						</c:forEach>
+						
+					</div>
+					<nav style="margin-top: 20px; margin-left: 20px;">
+							<ul class="pagination justify-content-center pagination-sm">
+						
+							</ul>
+							
+						</nav>
+
+				</div>
+
+
+
+			</div>
+		</div>
+	</section>
+
+
+
+
+
+	<!-- Latest blog -->
+	<section id="aa-latest-property">
+		<div class="container">
+			<div class="aa-latest-property-area">
+				<div class="aa-title">
+					<h2>Tin Tuyển Dụng-Sự Kiện</h2>
+					<span></span>
+
+				</div>
+
+				<div class="aa-latest-properties-content">
+					<div class="row">
+					
+							<c:forEach items="${listNews}" var="news">
+							<div class="pagination-example">
+								<div class="col-md-4 paged-element">
+								
+    
+									<article class="aa-properties-item">
+										<a href="<%=request.getContextPath()%>/news?id=${news.newsId}"
 											class="aa-properties-item-img"> <img
 											src="${news.pictureLink }" alt="img">
 										</a>
-									<div class="aa-properties-item-content">
-										<div class="aa-properties-about">
-											<h5>
-													<a href="<%=request.getContextPath()%>/news?id=${news.newsId}">${news.title }</a>
+										<div class="aa-properties-item-content">
+											<div class="aa-properties-about">
+												<h5>
+													<a
+														href="<%=request.getContextPath()%>/news?id=${news.newsId}">${news.title }</a>
 												</h5>
-											
+
+											</div>
+											<div class="aa-properties-detial">
+												<a
+													href="<%=request.getContextPath()%>/news?id=${news.newsId}"><i
+													class="fa fa-info"></i> Xem chi tiết</a> <span
+													class="aa-date-tag">${news.dateTime } </span>
+											</div>
 										</div>
-										<div class="aa-properties-detial">
-											<a href="<%=request.getContextPath()%>/news?id=${news.newsId}">Xem chi tiết</a>
-											<span class="aa-date-tag">${news.dateTime } </span>
-										</div>
+									</article>
 									</div>
-								</article>
-							</div>
-									</c:forEach>
-									
-								</div>
+								
+									</div>
+							</c:forEach>
+					
 					</div>
-					<div class="aa-properties-content-bottom">
-						<nav>
-							<ul class="pagination">
-								<li><a><button id="btn_first1"
-											onClick="firstPage(this.id)">Đầu Trang</button></a> <a><button
-											id="btn_prev1" onClick="prevPage(this.id)">Trang
-											Trước</button></a></li>
-								<li class="active" id="6"><a><button id="btn_next11"
-											onClick="clickPage1(this.id)">1</button></a></li>
-								<li id="7"><a><button id="btn_next22"
-											onClick="clickPage2(this.id)">2</button></a></li>
-								<li id="8"><a><button id="btn_next33"
-											onClick="clickPage3(this.id)">3</button></a></li>
-								<li id="9"><a><button id="btn_next44"
-											onClick="clickPage4(this.id)">4</button></a></li>
-								<li id="10"><a><button id="btn_next55"
-											onClick="clickPage5(this.id)">5</button></a></li>
-								<li><a><button id="btn_next111"
-											onClick="nextPage(this.id)">Trang Kế</button></a> <a><button
-											id="btn_last1" onClick="lastPage(this.id)">Cuối
-											Trang</button></a></li>
-							</ul>
-						</nav>
-					</div>
+					
+					
 				</div>
+
 			</div>
-		</section>
-		<!-- / Latest blog -->
+		</div>
+	</section>
 
-		<!-- Footer -->
-		<footer id="aa-footer">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="aa-footer-area">
-							<div class="row">
-								<div class="col-md-3 col-sm-6 col-xs-12">
-									<div class="aa-footer-left">
-										<p>
-											Designed by <a rel="nofollow"
-												href="https://www.facebook.com/PhanNam2433">PTN</a>
-										</p>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-6 col-xs-12">
-									<div class="aa-footer-middle">
-										<a href="https://www.facebook.com/PhanNam2433"><i
-											class="fa fa-facebook"></i></a> <a
-											href="https://twitter.com/Phantha27859524"><i
-											class="fa fa-twitter"></i></a>
-									</div>
-								</div>
-								<div class="col-md-6 col-sm-12 col-xs-12">
-									<div class="aa-footer-right">
-										<a href="<%=request.getContextPath()%>/index">Trang Chủ</a> <a
-											href="<%=request.getContextPath()%>/contact">Liên Hệ</a> <a
-											href="<%=request.getContextPath()%>/forum">Diễn Đàn</a> <a
-											href="<%=request.getContextPath()%>/document">Tài Liệu</a>
+	
+	<!-- / Latest blog -->
 
-									</div>
+	<!-- Footer -->
+	<footer id="aa-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="aa-footer-area">
+						<div class="row">
+							<div class="col-md-3 col-sm-6 col-xs-12">
+								<div class="aa-footer-left">
+									<p>
+										Designed by <a rel="nofollow"
+											href="https://www.facebook.com/PhanNam2433">PTN</a>
+									</p>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-6 col-xs-12">
+								<div class="aa-footer-middle">
+									<a href="https://www.facebook.com/PhanNam2433"><i
+										class="fa fa-facebook"></i></a> <a
+										href="https://twitter.com/Phantha27859524"><i
+										class="fa fa-twitter"></i></a>
+								</div>
+							</div>
+							<div class="col-md-6 col-sm-12 col-xs-12">
+								<div class="aa-footer-right">
+									<a href="<%=request.getContextPath()%>/index">Trang Chủ</a> <a
+										href="<%=request.getContextPath()%>/contact">Liên Hệ</a> <a
+										href="<%=request.getContextPath()%>/forum">Diễn Đàn</a> <a
+										href="<%=request.getContextPath()%>/document">Tài Liệu</a>
+
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</footer>
-		<!-- / Footer -->
+		</div>
+	</footer>
+	<!-- / Footer -->
 
 
 
-		<!-- jQuery library -->
-		<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
-		<script src="js/jquery.min.js"></script>
-		<!-- Include all compiled plugins (below), or include individual files as needed -->
-		<script src="js/bootstrap.js"></script>
-		<!-- slick slider -->
-		<script type="text/javascript" src="js/slick.js"></script>
-		<script type="text/javascript" src="js/login.js"></script>
-		<script type="text/javascript" src="js/pagination.js"></script>
-		<!-- Price picker slider -->
-		<script type="text/javascript" src="js/nouislider.js"></script>
-		<!-- mixit slider -->
-		<script type="text/javascript" src="js/jquery.mixitup.js"></script>
-		<!-- Add fancyBox -->
-		<script type="text/javascript" src="js/jquery.fancybox.pack.js"></script>
-		<!-- Custom js -->
-		<script src="js/custom.js"></script>
+	<!-- jQuery library -->
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+	<script src="js/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="js/bootstrap.js"></script>
+	<!-- slick slider -->
+	<script type="text/javascript" src="js/slick.js"></script>
+	<script type="text/javascript" src="js/login.js"></script>
+
+	<!-- Price picker slider -->
+	<script type="text/javascript" src="js/nouislider.js"></script>
+	<!-- mixit slider -->
+	<script type="text/javascript" src="js/jquery.mixitup.js"></script>
+	<!-- Add fancyBox -->
+	<script type="text/javascript" src="js/jquery.fancybox.pack.js"></script>
+	<!-- Custom js -->
+	<script src="js/custom.js"></script>
+	<script src="js/panigationJquery.js"></script>
 </body>
 </html>

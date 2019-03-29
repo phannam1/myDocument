@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import beans.constants;
 import dao.documentDAO;
 import dto.accountDTO;
+import dto.documentDTO;
 
 /**
  * Servlet implementation class updateIsShowDocument
@@ -37,8 +38,18 @@ public class updateIsShowDocument extends HttpServlet {
 		accountDTO Usersession = (accountDTO)session.getAttribute(constants.USER_SESSION);
 		String id = request.getParameter("documentId");
 		int documentId = Integer.parseInt(id);
-		System.out.println(documentId);
-		if(check.checkSession(Usersession) && dao.updateDocument(Usersession.getAccountId(), documentId)) {
+		String nameDocument  = request.getParameter("nameDocument");
+		String major = request.getParameter("major");
+		String semester = request.getParameter("semester");
+		String subject = request.getParameter("subject");
+		String nameTeacher = request.getParameter("nameTeacher");
+		String isActive = request.getParameter("isActive");
+		int IsActive = Integer.parseInt(isActive);
+		String courseCredit = request.getParameter("courseCredit");
+		int CourseCredit = Integer.parseInt(courseCredit);
+		System.out.println(CourseCredit);
+		documentDTO document = new documentDTO(documentId, nameDocument, major, semester, subject, CourseCredit, nameTeacher, IsActive, Usersession.getAccountId());
+		if(check.checkSession(Usersession) && dao.updateDocument(document)) {
 			System.out.println("update success");
 			response.sendRedirect(request.getContextPath()+"/documentAdmin");
 			

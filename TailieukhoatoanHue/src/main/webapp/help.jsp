@@ -78,7 +78,7 @@
 										Cài Đặt </a> <a id="show1"
 										href="<%=request.getContextPath()%>/Logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Đăng Xuất</a>
 										<a id="showAdmin"
-										href="indexAdmin"><i class="fa fa-user"></i>Administrator</a> <a
+										href="indexAdmin"><i class="fa fa-user"></i>Quản trị viên</a> <a
 										id="hide" href="register.jsp"><i class="fa fa-user-plus"></i>Đăng Ký</a>
 									<a id="hide1" href="signin.jsp"><i class="fa fa-sign-in" aria-hidden="true"></i>Đăng Nhập</a>
 
@@ -126,7 +126,15 @@
               </ul> --></li>
 						<li><a href="<%=request.getContextPath()%>/contact">LIÊN HỆ</a></li>
 						<li class="active"><a href="<%=request.getContextPath()%>/help">PHẢN HỒI</a></li>
-						<li><a href="<%=request.getContextPath()%>/uploadDocument">UPLOAD TÀI LIỆU</a></li>
+						<div class="dropdown1">
+						<li class="dropbtn1"><a>TẢI TÀI LIỆU
+								 </a>	
+								<div class="dropdown-content1">
+									<a style="color: blue;" href="<%=request.getContextPath()%>/uploadDocument">Upload</a> <a style="color: blue;" href="yourDocument">Tài liệu của bạn</a>
+								</div>
+							
+							</li>
+							</div>
 					</ul>
 				</div><!--/.nav-collapse -->       
       </div>          
@@ -172,19 +180,22 @@
                 <span></span>
                 <p>Nhập Thông Tin Của Bạn<strong class="required">*</strong></p>
               </div>
+             
               <div class="aa-contact-form">
-                <form class="contactform"> 
+                <form class="contactform" method="post" action="actionHelp"> 
                  <p class="comment-form-email">
                     <label for="email">Tài khoản của bạn: <span class="required">*</span></label>
-                    <input type="text" name="userName" value="" aria-required="true" required="required">
+                    <input id="taikhoan" type="text" name="userName" value="" aria-required="true" required="required">
+                     <div><p style="color: red" id="error" >${error}</p>
+               <c:remove var="error" scope="session" /> </div>
                   </p>                 
                   <p class="comment-form-author">
-                    <label for="author">Tên Của Bạn <span class="required">*</span></label>
-                    <input type="text" name="author" value="" size="30" required="required">
+                    <label for="author">Tên Của Bạn </label>
+                    <input type="text" name="author" value="" size="30" name="ten" >
                   </p>
                   
                   <p class="comment-form-comment">
-                    <label for="comment">Tin Nhắn</label>
+                    <label for="comment">Tin Nhắn<span class="required">*</span></label>
                     <textarea name="comment" cols="45" rows="8" aria-required="true" required="required"></textarea>
                   </p>                
                   <p class="form-submit">
@@ -250,5 +261,6 @@
   <!-- Custom js -->
   <script src="js/custom.js"></script> 
 <script type="text/javascript" src="js/login.js"></script>
+<script type="text/javascript" src="js/errorHelp.js"></script>
   </body>
 </html>

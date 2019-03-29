@@ -33,7 +33,7 @@ public class newsDAO {
 			if(rs!=null) {
 				List<newsDTO> list = new ArrayList<newsDTO>();
 				while(rs.next()) {
-					newsDTO news = new newsDTO(rs.getInt(1),rs.getString(2),rs.getDate(3),rs.getString(4),rs.getString(5),rs.getInt(6),rs.getInt(7));
+					newsDTO news = new newsDTO(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6),rs.getInt(7));
 					list.add(news);
 				}
 				return list;
@@ -121,7 +121,7 @@ public class newsDAO {
 			if(rs!=null) {
 				List<newsDTO> list = new  ArrayList<newsDTO>();
 				while(rs.next()) {
-					newsDTO news = new newsDTO(rs.getInt(1),rs.getString(2),rs.getDate(3),rs.getString(4),rs.getString(5),rs.getInt(6),rs.getInt(7));
+					newsDTO news = new newsDTO(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6),rs.getInt(7));
 					list.add(news);
 				}
 				return list;	
@@ -141,7 +141,7 @@ public class newsDAO {
 			ResultSet rs = pr.executeQuery();
 			if(rs!=null) {
 				if(rs.next()) {
-					newsDTO news = new newsDTO(rs.getInt(1),rs.getString(2),rs.getDate(3),rs.getString(4),rs.getString(5),rs.getInt(6),rs.getInt(7));
+					newsDTO news = new newsDTO(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6),rs.getInt(7));
 					return news;
 				}
 			}

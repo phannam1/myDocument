@@ -9,11 +9,13 @@ public class roleDTO implements Serializable  {
 	private int createById;
 	private int lastModifiedById;
 	private String userName;
+	private String creationDate;
+	private String lastModifiedDate;
 	public roleDTO() {
 		
 	}
 	
-	public roleDTO(int roleId, String roleName, String description, int createById, int lastModifiedById,String userName) {
+	public roleDTO(int roleId, String roleName, String description, int createById, int lastModifiedById, String creationDate, String lastModifiedDate,String userName) {
 		super();
 		this.roleId = roleId;
 		this.roleName = roleName;
@@ -21,6 +23,8 @@ public class roleDTO implements Serializable  {
 		this.createById = createById;
 		this.lastModifiedById = lastModifiedById;
 		this.userName = userName;
+		this.creationDate=creationDate;
+		this.lastModifiedDate=lastModifiedDate;
 	}
 
 	public int getRoleId() {
@@ -60,6 +64,22 @@ public class roleDTO implements Serializable  {
 
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+
+	public String getCreationDate() {
+		return creationDate;
+	}
+
+	public void setCreationDate(String creationDate) {
+		this.creationDate = creationDate;
+	}
+
+	public String getLastModifiedDate() {
+		return lastModifiedDate;
+	}
+
+	public void setLastModifiedDate(String lastModifiedDate) {
+		this.lastModifiedDate = lastModifiedDate;
 	}
 	
 }

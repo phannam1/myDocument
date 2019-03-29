@@ -11,11 +11,13 @@ public class roleFunctionDTO implements Serializable  {
 	private int lastModifiedById;
 	private String roleName;
 	private String functionName;
+	private String creationDate;
+	private String lastModifiedDate;
 	public roleFunctionDTO() {
 		
 	}
 	public roleFunctionDTO(int roleFunctionId, int roleId, int functionId, String description, int createById,
-			int lastModifiedById, String roleName, String functionName) {
+			int lastModifiedById, String creationDate, String lastModifiedDate, String roleName, String functionName) {
 		super();
 		this.roleFunctionId = roleFunctionId;
 		this.roleId = roleId;
@@ -25,6 +27,9 @@ public class roleFunctionDTO implements Serializable  {
 		this.lastModifiedById = lastModifiedById;
 		this.roleName = roleName;
 		this.functionName = functionName;
+		this.creationDate=creationDate;
+		this.lastModifiedDate=lastModifiedDate;
+		
 	}
 	
 	public roleFunctionDTO(int roleId, int functionId, String description, int createById, int lastModifiedById
@@ -84,6 +89,18 @@ public class roleFunctionDTO implements Serializable  {
 	}
 	public void setFunctionName(String functionName) {
 		this.functionName = functionName;
+	}
+	public String getCreationDate() {
+		return creationDate;
+	}
+	public void setCreationDate(String creationDate) {
+		this.creationDate = creationDate;
+	}
+	public String getLastModifiedDate() {
+		return lastModifiedDate;
+	}
+	public void setLastModifiedDate(String lastModifiedDate) {
+		this.lastModifiedDate = lastModifiedDate;
 	}
 	
 }

@@ -8,18 +8,22 @@ public class functionDTO implements Serializable  {
 	private String description;
 	private int createById;
 	private int lastModifiedById;
+	private String creationDate;
+	private String lastModifiedDate;
 	public functionDTO() {
 		
 	}
 	
 	public functionDTO(int functionId, String functionName, String description, int createById,
-			int lastModifiedById) {
+			int lastModifiedById, String creationDate, String lastModifiedDate) {
 		super();
 		this.functionId = functionId;
 		this.functionName = functionName;
 		this.description = description;
 		this.createById = createById;
 		this.lastModifiedById = lastModifiedById;
+		this.creationDate=creationDate;
+		this.lastModifiedDate=lastModifiedDate;
 	}
 	
 
@@ -60,6 +64,22 @@ public class functionDTO implements Serializable  {
 	}
 	public void setLastModifiedById(int lastModifiedById) {
 		this.lastModifiedById = lastModifiedById;
+	}
+
+	public String getCreationDate() {
+		return creationDate;
+	}
+
+	public void setCreationDate(String creationDate) {
+		this.creationDate = creationDate;
+	}
+
+	public String getLastModifiedDate() {
+		return lastModifiedDate;
+	}
+
+	public void setLastModifiedDate(String lastModifiedDate) {
+		this.lastModifiedDate = lastModifiedDate;
 	}
 	
 }

@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -44,25 +45,32 @@ public class searchDetailDocument extends HttpServlet {
 		HttpSession session = request.getSession();
 		accountDTO Usersession = (accountDTO) session.getAttribute(constants.USER_SESSION);
 		String nameDocument = request.getParameter("nameDocument");
-		System.out.println(nameDocument);
+		
 		String major = request.getParameter("major");
 		String semester = request.getParameter("semester");
 		String subject = request.getParameter("subject");
 		String courseCredit = request.getParameter("courseCredit");
 		int CourseCredit = Integer.parseInt(courseCredit);
 		String nameTeacher = request.getParameter("nameTeacher");
-		System.out.println(CourseCredit);
+	
 		documentDTO document = new documentDTO(nameDocument, major, semester, subject, CourseCredit, nameTeacher);
 		
 		if (check.checkSession(Usersession) ) {
-			List<documentDTO> list = new ArrayList<documentDTO>();
-		
+			List<documentDTO> list = new ArrayList<documentDTO>();		
 			list = dao.searchDetailDocument(document);
-			request.setAttribute("listDocument", list);
-			request.setAttribute("account", Usersession);
-			RequestDispatcher rd = request.getRequestDispatcher("document.jsp");
-			rd.forward(request, response);
-			System.out.println("search success");
+			if(list.size()==0) {
+				String message = "Không tồn tại dữ liệu tương ứng";
+				request.setAttribute("error", message);
+				request.getRequestDispatcher("/document.jsp").forward(request, response);
+			}
+			else {
+				request.setAttribute("listDocument", list);
+				request.setAttribute("account", Usersession);
+				RequestDispatcher rd = request.getRequestDispatcher("document.jsp");
+				rd.forward(request, response);
+				System.out.println("search success");
+			}
+			
 		} else {
 			response.sendRedirect(request.getContextPath() + "/document.jsp");
 		}

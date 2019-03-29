@@ -5,7 +5,7 @@ import java.sql.Date;
 public class newsDTO {
 	private int newsId;
 	private String title;
-	private Date dateTime;
+	private String dateTime;
 	private String pictureLink;
 	private String content;
 	private int createById;
@@ -13,7 +13,7 @@ public class newsDTO {
 	public newsDTO() {
 		
 	}
-	public newsDTO(int newsId, String title, Date dateTime, String pictureLink, String content, int createById,
+	public newsDTO(int newsId, String title, String dateTime, String pictureLink, String content, int createById,
 			int lastModifiedById) {
 		super();
 		this.newsId = newsId;
@@ -54,10 +54,10 @@ public class newsDTO {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public Date getDateTime() {
+	public String getDateTime() {
 		return dateTime;
 	}
-	public void setDateTime(Date dateTime) {
+	public void setDateTime(String dateTime) {
 		this.dateTime = dateTime;
 	}
 	public String getPictureLink() {

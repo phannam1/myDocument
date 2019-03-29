@@ -14,6 +14,7 @@
 <script src="js/jquery.min1.js"></script>
 <script src="js/accountAdmin.js"></script>
 <script src="js/onclickTable.js"></script>
+<script src="js/panigationJquery.js"></script>
 <link href="css/font-awesome.css" rel="stylesheet">
 <!-- Bootstrap -->
 <link href="css/bootstrap.css" rel="stylesheet">
@@ -163,7 +164,9 @@
 								<th>Địa chỉ</th>
 								<th>Email</th>
 								<th>Hoạt Động ?</th>
-
+								
+								<th>creationDate</th>
+								<th>lastModifiedDate</th>
 							</tr>
 						</thead>
 						<tfoot>
@@ -175,8 +178,10 @@
 						</tfoot>
 						<tbody>
 							<c:forEach items="${list}" var="account">
-	
+								<div  id="jar">
+								<div class=" mx-auto content">
 								<tr onclick="getValueAccount('${account.userName}','${account.name}','${account.phone}','${account.address}','${account.email}','${account.isActive }')"  >
+								
 									<td ><a style="color: #0291d4;"
 									 >${account.userName}
 									</a></td>
@@ -186,39 +191,25 @@
 									<td >${account.email}</td>
 									<td ><input class="isActive" type="checkbox"
 										name="${account.userName}" value="${account.isActive } "
-										onchange="myFunction(this.name)" id="${account.userName}" />
+										onchange="myFunction(this.name)" id="${account.userName}" disabled />
 									</td>
-
+					
+									<td>${account.creationDate}</td>	
+										<td>${account.lastModifiedDate}</td>	
 								</tr>
+								</div>
+							</div>
 							</c:forEach>
 						</tbody>
 					</table>
-<div class="aa-properties-content-bottom">
-						<nav>
-							<ul class="pagination">
-								<li><a><button  id="btn_first"
-											onClick="firstPage(this.id)">Đầu Trang</button></a> <a><button
-											id="btn_prev" onClick="prevPage(this.id)">Trang
-											Trước</button></a></li>
-								<li class="active" id="1"><a><button id="btn_next1"
-											onClick="clickPage1(this.id)">1</button></a></li>
-								<li id="2"><a><button id="btn_next2"
-											onClick="clickPage2(this.id)">2</button></a></li>
-								<li id="3"><a><button id="btn_next3"
-											onClick="clickPage3(this.id)">3</button></a></li>
-								<li id="4"><a><button id="btn_next4"
-											onClick="clickPage4(this.id)">4</button></a></li>
-								<li id="5"><a><button id="btn_next5"
-											onClick="clickPage5(this.id)">5</button></a></li>
-								<li><a><button id="btn_next"
-											onClick="nextPage(this.id)">Trang Kế</button></a> <a><button
-											id="btn_last" onClick="lastPage(this.id)">Cuối Trang</button></a></li>
-							</ul>
-						</nav>
-					</div>
 
 
 				</div>
+				</ul>
+							<nav style="margin-top: 20px; margin-left: 20px;">
+							<ul class="pagination justify-content-center pagination-sm">
+						
+							</ul>
 			</div>
 
 			

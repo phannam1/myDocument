@@ -141,7 +141,8 @@
 								<th>Chức Năng</th>						
 								<th>Quyền và Chức Năng</th>
 								<th>Mô tả</th>
-
+								<th>creationDate</th>
+								<th>lastModifiedDate</th>
 							</tr>
 						</thead>
 						<tfoot>
@@ -158,6 +159,8 @@
 									<td>${roleFunction.functionName}</td>					
 									<td>${roleFunction.roleName}-${roleFunction.functionName}</td>
 									<td>${roleFunction.description}</td>
+									<td>${roleFunction.creationDate}</td>	
+										<td>${roleFunction.lastModifiedDate}</td>
 								</tr>
 							</c:forEach>
 

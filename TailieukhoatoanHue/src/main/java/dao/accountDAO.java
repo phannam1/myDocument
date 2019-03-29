@@ -16,7 +16,7 @@ public class accountDAO {
 	final String SQLREADALLACCOUNT = "SELECT * FROM ACCOUNT WHERE ISDELETE = 0";
 	final String SQLLOGIN = "SELECT * FROM ACCOUNT WHERE USERNAME = ? AND PASSWORD = ? AND ISACTIVE = 1 AND ISDELETE = 0";
 	final String SQLLOGINNOACTIVE = "SELECT * FROM ACCOUNT WHERE USERNAME = ? AND PASSWORD = ? AND ISACTIVE = 0 AND ISDELETE = 0";
-	
+	final String SQLCHECKISDELETE = "SELECT * FROM ACCOUNT WHERE USERNAME = ? AND PASSWORD = ?";
 	final String SQLREGISTER = "INSERT INTO ACCOUNT(NAME,USERNAME,PASSWORD,EMAIL,ROLEID) VALUES(?,?,?,?,?)";
 	final String SQLUPDATEACTIVEDELETE = "UPDATE ACCOUNT SET ISACTIVE = ?,ISDELETE = ?,lastModifiedById = ? WHERE USERNAME = ? ";
 	final String SQLUPDATEACCOUNT = "UPDATE ACCOUNT set passWordLevel2 = ? ,questionSecurity = ? ,answerSecurity = ? ,address = ? ,phone = ? ,email = ?,lastModifiedById = ?, avatar = ?  where accountId = ? ";
@@ -97,7 +97,7 @@ public class accountDAO {
 					accountDTO account = new accountDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
 							rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9),
 							rs.getString(10), rs.getString(11), rs.getInt(12), rs.getInt(13), rs.getInt(14),
-							rs.getInt(15));
+							rs.getInt(15),rs.getString(16),rs.getString(17));
 					list.add(account);
 				}
 				return list;
@@ -177,7 +177,7 @@ public class accountDAO {
 					accountDTO account = new accountDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
 							rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9),
 							rs.getString(10), rs.getString(11), rs.getInt(12), rs.getInt(13), rs.getInt(14),
-							rs.getInt(15));
+							rs.getInt(15),rs.getString(16),rs.getString(17));
 					return account;
 				}
 			}
@@ -188,7 +188,28 @@ public class accountDAO {
 		}
 		return null;
 	}
+	public accountDTO getAccount1(String userName, String password) {
+		try {
+			PreparedStatement pr = con.prepareStatement(SQLCHECKISDELETE);
+			pr.setString(1, userName);
+			pr.setString(2, password);
+			ResultSet rs = pr.executeQuery();
+			if (rs != null) {
+				if (rs.next()) {
+					accountDTO account = new accountDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
+							rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9),
+							rs.getString(10), rs.getString(11), rs.getInt(12), rs.getInt(13), rs.getInt(14),
+							rs.getInt(15),rs.getString(16),rs.getString(17));
+					return account;
+				}
+			}
 
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+		return null;
+	}
 	public boolean checkUserName(String userName) {
 		try {
 			PreparedStatement pr = con.prepareStatement(SQLGETACCOUNT);
@@ -378,7 +399,7 @@ public class accountDAO {
 					accountDTO account = new accountDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
 							rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9),
 							rs.getString(10), rs.getString(11), rs.getInt(12), rs.getInt(13), rs.getInt(14),
-							rs.getInt(15));
+							rs.getInt(15),rs.getString(16),rs.getString(17));
 					return account;
 				}
 			}
@@ -508,7 +529,7 @@ public class accountDAO {
 					accountDTO account = new accountDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
 							rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9),
 							rs.getString(10), rs.getString(11), rs.getInt(12), rs.getInt(13), rs.getInt(14),
-							rs.getInt(15));
+							rs.getInt(15),rs.getString(16),rs.getString(17));
 					list.add(account);
 					
 				}

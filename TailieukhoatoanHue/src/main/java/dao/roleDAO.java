@@ -12,7 +12,7 @@ import utils.DBConnector;
 import utils.HashUtils;
 
 public class roleDAO {
-	final String READALLROLE = "SELECT ROLE.*,ACCOUNT.USERNAME FROM ACCOUNT LEFT JOIN ROLE ON ACCOUNT.ROLEID = ROLE.ROLEID";
+	final String READALLROLE = "SELECT ROLE.*,account.lastModifiedDate,ACCOUNT.USERNAME FROM ACCOUNT LEFT JOIN ROLE ON ACCOUNT.ROLEID = ROLE.ROLEID";
 	final String REGISTERROLE = "UPDATE ACCOUNT LEFT JOIN ROLE ON ACCOUNT.ROLEID = ROLE.ROLEID SET ACCOUNT.ROLEID = ?,ACCOUNT.lastModifiedById = ?  WHERE ACCOUNT.USERNAME = ? ";
 	final String DELETEROLE = "UPDATE ACCOUNT LEFT JOIN ROLE ON ACCOUNT.ROLEID = ROLE.ROLEID SET ACCOUNT.ROLEID = NULL  WHERE ACCOUNT.USERNAME = ? "; 
 	final String GETROLEBYUSERNAME = "SELECT ROLE.*,ACCOUNT.USERNAME FROM ACCOUNT LEFT JOIN ROLE ON ACCOUNT.ROLEID = ROLE.ROLEID WHERE USERNAME = ?";
@@ -33,13 +33,13 @@ public class roleDAO {
 				List<roleDTO> list = new ArrayList<roleDTO>();
 				while (rs.next()) {
 					roleDTO role = new roleDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4),
-							rs.getInt(5), rs.getString(6));
+							rs.getInt(5), rs.getString(6), rs.getString(8), rs.getString(9));
 					list.add(role);
 				}
 				return list;
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 
@@ -89,13 +89,13 @@ public class roleDAO {
 			if (rs != null) {				
 				if (rs.next()) {
 					roleDTO role = new roleDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4),
-							rs.getInt(5), rs.getString(6));
+							rs.getInt(5), rs.getString(6), rs.getString(8), rs.getString(9));
 					return role;
 				}
 				
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		
 			e.printStackTrace();
 		}
 
@@ -110,14 +110,14 @@ public class roleDAO {
 				List<roleDTO> list = new ArrayList<roleDTO>();
 				while (rs.next()) {
 					roleDTO role = new roleDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4),
-							rs.getInt(5), rs.getString(6));
+							rs.getInt(5), rs.getString(6), rs.getString(8), rs.getString(9));
 					list.add(role);
 				}
 				return list;
 				
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		
 			e.printStackTrace();
 		}
 

@@ -83,7 +83,7 @@
 										Cài Đặt </a> <a id="show1"
 										href="<%=request.getContextPath()%>/Logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Đăng Xuất</a>
 										<a id="showAdmin"
-										href="indexAdmin"><i class="fa fa-user"></i>Administrator</a> <a
+										href="indexAdmin"><i class="fa fa-user"></i>Quản trị viên</a> <a
 										id="hide" href="register.jsp"><i class="fa fa-user-plus"></i>Đăng Ký</a>
 									<a id="hide1" href="signin.jsp"><i class="fa fa-sign-in" aria-hidden="true"></i>Đăng Nhập</a>
 
@@ -132,7 +132,15 @@
               </ul> --></li>
 						<li><a href="<%=request.getContextPath()%>/contact">LIÊN HỆ</a></li>
 						<li><a href="<%=request.getContextPath()%>/help">PHẢN HỒI</a></li>
-						<li><a href="<%=request.getContextPath()%>/uploadDocument">UPLOAD TÀI LIỆU</a></li>
+						<div class="dropdown1">
+						<li class="dropbtn1"><a>TẢI TÀI LIỆU
+								 </a>	
+								<div class="dropdown-content1">
+									<a style="color: blue;" href="<%=request.getContextPath()%>/uploadDocument">Upload</a> <a style="color: blue;" href="yourDocument">Tài liệu của bạn</a>
+								</div>
+							
+							</li>
+							</div>
 					</ul>
 				</div>
 				<!--/.nav-collapse -->
@@ -181,7 +189,8 @@
 							<form name = "downloadDocument" method="post">
 							<c:forEach items="${listDocument}" var="document">
 								<li>
-								
+									<div  id="jar">
+								<div class=" mx-auto content">
 									<article class="aa-properties-item">
 										<a href="<%=request.getContextPath()%>/detailDocument?id=${document.id}"
 											class="aa-properties-item-img"> <img
@@ -197,11 +206,13 @@
 												
 											</div>
 											<div class="aa-properties-detial">
-												<a href="<%=request.getContextPath()%>/detailDocument?id=${document.id}">Xem chi tiết</a>
+												<a href="<%=request.getContextPath()%>/detailDocument?id=${document.id}"><i class="fa fa-info"></i> Xem chi tiết</a>
 
 											</div>
 										</div>
 									</article>
+									</div>
+									</div>
 								</li>
 								</c:forEach>
 								</form>
@@ -210,33 +221,18 @@
 								
 							</ul>
 							
+							 <div><p style="color: red" id="error" >${error}</p>
+               <c:remove var="error" scope="session" /> </div>
 						</div>
 						<!-- Start properties content bottom -->
-						<div class="aa-properties-content-bottom">
-							<nav>
-								<ul class="pagination">
-									<li><a><button " id="btn_first"
-												onClick="firstPage(this.id)">Đầu Trang</button></a> <a><button
-												id="btn_prev" onClick="prevPage(this.id)">Trang
-												Trước</button></a></li>
-									<li class="active" id="1"><a><button id="btn_next1"
-												onClick="clickPage1(this.id)">1</button></a></li>
-									<li id="2"><a><button id="btn_next2"
-												onClick="clickPage2(this.id)">2</button></a></li>
-									<li id="3"><a><button id="btn_next3"
-												onClick="clickPage3(this.id)">3</button></a></li>
-									<li id="4"><a><button id="btn_next4"
-												onClick="clickPage4(this.id)">4</button></a></li>
-									<li id="5"><a><button id="btn_next5"
-												onClick="clickPage5(this.id)">5</button></a></li>
-									<li><a><button id="btn_next"
-												onClick="nextPage(this.id)">Trang Kế</button></a> <a><button
-												id="btn_last" onClick="lastPage(this.id)">Cuối
-												Trang</button></a></li>
-								</ul>
-							</nav>
-						</div>
+						
 					</div>
+					<nav style="margin-top: 20px; margin-left: 20px;">
+							<ul class="pagination justify-content-center pagination-sm">
+						
+							</ul>
+							
+						</nav>
 				</div>
 				<!-- Start properties sidebar -->
 				<div class="col-md-4">
@@ -246,11 +242,11 @@
 							<h3>Tìm Kiếm Tài Liệu</h3>
 							<form action="searchDetailDocument" method="post">
 								<div class="aa-single-advance-search">
-									<input type="text" placeholder="Tên Tài Liệu" name="nameDocument" value="">
+									<input id="taikhoan" type="text" placeholder="Tên Tài Liệu" name="nameDocument" value="">
 								</div>
 								<div class="aa-single-advance-search">
 									<select name="major" >
-											<option value="" selected></option>
+											<option value="" selected>Ngành học</option>
 											<option value="Toán Học" >Toán Học</option>
 											<option value="Toán Ứng Dụng">Toán Ứng Dụng</option>
 
@@ -258,7 +254,7 @@
 								</div>
 								<div class="aa-single-advance-search">
 									<select name="semester">
-									<option value="" selected></option>
+									<option value="" selected>Kỳ học</option>
 											<option value="Kỳ 1" >Kỳ 1</option>
 											<option value="Kỳ 2">Kỳ 2</option>
 											<option value="Kỳ 3">Kỳ 3</option>
@@ -266,12 +262,12 @@
 											<option value="Kỳ 5">Kỳ 5</option>
 											<option value="Kỳ 6">Kỳ 6</option>
 											<option value="Kỳ 7">Kỳ 7</option>
-
+<option value="Kỳ 8">Kỳ 8</option>
 										</select>
 								</div>
 								<div class="aa-single-advance-search">
 									<select name="subject" >
-									<option value="" selected></option>
+									<option value="" selected>Chuyên ngành</option>
 										<option value="Xác Suất Thống Kê" >Xác Suất Thống Kê</option>
 										<option value="Tối Ưu">Tối Ưu</option>
 										<option value="Ứng Dụng">Ứng Dụng</option>
@@ -281,7 +277,7 @@
 
 								<div class="aa-single-advance-search">
 									<select name="courseCredit" >
-									<option value="0" selected></option>
+									<option value="0" selected>Số tín chỉ</option>
 										<option value="2" >2 Tín Chỉ</option>
 										<option value="3">3 Tín Chỉ</option>
 										<option value="4">4 Tín Chỉ</option>
@@ -299,7 +295,7 @@
 						</div>
 						<!-- Start Single properties sidebar -->
 						<div class="aa-properties-single-sidebar">
-							<h3>Tài Liệu Download Nhiều nhất</h3>
+							<h3>Được xem Nhiều nhất</h3>
 							<c:forEach items="${listDownloads}" var="downloads">
 							<div class="media">
 								<div class="media-left">
@@ -385,8 +381,10 @@
 	<script type="text/javascript" src="js/jquery.fancybox.pack.js"></script>
 	<!-- Custom js -->
 	<script src="js/custom.js"></script>
-	<script type="text/javascript" src="js/pagination.js"></script>
+	
 	<!-- add pagination js -->
 	<script type="text/javascript" src="js/login.js"></script>
+	<script type="text/javascript" src="js/errorHelp.js"></script>
+	<script src="js/panigationJquery.js"></script>
 </body>
 </html>

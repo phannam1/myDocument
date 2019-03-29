@@ -14,10 +14,68 @@ public class documentDTO {
 	private int isShow;
 	private int createById;
 	private int lastModifiedById;
+	private String createdUserName;
+	private String lastModifiedUserName;
+	private String creationDate;
+	private String lastModifiedDate;
 	public documentDTO() {
 		
 	}
 	
+	public documentDTO(int id, String documentName, String major, String semester, String subject, int courseCredit,
+			String nameTeacher, String typeData, String linkData, int views, int isShow, int createById,
+			int lastModifiedById, String creationDate, String lastModifiedDate, String userName,String userName1) {
+		super();
+		this.id = id;
+		this.documentName = documentName;
+		this.major = major;
+		this.semester = semester;
+		this.subject = subject;
+		this.courseCredit = courseCredit;
+		this.nameTeacher = nameTeacher;
+		this.typeData = typeData;
+		this.linkData = linkData;
+		this.views = views;
+		this.isShow = isShow;
+		this.createById = createById;
+		this.lastModifiedById = lastModifiedById;
+		this.createdUserName = userName;
+		this.lastModifiedUserName = userName1;
+		this.creationDate = creationDate;
+		this.lastModifiedDate = lastModifiedDate;
+	}
+
+	public documentDTO(int id, String documentName, String major, String semester, String subject, int courseCredit,
+			String nameTeacher, int isShow, int lastModifiedById) {
+		super();
+		this.id = id;
+		this.documentName = documentName;
+		this.major = major;
+		this.semester = semester;
+		this.subject = subject;
+		this.courseCredit = courseCredit;
+		this.nameTeacher = nameTeacher;
+		this.isShow = isShow;
+		this.lastModifiedById = lastModifiedById;
+	}
+
+	public documentDTO( String documentName, String major, String semester, String subject, int courseCredit,
+			String nameTeacher,String typeData, String linkData, int isShow, int createById, int lastModifiedById) {
+		super();
+	
+		this.documentName = documentName;
+		this.major = major;
+		this.semester = semester;
+		this.subject = subject;
+		this.courseCredit = courseCredit;
+		this.nameTeacher = nameTeacher;
+		this.typeData = typeData;
+		this.linkData = linkData;
+		this.isShow = isShow;
+		this.createById = createById;
+		this.lastModifiedById = lastModifiedById;
+	}
+
 	public documentDTO(String documentName, String major, String semester, String subject, int courseCredit,
 			String nameTeacher, String typeData, String linkData, int createById, int lastModifiedById) {
 		super();
@@ -31,6 +89,29 @@ public class documentDTO {
 		this.linkData = linkData;
 		this.createById = createById;
 		this.lastModifiedById = lastModifiedById;
+	}
+
+	public documentDTO(int id, String documentName, String major, String semester, String subject, int courseCredit,
+			String nameTeacher, String typeData, String linkData, int views, int isShow, int createById,
+			int lastModifiedById,String creationDate, String lastModifiedDate,String userName) {
+		super();
+		this.id = id;
+		this.documentName = documentName;
+		this.major = major;
+		this.semester = semester;
+		this.subject = subject;
+		this.courseCredit = courseCredit;
+		this.nameTeacher = nameTeacher;
+		this.typeData = typeData;
+		this.linkData = linkData;
+		this.views = views;
+		this.isShow = isShow;
+		this.createById = createById;
+		this.lastModifiedById = lastModifiedById;
+		this.createdUserName = userName;
+	
+		this.creationDate = creationDate;
+		this.lastModifiedDate = lastModifiedDate;
 	}
 
 	public documentDTO(int id, String documentName, String major, String semester, String subject, int courseCredit,
@@ -143,6 +224,40 @@ public class documentDTO {
 	}
 	public void setLastModifiedById(int lastModifiedById) {
 		this.lastModifiedById = lastModifiedById;
+	}
+
+	
+
+	public String getCreatedUserName() {
+		return createdUserName;
+	}
+
+	public void setCreatedUserName(String createdUserName) {
+		this.createdUserName = createdUserName;
+	}
+
+	public String getLastModifiedUserName() {
+		return lastModifiedUserName;
+	}
+
+	public void setLastModifiedUserName(String lastModifiedUserName) {
+		this.lastModifiedUserName = lastModifiedUserName;
+	}
+
+	public String getCreationDate() {
+		return creationDate;
+	}
+
+	public void setCreationDate(String creationDate) {
+		this.creationDate = creationDate;
+	}
+
+	public String getLastModifiedDate() {
+		return lastModifiedDate;
+	}
+
+	public void setLastModifiedDate(String lastModifiedDate) {
+		this.lastModifiedDate = lastModifiedDate;
 	}
 	
 }

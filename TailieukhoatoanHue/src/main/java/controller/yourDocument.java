@@ -6,13 +6,10 @@ import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import beans.constants;
 import dao.documentDAO;
@@ -20,20 +17,19 @@ import dto.accountDTO;
 import dto.documentDTO;
 
 /**
- * Servlet implementation class document
+ * Servlet implementation class yourDocument
  */
-@WebServlet("/document")
-public class document extends HttpServlet {
+public class yourDocument extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
 	checkLogin check = null;
-	documentDAO dao = null;
-	public document() {
-        check = new checkLogin();
-        dao = new documentDAO();
+	documentDAO dao =null;
+    public yourDocument() {
+       check = new checkLogin();
+       dao = new documentDAO();
     }
 
 	/**
@@ -43,20 +39,23 @@ public class document extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
-		accountDTO Usersession = (accountDTO)session.getAttribute(constants.USER_SESSION);			
-		if(check.checkSession(Usersession)) {	
+		accountDTO Usersession = (accountDTO)session.getAttribute(constants.USER_SESSION);	
+		
+		if(check.checkSession(Usersession)) {
+		
 			List<documentDTO> list = new ArrayList<documentDTO>();
-			List<documentDTO> list1 = new ArrayList<documentDTO>();
-			list1 = dao.searchDownloads();
-			list = dao.readAllDocumentShow();
+			
+			list = dao.readDocumentById(Usersession.getAccountId());
 			request.setAttribute("listDocument", list);
-			request.setAttribute("listDownloads", list1);
 			request.setAttribute("account", Usersession);
-			RequestDispatcher rd = request.getRequestDispatcher("document.jsp");
-			  rd.forward(request, response);;
+		
+			RequestDispatcher rd = request.getRequestDispatcher("yourDocument.jsp");
+			  rd.forward(request, response);
+			  
 		}
 		else {
 			response.sendRedirect(request.getContextPath()+"/signin.jsp");
+		
 		}
 	}
 

@@ -16,15 +16,19 @@ import utils.HashUtils;
 
 public class documentDAO {
 	final String REGISTERDOCUMENT = "INSERT INTO DOCUMENT(documentName,major,semester,subject,courseCredit,nameTeacher,typeData,linkData,createById,lastModifiedById) VALUES(?,?,?,?,?,?,?,?,?,?) ";
-	final String READALLDOCUMENT = "SELECT * FROM DOCUMENT WHERE ISSHOW = 0 order by lastModifiedDate desc ";
-	final String UPDATEDOCUMENT = "UPDATE DOCUMENT SET ISSHOW = 1, lastModifiedById = ? WHERE DOCUMENTID = ? ";
-	final String SEARCHBYVALUEINPUT = "SELECT * FROM DOCUMENT WHERE documentName LIKE ? AND isShow = 0 OR major LIKE ? AND isShow = 0 OR semester LIKE ? AND isShow = 0 OR subject LIKE ? AND isShow = 0 OR courseCredit LIKE ? AND isShow = 0 OR nameTeacher LIKE ? AND isShow = 0";
+	final String CREATEDOCUMENTADMIN = "INSERT INTO DOCUMENT(documentName,major,semester,subject,courseCredit,nameTeacher,typeData,linkData,isShow,createById,lastModifiedById) VALUES(?,?,?,?,?,?,?,?,?,?,?) ";
+	final String READALLDOCUMENT = "SELECT DOCUMENT.*,a1.USERNAME AS 'createUSer',a2.USERNAME AS 'lastmodifiedUser' FROM DOCUMENT JOIN ACCOUNT a1 ON DOCUMENT.createbyid = a1.ACCOUNTID JOIN ACCOUNT a2 ON DOCUMENT.lastModifiedById = a2.ACCOUNTID  order by lastModifiedDate desc ";
+	final String READLASBYID = "SELECT ACCOUNT.USERNAME  FROM DOCUMENT INNER JOIN ACCOUNT ON DOCUMENT.lastModifiedById = ACCOUNT.ACCOUNTID where createbyid = ?  order by lastModifiedDate desc";
+	final String UPDATEDOCUMENT = "UPDATE DOCUMENT SET documentName = ?,major = ?,semester= ?,subject = ?,courseCredit = ?,nameTeacher=?, ISSHOW = ?, lastModifiedById = ? WHERE DOCUMENTID = ? ";
+	final String SEARCHBYVALUEINPUT = "SELECT DOCUMENT.*,ACCOUNT.USERNAME FROM DOCUMENT INNER JOIN ACCOUNT ON DOCUMENT.CREATEBYID = ACCOUNT.ACCOUNTID  WHERE documentName LIKE ?  OR major LIKE ?  OR semester LIKE ?  OR subject LIKE ?  OR courseCredit LIKE ?  OR nameTeacher LIKE ? ";
 	private String SEARCHDOCUMENT = "SELECT * FROM DOCUMENT WHERE ";
 	final String READALLDOCUMENTSHOW = "SELECT * FROM DOCUMENT WHERE ISSHOW = 1 order by lastModifiedDate desc ";
 	final String GETDOCUMENTBYID = "SELECT * FROM DOCUMENT WHERE DOCUMENTID = ?";
 	final String READLIMITDOWNLOADS = "SELECT * FROM DOCUMENT WHERE ISSHOW = 1 ORDER BY views DESC LIMIT 5";
 	final String GETVIEWS = "SELECT VIEWS FROM DOCUMENT WHERE DOCUMENTID = ? AND ISSHOW = 1";
 	final String UPDATEVIEWS = "UPDATE DOCUMENT SET VIEWS = ? WHERE VIEWS = ? AND DOCUMENTID = ? ";
+	final String READDOCUMENTBYID = "SELECT DOCUMENT.*,a1.USERNAME AS 'createUSer',a2.USERNAME AS 'lastmodifiedUser'  FROM DOCUMENT JOIN ACCOUNT a1 ON DOCUMENT.createbyid = a1.ACCOUNTID JOIN ACCOUNT a2 ON DOCUMENT.lastModifiedById = a2.ACCOUNTID where createbyid = ? order by lastModifiedDate desc ";
+
 	Connection con = null;
 	HashUtils hashUtil = null;
 
@@ -56,6 +60,30 @@ public class documentDAO {
 		}
 		return false;
 	}
+	public boolean registerDocumentAdmin(documentDTO document) {
+		try {
+			PreparedStatement pr = con.prepareStatement(CREATEDOCUMENTADMIN);
+			pr.setString(1, document.getDocumentName());
+			pr.setString(2, document.getMajor());
+			pr.setString(3, document.getSemester());
+			pr.setString(4, document.getSubject());
+			pr.setInt(5, document.getCourseCredit());
+			pr.setString(6, document.getNameTeacher());
+			pr.setString(7, document.getTypeData());
+			pr.setString(8, document.getLinkData());
+			pr.setInt(9, document.getIsShow());
+			pr.setInt(10, document.getCreateById());
+			pr.setInt(11, document.getLastModifiedById());
+			int i = pr.executeUpdate();
+			if (i != 0) {
+				return true;
+			}
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+		return false;
+	}
 
 	public List<documentDTO> readAllDocument() {
 		try {
@@ -66,7 +94,7 @@ public class documentDAO {
 				while (rs.next()) {
 					documentDTO document = new documentDTO(rs.getInt(1), rs.getString(2), rs.getString(3),
 							rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7), rs.getString(8),
-							rs.getString(9), rs.getInt(10), rs.getInt(11), rs.getInt(12), rs.getInt(13));
+							rs.getString(9), rs.getInt(10), rs.getInt(11), rs.getInt(12), rs.getInt(13),rs.getString(14),rs.getString(15),rs.getString(16),rs.getString(17));
 					list.add(document);
 				}
 				return list;
@@ -77,12 +105,60 @@ public class documentDAO {
 
 		return null;
 	}
+	public List<documentDTO> readDocumentById(int id) {
+		try {
+			PreparedStatement pr = con.prepareStatement(READDOCUMENTBYID);
+			pr.setInt(1, id);
+			ResultSet rs = pr.executeQuery();
+			if (rs != null) {
+				List<documentDTO> list = new ArrayList<>();
+				while (rs.next()) {
+					documentDTO document = new documentDTO(rs.getInt(1), rs.getString(2), rs.getString(3),
+							rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7), rs.getString(8),
+							rs.getString(9), rs.getInt(10), rs.getInt(11), rs.getInt(12), rs.getInt(13),rs.getString(14),rs.getString(15),rs.getString(16),rs.getString(17));
+					list.add(document);
+				}
+				return list;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 
-	public boolean updateDocument(int lasId, int documentId) {
+		return null;
+	}
+	public List<String> readLasId(int id) {
+		try {
+			PreparedStatement pr = con.prepareStatement(READLASBYID);
+			pr.setInt(1, id);
+			ResultSet rs = pr.executeQuery();
+			if(rs!=null) {
+				List<String> list = new ArrayList<>();
+				while(rs.next()) {
+					list.add(rs.getString(1));
+				}
+				return list;
+			}
+		} catch (SQLException e) {
+		
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+
+
+	public boolean updateDocument(documentDTO document) {
 		try {
 			PreparedStatement pr = con.prepareStatement(UPDATEDOCUMENT);
-			pr.setInt(1, lasId);
-			pr.setInt(2, documentId);
+			pr.setString(1, document.getDocumentName());
+			pr.setString(2, document.getMajor());
+			pr.setString(3, document.getSemester());
+			pr.setString(4, document.getSubject());
+			pr.setInt(5, document.getCourseCredit());
+			pr.setString(6, document.getNameTeacher());
+			pr.setInt(7, document.getIsShow());
+			pr.setInt(8, document.getLastModifiedById());
+			pr.setInt(9, document.getId());
 			int i = pr.executeUpdate();
 			if (i != 0) {
 				return true;
@@ -109,7 +185,7 @@ public class documentDAO {
 				while (rs.next()) {
 					documentDTO document = new documentDTO(rs.getInt(1), rs.getString(2), rs.getString(3),
 							rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7), rs.getString(8),
-							rs.getString(9), rs.getInt(10), rs.getInt(11), rs.getInt(12), rs.getInt(13));
+							rs.getString(9), rs.getInt(10), rs.getInt(11), rs.getInt(12), rs.getInt(13),rs.getString(14),rs.getString(15),rs.getString(16),rs.getString(17));
 					list.add(document);
 				}
 				return list;
@@ -188,7 +264,7 @@ public class documentDAO {
 		try {
 			PreparedStatement pr = con
 					.prepareStatement(SEARCHDOCUMENT + getSql(document.getDocumentName(), document.getMajor(), document.getSemester(), document.getSubject(), document.getCourseCredit(), document.getNameTeacher()) );
-			System.out.println(SEARCHDOCUMENT);
+			
 			pr.setString(1, '%' + document.getDocumentName() + '%');
 			if (!document.getMajor().equals("")) {
 				pr.setString(2, document.getMajor());

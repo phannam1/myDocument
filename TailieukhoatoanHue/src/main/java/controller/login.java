@@ -67,9 +67,18 @@ public class login extends HttpServlet {
 				request.setAttribute("isActive", message);
 				request.getRequestDispatcher("/signin.jsp").forward(request, response);
 			}else {
-				String message = "Tài khoản hoặc mật khẩu không đúng";
-				request.setAttribute("error", message);
-				request.getRequestDispatcher("/signin.jsp").forward(request, response);
+				
+				if(dao.getAccount1(userName,  hashUtil.hashmd5(password)).getIsDelete()== 1) {
+					
+					String message = "Tài khoản của bạn đang tạm khóa, vui lòng quay lại sau ";
+					request.setAttribute("error", message);
+					request.getRequestDispatcher("/signin.jsp").forward(request, response);
+				}else {
+					String message = "Tài khoản hoặc mật khẩu không đúng";
+					request.setAttribute("error", message);
+					request.getRequestDispatcher("/signin.jsp").forward(request, response);
+				}
+				
 			}
 			
 			

@@ -136,8 +136,15 @@
 						<li><a href="<%=request.getContextPath()%>/contact">LIÊN
 								HỆ</a></li>
 						<li><a href="<%=request.getContextPath()%>/help">PHẢN HỒI</a></li>
-						<li><a href="<%=request.getContextPath()%>/uploadDocument">UPLOAD
-								TÀI LIỆU</a></li>
+						<div class="dropdown1">
+						<li class="dropbtn1"><a>TẢI TÀI LIỆU
+								 </a>	
+								<div class="dropdown-content1">
+									<a style="color: blue;" href="<%=request.getContextPath()%>/uploadDocument">Upload</a> <a style="color: blue;" href="yourDocument">Tài liệu của bạn</a>
+								</div>
+							
+							</li>
+							</div>
 					</ul>
 				</div>
 				<!--/.nav-collapse -->
@@ -328,7 +335,10 @@
 															class="form_input" name="" readonly="readonly"
 															value="admin" />
 													</div>
-
+<div class="form_row">
+														<label>Tiêu đề câu hỏi:</label> <input type="text"
+															class="form_input" name="" value="122321321" />
+													</div>
 													
 													<div class="form_row">
 														<label>Câu hỏi Của bạn:</label> <input type="text"
@@ -336,8 +346,8 @@
 													</div>
 													
 													
-													<div class="col-md-6">
-														<input type="submit" class="form_submit" value="Thêm Mới" />
+													<div class="col-sm-6">
+														<input st type="submit" class="form_submit" value="Thêm Mới" />
 													</div>
 
 												</div>

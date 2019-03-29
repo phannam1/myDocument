@@ -5254,7 +5254,7 @@ a.thumbnail.active {
   vertical-align: bottom;
 }
 .media-heading {
-  margin-top: 0;
+  margin-top: 40px;
   margin-bottom: 5px;
 }
 .media-list {

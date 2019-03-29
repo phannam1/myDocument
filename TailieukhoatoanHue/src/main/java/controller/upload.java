@@ -59,43 +59,73 @@ public class upload extends HttpServlet {
 				else {
 					item.write(new File("C:\\Users\\Phan Thanh Nam\\Desktop\\myDocument\\TailieukhoatoanHue\\src\\main\\webapp\\data\\"+item.getName()));
 					System.out.println(item.getName());	
-					linkData = "data\\"+item.getName();
+					linkData = "data/"+item.getName();
 				}							
 			}
 			response.setContentType("text/html;charset=UTF-8");
 	        request.setCharacterEncoding("UTF-8");
 	        HttpSession session = request.getSession();
 			accountDTO Usersession = (accountDTO)session.getAttribute(constants.USER_SESSION);
-			String nameDocument = (String ) params.get("nameDocument");
-			byte[] bytes = nameDocument.getBytes(StandardCharsets.ISO_8859_1);
-			nameDocument = new String(bytes, StandardCharsets.UTF_8);
-			String major =  (String ) params.get("major");
-			byte[] bytes1 = major.getBytes(StandardCharsets.ISO_8859_1);
-			major = new String(bytes1, StandardCharsets.UTF_8);
-			String semester = (String ) params.get("semester");	
-			byte[] bytes4 = semester.getBytes(StandardCharsets.ISO_8859_1);
-			semester = new String(bytes4, StandardCharsets.UTF_8);
-			String subject = (String ) params.get("subject");
-			byte[] bytes2 = subject.getBytes(StandardCharsets.ISO_8859_1);
-			subject = new String(bytes2, StandardCharsets.UTF_8);
-			String courseCredit = (String ) params.get("courseCredit");
-			int CourseCredit = Integer.parseInt(courseCredit);
-			String typeData = (String ) params.get("typeData");
-			String nameTeacher = (String ) params.get("nameTeacher");
-			byte[] bytes3 = nameTeacher.getBytes(StandardCharsets.ISO_8859_1);
-			nameTeacher = new String(bytes3, StandardCharsets.UTF_8);
-			int id = Usersession.getAccountId(); 
-			System.out.println(nameDocument);
-			System.out.println(major);
-			System.out.println(subject);
-			documentDTO document = new documentDTO(nameDocument, major, semester, subject, CourseCredit, nameTeacher, typeData, linkData, id, id);
-			if(dao.registerDocument(document)) {
-				response.sendRedirect(request.getContextPath()+"/index");
-				System.out.println("create success");
+			if(Usersession.getRoleId()==1) {
+				String nameDocument = (String ) params.get("nameDocument");
+				byte[] bytes = nameDocument.getBytes(StandardCharsets.ISO_8859_1);
+				nameDocument = new String(bytes, StandardCharsets.UTF_8);
+				String major =  (String ) params.get("major");
+				byte[] bytes1 = major.getBytes(StandardCharsets.ISO_8859_1);
+				major = new String(bytes1, StandardCharsets.UTF_8);
+				String semester = (String ) params.get("semester");	
+				byte[] bytes4 = semester.getBytes(StandardCharsets.ISO_8859_1);
+				semester = new String(bytes4, StandardCharsets.UTF_8);
+				String subject = (String ) params.get("subject");
+				byte[] bytes2 = subject.getBytes(StandardCharsets.ISO_8859_1);
+				subject = new String(bytes2, StandardCharsets.UTF_8);
+				String courseCredit = (String ) params.get("courseCredit");
+				int CourseCredit = Integer.parseInt(courseCredit);
+				String typeData = (String ) params.get("typeData");
+				String nameTeacher = (String ) params.get("nameTeacher");
+				byte[] bytes3 = nameTeacher.getBytes(StandardCharsets.ISO_8859_1);
+				nameTeacher = new String(bytes3, StandardCharsets.UTF_8);
+				int id = Usersession.getAccountId(); 
+				int active = 1;
+				documentDTO document = new documentDTO(nameDocument, major, semester, subject, CourseCredit, nameTeacher, typeData, linkData,active, id, id);
+				if(dao.registerDocumentAdmin(document)) {
+					response.sendRedirect(request.getContextPath()+"/index");
+					System.out.println("create success");
+				}
+				else {
+					response.sendRedirect(request.getContextPath()+"/index");
+				}
+			}else {
+				String nameDocument = (String ) params.get("nameDocument");
+				byte[] bytes = nameDocument.getBytes(StandardCharsets.ISO_8859_1);
+				nameDocument = new String(bytes, StandardCharsets.UTF_8);
+				String major =  (String ) params.get("major");
+				byte[] bytes1 = major.getBytes(StandardCharsets.ISO_8859_1);
+				major = new String(bytes1, StandardCharsets.UTF_8);
+				String semester = (String ) params.get("semester");	
+				byte[] bytes4 = semester.getBytes(StandardCharsets.ISO_8859_1);
+				semester = new String(bytes4, StandardCharsets.UTF_8);
+				String subject = (String ) params.get("subject");
+				byte[] bytes2 = subject.getBytes(StandardCharsets.ISO_8859_1);
+				subject = new String(bytes2, StandardCharsets.UTF_8);
+				String courseCredit = (String ) params.get("courseCredit");
+				int CourseCredit = Integer.parseInt(courseCredit);
+				String typeData = (String ) params.get("typeData");
+				String nameTeacher = (String ) params.get("nameTeacher");
+				byte[] bytes3 = nameTeacher.getBytes(StandardCharsets.ISO_8859_1);
+				nameTeacher = new String(bytes3, StandardCharsets.UTF_8);
+				int id = Usersession.getAccountId(); 
+				
+				documentDTO document = new documentDTO(nameDocument, major, semester, subject, CourseCredit, nameTeacher, typeData, linkData, id, id);
+				if(dao.registerDocument(document)) {
+					response.sendRedirect(request.getContextPath()+"/index");
+					System.out.println("create success");
+				}
+				else {
+					response.sendRedirect(request.getContextPath()+"/index");
+				}
 			}
-			else {
-				response.sendRedirect(request.getContextPath()+"/index");
-			}
+			
 			
 		}catch(Exception ex) {
 			System.out.print(ex);	

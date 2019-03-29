@@ -133,7 +133,8 @@
 								<th>Tài khoản</th>
 								<th>Tên quyền</th>
 								<th>Mô tả</th>
-
+								<th>creationDate</th>
+								<th>lastModifiedDate</th>
 							</tr>
 						</thead>
 						<tfoot>
@@ -147,6 +148,8 @@
 									<td><a >${role.userName}</a></td>
 									<td>${role.roleName}</td>
 									<td>${role.description}</td>
+									<td>${role.creationDate}</td>	
+										<td>${role.lastModifiedDate}</td>
 								</tr>
 							</c:forEach>
 						</tbody>

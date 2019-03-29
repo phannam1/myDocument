@@ -1,85 +1,41 @@
-<!DOCTYPE html >
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <%@ page isELIgnored="false"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <head>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Adminnitrator</title>
 <link rel="stylesheet" type="text/css" href="css/admin.css" />
-<link href='http://fonts.googleapis.com/css?family=Belgrano'
-	rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Belgrano' rel='stylesheet' type='text/css'>
 <!-- jQuery file -->
 <script src="js/jquery.min1.js"></script>
-<script type="text/javascript" src="js/onclickDocumentAdmin.js"></script>
-<script type="text/javascript" src="js/actionFormDocument.js"></script>
-
+<script src="js/onclickDocumentAdmin.js"></script>
 <script src="js/jquery.tabify.js" type="text/javascript" charset="utf-8"></script>
 <!-- Font awesome -->
-<link href="css/font-awesome.css" rel="stylesheet" />
-<!-- Bootstrap -->
-<link href="css/bootstrap.css" rel="stylesheet" />
-<!-- slick slider -->
-<link rel="shortcut icon" href="img/T.PNG" type="image/x-icon">
-
-<script type="text/javascript"
-	src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js'></script>
-<script type="text/javascript"
-	src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js'></script>
-<link rel="stylesheet"
-	href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css'
-	media="screen" />
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">   
+    <!-- slick slider -->
 </head>
 <body>
-	<div id="panelwrap">
-
-		<div class="header">
-			<div class="title">Trang Quản Lý</div>
-
-			<div class="header_right">
-				Xin Chào : ${account.userName}, <a
-					href="<%=request.getContextPath()%>/index" class="logout"><i
-					class="fa fa-sign-out" aria-hidden="true"></i>Thoát</a>
-			</div>
-
-			<div class="menu">
-				<ul>
-					<li><a href="indexAdmin">Trang Chủ</a></li>
-					<li><a href="accountAdmin">Người dùng</a></li>
-					<li><a href="roleAdmin" >Quyền người dùng</a></li>
-					<li><a href="functionAdmin">Chức năng</a></li>
-					<li><a href="roleFunctionAdmin">Chức năng của quyền</a></li>
-					<li><a href="documentAdmin" class="selected">Tài liệu</a></li>
-					<li><a href="newsAdmin">Tin tức</a></li>
-					<li><a href="helpAdmin">Trợ giúp</a></li>
-				</ul>
-			</div>
-
-		</div>
-
-		<ul class="tabsmenu">
-			<li class="active">
-				<form name="searchInputDocument" method="post" action="searchDocumentByInput">
-					<div>
-						<div>
-							<input id="btnSearchDocument" type="button" class="form_submit"
-								value="Tìm Kiếm" />
-
-						</div>
-						<div>
-							<input id="valueInputSearch" type="text" class="form_input"
-								name="valueInputSearch" value="" />
-						</div>
-
-
-					</div>
-				</form>
-			</li>
-			<li class="active"><a>Thông tin tài liệu</a></li>
-
-		</ul>
-		<div class="tabcontent">
+<div id="panelwrap">
+  	
+	<div class="header">
+    
+    
+    <div class="header_right">Xin Chào : ${account.name},  <a href="<%=request.getContextPath()%>/index" class="logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Thoát</a> </div>
+    
+    <div class="menu">
+    <ul>
+    <li><a href="" class="selected">Tài liệu của bạn</a></li>
+    
+    </ul>
+    </div>
+    
+    </div>
+<div class="tabcontent">
 			<form name="acctionDocumentUpdate" method="post"
 				action="updateIsShowDocument">
 				<div class="form">
@@ -139,9 +95,7 @@
 
 			<div class="clear"></div>
 		</div>
-
-
-		<div class="center_content">
+    <div class="center_content">
 
 			<div id="right_wrap">
 				<div id="right_content">
@@ -158,18 +112,18 @@
 								<th>Số tín chỉ</th>
 								<th>Tên giáo viên phụ trách</th>							
 								<th>hiển thị</th>
-								<th>CreateByUserName</th>
-								<th>LastModifiedUserName</th>
+								<th>LastModifiledByUserName</th>
 								<th>creationDate</th>
 								<th>lastModifiedDate</th>
 							</tr>
 						</thead>
 						<tfoot>
 							<tr>
-								<td colspan="12">Trang quản lý của Admin!</td>
+								<td colspan="12">Trang tài liệu của người dùng</td>
 							</tr>
 						</tfoot>
 						<tbody>
+					
 							<c:forEach items="${listDocument}" var="document">
 								<tr class="odd" onclick="getValueDocument('${document.id}','${document.documentName}','${document.major}','${document.semester}','${document.subject}','${document.courseCredit}','${document.nameTeacher}','${document.isShow }')">
 								 <td style="display: none"><a >${document.id}</a></td>
@@ -181,15 +135,18 @@
 									<td>${document.nameTeacher}</td>									
 										<td ><input class="isActive" type="checkbox" onchange="myFunction(this.name)"
 											name="${document.isShow }" value="${document.isShow } "
-											 id="${document.isShow }" disabled/>
+											 id="${document.isShow }" disabled />
 										</td>
-										
-									<td>${document.createdUserName}</td>	
-									<td>${document.lastModifiedUserName}</td>
-									<td>${document.creationDate}</td>	
-										<td>${document.lastModifiedDate}</td>									
+										<td>${document.lastModifiedUserName}</td>
+										<td>${document.creationDate}</td>	
+										<td>${document.lastModifiedDate}</td>	
+									
+									
+									
+																		
 								</tr>
 							</c:forEach>
+						
 						</tbody>
 					</table>
 
@@ -224,15 +181,17 @@
 
 			<div class="clear"></div>
 		</div>
-		<!--end of center_content-->
+    
+    
+   
+    <div class="footer">
+	Designed by <a href="https://www.facebook.com/PhanNam2433" target="_blank">PTN</a>
+</div>
+    </div> <!--end of center_content-->
+    
+    
 
-		<div class="footer">
-			Designed by <a href="https://www.facebook.com/PhanNam2433"
-				target="_blank">PTN</a>
-		</div>
-
-	</div>
-
-
+<!-- bang thu nhat:id, cac fields, createdbyid, bang thu 2:id, lastmodifiedbyid -->
+    	
 </body>
 </html>

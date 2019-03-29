@@ -82,7 +82,7 @@
 										 <a id="show1"
 										href="<%=request.getContextPath()%>/Logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Đăng Xuất</a>
 										<a id="showAdmin"
-										href="indexAdmin"><i class="fa fa-user"></i>Administrator</a> <a
+										href="indexAdmin"><i class="fa fa-user"></i>Quản trị viên</a> <a
 										id="hide" href="register.jsp" class="aa-register">Đăng Ký</a>
 									<a id="hide1" href="signin.jsp" class="aa-login">Đăng Nhập</a>
 								</div>
@@ -130,8 +130,15 @@
 						<li><a href="<%=request.getContextPath()%>/contact">LIÊN
 								HỆ</a></li>
 						<li><a href="<%=request.getContextPath()%>/help">PHẢN HỒI</a></li>
-						<li><a href="<%=request.getContextPath()%>/uploadDocument">UPLOAD
-								TÀI LIỆU</a></li>
+						<div class="dropdown1">
+						<li class="dropbtn1"><a>TẢI TÀI LIỆU
+								 </a>	
+								<div class="dropdown-content1">
+									<a style="color: blue;" href="<%=request.getContextPath()%>/uploadDocument">Upload</a> <a style="color: blue;" href="yourDocument">Tài liệu của bạn</a>
+								</div>
+							
+							</li>
+							</div>
 					</ul>
 				</div>
 				<!--/.nav-collapse -->

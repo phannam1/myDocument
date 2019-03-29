@@ -285,6 +285,18 @@
   	<description></description>
   	<servlet-class>controller.searchDetailDocument</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>actionHelp</servlet-name>
+  	<display-name>actionHelp</display-name>
+  	<description></description>
+  	<servlet-class>controller.actionHelp</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>yourDocument</servlet-name>
+  	<display-name>yourDocument</display-name>
+  	<description></description>
+  	<servlet-class>controller.yourDocument</servlet-class>
+  </servlet>
   
   <servlet-mapping>
   	 <servlet-name>Infor</servlet-name>
@@ -471,6 +483,14 @@
   <servlet-mapping>
   	<servlet-name>searchDetailDocument</servlet-name>
   	<url-pattern>/searchDetailDocument</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>actionHelp</servlet-name>
+  	<url-pattern>/actionHelp</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>yourDocument</servlet-name>
+  	<url-pattern>/yourDocument</url-pattern>
   </servlet-mapping>
   
   

@@ -85,7 +85,7 @@
 										Cài Đặt </a> <a id="show1"
 										href="<%=request.getContextPath()%>/Logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Đăng Xuất</a>
 										<a id="showAdmin"
-										href="indexAdmin"><i class="fa fa-user"></i>Administrator</a> <a
+										href="indexAdmin"><i class="fa fa-user"></i>Quản trị viên</a> <a
 										id="hide" href="register.jsp"><i class="fa fa-user-plus"></i>Đăng Ký</a>
 									<a id="hide1" href="signin.jsp"><i class="fa fa-sign-in" aria-hidden="true"></i>Đăng Nhập</a>
 
@@ -133,7 +133,15 @@
               </ul> --></li>
 						<li><a href="<%=request.getContextPath()%>/contact">LIÊN HỆ</a></li>
 						<li><a href="<%=request.getContextPath()%>/help">PHẢN HỒI</a></li>
-						<li><a href="<%=request.getContextPath()%>/uploadDocument">UPLOAD TÀI LIỆU</a></li>
+						<div class="dropdown1">
+						<li class="dropbtn1"><a>TẢI TÀI LIỆU
+								 </a>	
+								<div class="dropdown-content1">
+									<a style="color: blue;" href="<%=request.getContextPath()%>/uploadDocument">Upload</a> <a style="color: blue;" href="yourDocument">Tài liệu của bạn</a>
+								</div>
+							
+							</li>
+							</div>
 					</ul>
 				</div>
 				<!--/.nav-collapse -->
@@ -169,10 +177,14 @@
 							<!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe magni, est harum repellendus. Accusantium, nostrum!</p> -->
 						</div>
 						<div class="aa-latest-blog-content">
+						<ul class="aa-properties-nav">
 							<div class="row">
 								<!-- start single blog -->
 								<c:forEach items="${listNews}" var="news">
-								<div class="col-md-4">
+								<li>
+								<div class="col-sm-4">
+								<div  id="jar">
+								<div class=" mx-auto content">
 									<article class="aa-blog-single">
 										<figure class="aa-blog-img">
 											<a
@@ -188,48 +200,34 @@
 													<div class="aa-blog-single-bottom">
 														<a
 															href="<%=request.getContextPath()%>/news?id=${news.newsId}"
-															class="aa-blog-author"><i class="fa fa-user"></i> xem
+															class="aa-blog-author"><i class="fa fa-info"></i> xem
 															chi tiết</a>
 
 													</div>
 										</div>
 
 									</article>
-									
+									</div>
+									</div>
 								</div>
+								</li>
 								</c:forEach>
 							
 								
 								
 
 							</div>
+							</ul>
+							<nav style="margin-top: 20px; margin-left: 20px;">
+							<ul class="pagination justify-content-center pagination-sm">
+						
+							</ul>
+							
+						</nav>
 						</div>
 					</div>
 				</div>
-				<div class="aa-properties-content-bottom">
-							<nav>
-								<ul class="pagination">
-									<li><a><button " id="btn_first"
-												onClick="firstPage(this.id)">Đầu Trang</button></a> <a><button
-												id="btn_prev" onClick="prevPage(this.id)">Trang
-												Trước</button></a></li>
-									<li class="active" id="1"><a><button id="btn_next1"
-												onClick="clickPage1(this.id)">1</button></a></li>
-									<li id="2"><a><button id="btn_next2"
-												onClick="clickPage2(this.id)">2</button></a></li>
-									<li id="3"><a><button id="btn_next3"
-												onClick="clickPage3(this.id)">3</button></a></li>
-									<li id="4"><a><button id="btn_next4"
-												onClick="clickPage4(this.id)">4</button></a></li>
-									<li id="5"><a><button id="btn_next5"
-												onClick="clickPage5(this.id)">5</button></a></li>
-									<li><a><button id="btn_next"
-												onClick="nextPage(this.id)">Trang Kế</button></a> <a><button
-												id="btn_last" onClick="lastPage(this.id)">Cuối
-												Trang</button></a></li>
-								</ul>
-							</nav>
-						</div>
+				
 			</div>
 		</div>
 	</section>
@@ -293,5 +291,6 @@
 	<script type="text/javascript" src="js/pagination.js"></script>
 	<!-- add pagination js -->
 <script type="text/javascript" src="js/login.js"></script>
+<script src="js/panigationJquery.js"></script>
 </body>
 </html>
